@@ -6,5 +6,3 @@ function absentVowel(x) {
         }
     }
 }
-
-"test"
