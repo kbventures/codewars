@@ -23,3 +23,7 @@ function invert(array) {
 // invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
 // invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
 // invert([]) == []
+
+
+// Solution
+// const invert = array => array.map(num => -num);
