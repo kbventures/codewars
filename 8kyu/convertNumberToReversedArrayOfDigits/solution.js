@@ -31,7 +31,5 @@ function digitize(n) {
 module.exports = digitize;
 
 /*
-function digitize(n) {
-  return String(n).split('').map(Number).reverse()
-}
+Needs one final review
 */
