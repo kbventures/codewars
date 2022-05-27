@@ -1,0 +1,11 @@
+{
+  "name": "to-square-or-not-to-square",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solutions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
