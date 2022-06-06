@@ -1,4 +1,4 @@
-function(word) {
+function findVowels(word) {
     let vowels = ['a', 'e', 'i', 'o', 'u']
     let result = []
 
