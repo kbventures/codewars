@@ -2,7 +2,9 @@
 function chain(input, fs) {
     // implement the "chain" function
 
-    return fs[1](fs[0](input));
+    // return fs[1](fs[0](input));
+    return fs.reduce(function (input, fn) { return fn(input) }, input);
+
 }
 
 function add(x) {
