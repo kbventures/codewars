@@ -1,0 +1,14 @@
+//PREP
+//
+// Parameters is an array container non negative numbers and strings
+// Retrusn array of filtered numberse
+
+function filter_list(l) {
+    // Return a new array with the strings filtered out
+    //Pseudo Code
+    // return array passed as a argument  with typeof numer has a filter
+    return l.filter(e => typeof e === 'number')
+}
+
+// Example
+filter_list([1, 2, 'string', 3]) // Equals [1,2,3]
