@@ -12,6 +12,7 @@ function mergeArrays(arr1, arr2) {
     //   let ascendingSortedIntegers = mergedIntegers.sort(function(a, b){return a-b})  
     //   let uniqueChars = [...new Set(ascendingSortedIntegers)];
     return [...new Set(arr1.concat(arr2).sort(function (a, b) { return a - b }))];
+    // return Array.from(new Set(arr1.concat(arr2).sort((a,b) => (a-b))));
 }
 
     // Example mergeArrays([1,1,4,3],[5,6,6,2]) returns [1,2,3,4,5,6]
