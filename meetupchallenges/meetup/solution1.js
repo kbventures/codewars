@@ -55,4 +55,19 @@ class EmailHandler {
 // queue.pop();
 
 
+// class Stack {
+//     constructor() {
+//       this.array = [];
+//     }
+    
+//     push(email) {
+//       this.array.push(email);
+//     }
+    
+//     pop() {
+//       return this.array.pop();
+//     }
+//   }
+
+
 
