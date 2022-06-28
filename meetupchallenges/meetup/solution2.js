@@ -26,19 +26,6 @@ class Stack {
     }
 }
 
-
-// anna
-// => same forwards and backwards
-
-/* 
- *  top
- *  ____
- * 
- *  n
- *  a
- *  ______
- *  bottom
- */
 function isPalindrome(str) {
     const stack = new Stack();
     const halfWayIndex = Math.floor(str.length / 2); // 4 / 2 = 2
