@@ -26,5 +26,7 @@ const result2 = reverse({ e: 1, i: true, z: [1, 2, 3] })
 console.log(result1)
 console.log(result2)
 
+//https://www.codegrepper.com/code-examples/javascript/javascript+reverse+object+key+value
+
 
 
