@@ -18,3 +18,5 @@ function arrayDiff(a, b) {
 
   // Example
   // [1,2,3,4],[1] returns [2,3,4]
+
+  //   return a.filter(e => !b.includes(e));
