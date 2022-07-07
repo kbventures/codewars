@@ -1,0 +1,11 @@
+article::before {
+    content: attr(data-parent);
+}
+
+article[data-columns='3'] {
+    color: red;
+}
+
+article[data-columns='4'] {
+    color: blue !important;
+}

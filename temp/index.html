@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <article id="electric-cars" data-columns="3" data-index-number="12314" data-parent="cars">
+        <h1>Data Attributes Examples</h1>
+    </article>
+</body>
+<script>
+    const article = document.querySelector('#electric-cars');
+    console.log(article.dataset.columns) // "3"
+    article.dataset.indexNumber // "12314"
+    article.dataset.parent // "cars"
+</script>
+
+</html>
