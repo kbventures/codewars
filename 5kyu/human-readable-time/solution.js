@@ -11,7 +11,13 @@
 function humanReadable(seconds) {
 
     let hours = Math.floor(seconds / 60 / 60);
+    let remainder = seconds - hours * 60 * 60;
+    let minutes = Math.floor(remainder / 60);
+    let sec = remainder - minutes * 60;
 
+    return hours.toString().padStart(2, 0) + ":" +
+        minutes.toString().padStart(2, 0) + ":" +
+        sec.toString().padStart(2, 0)
 
 }
 
