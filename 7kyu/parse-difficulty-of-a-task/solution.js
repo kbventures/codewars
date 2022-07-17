@@ -41,6 +41,13 @@ function getDifficultyFromTask(task) {
             return "IMPOSSIBLE"
         }
     }
-
-
 }
+
+// function getDifficultyFromTask(task) {
+//     let [_, d] = task.match(/D:(\d+)/);
+//     d = +d;
+//     if (d <= 10) return 'Easy';
+//     if (d <= 20) return 'Medium';
+//     if (d <= 30) return 'Hard';
+//     return 'IMPOSSIBLE';
+//   }
