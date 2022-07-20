@@ -35,7 +35,9 @@ function rot13(message) {
 }
 
 
-console.log(rot13('m'));
-console.log(rot13('M'));
-console.log(rot13('n'));
-console.log(rot13('N'));
+console.log(rot13('%'))
+console.log(rot13('%'))
+// console.log(rot13('m'));
+// console.log(rot13('M'));
+// console.log(rot13('n'));
+// console.log(rot13('N'));
