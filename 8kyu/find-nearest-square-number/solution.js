@@ -31,6 +31,11 @@
 function nearestSq(n) {
     let higherNum = n + 1
     while (Math.sqrt(higherNum) % 1 !== 0) {
+        console.log(higherNum)
+        console.log((2 % 1))
+        console.log((9 % 1))
+        console.log((16 % 1))
+        console.log('***')
         higherNum++
     }
     let lowerNum = n - 1
@@ -47,6 +52,6 @@ function nearestSq(n) {
 }
 
 
-console.log(nearestSq(16))
+console.log(nearestSq(1))
 
 
