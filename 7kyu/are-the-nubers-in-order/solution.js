@@ -11,12 +11,9 @@
 // If no false values are found while looking return a true boolean. 
 
 function inAscOrder(arr) {
-
+    console.log(arr)
     let result = true;
-    if (arr.length === 1) return true;
-
-    for (let i = 0; i < arr.length - 2; i++) {
-        console.log(i)
+    for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] > arr[i + 1]) return false
     }
     return result;
