@@ -18,3 +18,25 @@ function reverseArray(arr) {
     }
     return arr
 }
+
+/*
+Say you want to reverse the array below:
+[1, 2, 3, 4, 5]
+
+One approach would be create a "new" array which will be empty initially and you start filling it with elements in reverse order using the original array. So now you have two arrays.
+original = [1, 2, 3, 4, 5]
+reversed=[5, 4, 3, 2, 1]
+
+This is called linear or O(n) space complexity because as the original array grows your reversed array also grows proportionally.
+
+The second approach would be to reverse the array "in place".  This means that you reverse the original array without creating a new array.
+So you start with [1, 2, 3, 4, 5] and maybe swap elements until you have [5, 4, 3, 2, 1].  Since you didn't create a new array this is constant space
+
+
+The question would be demonstrate improving space complexity efficacy?
+
+
+This is making the space complexity of reversing an array more efficient
+Time complexity is the same in both of the above examples: O(n)
+
+*/
