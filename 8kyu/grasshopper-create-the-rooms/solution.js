@@ -37,7 +37,6 @@ const rooms = {
 
 
 // Solution 3
-
 const Room = function (name, description, completed) {
     this.name = name;
     this.description = description;
