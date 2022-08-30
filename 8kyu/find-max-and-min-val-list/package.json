@@ -1,0 +1,19 @@
+{
+  "name": "find-max-and-min-val-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "find-max-min-val-list.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}

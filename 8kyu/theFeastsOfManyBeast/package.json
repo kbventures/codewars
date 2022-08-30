@@ -1,0 +1,15 @@
+{
+  "name": "thefeastsofmanybeast",
+  "version": "1.0.0",
+  "main": "feast.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
