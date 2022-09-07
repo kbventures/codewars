@@ -23,28 +23,63 @@
 
 // frequency counter pattern
 
-function same(arr, squaredArr) {
-    if (arr.length !== squaredArr.length) return false;
-    let obj = {};
+// function same(arr, squaredArr) {
+//     if (arr.length !== squaredArr.length) return false;
+//     let obj = {};
 
-    for (let num of squaredArr) {
-        if (!obj[num]) {
-            obj[num] = 1;
-        } else {
-            obj[num]++
+//     for (let num of squaredArr) {
+//         if (!obj[num]) {
+//             obj[num] = 1;
+//         } else {
+//             obj[num]++
+//         }
+//     }
+
+//     for (let num of arr) {
+//         if (!obj[num * num]) return false;
+//         obj[num * num]--
+//     }
+//     return true;
+// }
+
+/*Write function called same, which accepts two arrays. The function should return true if every value
+in the array has it's corresponding value squared in the second array.  THe frequency of the values must be the same. */
+
+
+
+
+function same(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+
+    let obj1 = {}
+    let obj2 = {}
+
+    arr1.forEach(e => {
+        obj1[e] ? obj1[e]++ : obj1[e] = 1;
+    })
+
+    arr2.forEach(e => {
+        obj2[e] ? obj2[e]++ : obj2[e] = 1;
+    })
+
+    console.log(obj1)
+    console.log(obj2)
+
+    for (let key in obj1) {
+        // console.log(obj1[key])
+
+        let temp = key * key;
+        console.log(key)
+        if (!(key ** 2 in obj2)) {
+            console.log('test')
+            return false;
         }
+        if (obj1[key] !== obj2[temp]) { return false }
     }
 
-    for (let num of arr) {
-        if (!obj[num * num]) return false;
-        obj[num * num]--
-    }
-    return true;
+    return true
 }
 
-
-
-
-console.log(same([1, 2, 3], [4, 1, 9])) // true
-same([1, 2, 3], [1, 9]) // false
-console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)
+console.log(same([4, 1, 2, 3], [4, 2, 9, 15])) // true
+// console.log(same([1, 2, 3], [1, 9])) // false
+// console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)
