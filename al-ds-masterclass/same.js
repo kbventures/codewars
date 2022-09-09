@@ -48,38 +48,34 @@ in the array has it's corresponding value squared in the second array.  THe freq
 
 
 
+
+
 function same(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
 
     let obj1 = {}
     let obj2 = {}
 
-    arr1.forEach(e => {
-        obj1[e] ? obj1[e]++ : obj1[e] = 1;
-    })
+    for (let key of arr1) {
+        obj1[key] ? obj1[key]++ : obj1[key] = 1;
+    }
 
-    arr2.forEach(e => {
-        obj2[e] ? obj2[e]++ : obj2[e] = 1;
-    })
-
-    console.log(obj1)
-    console.log(obj2)
+    for (let key of arr2) {
+        obj2[key] ? obj2[key]++ : obj2[key] = 1;
+    }
 
     for (let key in obj1) {
-        // console.log(obj1[key])
-
-        let temp = key * key;
-        console.log(key)
         if (!(key ** 2 in obj2)) {
-            console.log('test')
             return false;
         }
-        if (obj1[key] !== obj2[temp]) { return false }
+        if (obj1[key] !== obj2[key ** 2]) {
+            return false;
+        }
     }
 
     return true
 }
 
-console.log(same([4, 1, 2, 3], [4, 2, 9, 15])) // true
+console.log(same([4, 1, 2, 3], [16, 1, 4, 9])) // true
 // console.log(same([1, 2, 3], [1, 9])) // false
 // console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)
