@@ -6,6 +6,11 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
+function swap(array, i, j) {
+    [array[j], array[i]] = [array[i], array[j]]
+
+}
+
 // arr.length = N   O(N/2) = O(N) => time complexity is linear
 // SPACE COMPLEXITY = N
 // SPACE COMPLEXITY = N IN => 2N OUT => O(2N) => O(N)
