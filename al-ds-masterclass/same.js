@@ -50,32 +50,39 @@ in the array has it's corresponding value squared in the second array.  THe freq
 
 
 
+// function same(arr1, arr2) {
+//     if (arr1.length !== arr2.length) return false;
+
+//     let obj1 = {}
+//     let obj2 = {}
+
+//     for (let key of arr1) {
+//         obj1[key] ? obj1[key]++ : obj1[key] = 1;
+//     }
+
+//     for (let key of arr2) {
+//         obj2[key] ? obj2[key]++ : obj2[key] = 1;
+//     }
+
+//     for (let key in obj1) {
+//         if (!(key ** 2 in obj2)) {
+//             return false;
+//         }
+//         if (obj1[key] !== obj2[key ** 2]) {
+//             return false;
+//         }
+//     }
+
+//     return true
+// }
+
+
+
+
 function same(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
 
-    let obj1 = {}
-    let obj2 = {}
-
-    for (let key of arr1) {
-        obj1[key] ? obj1[key]++ : obj1[key] = 1;
-    }
-
-    for (let key of arr2) {
-        obj2[key] ? obj2[key]++ : obj2[key] = 1;
-    }
-
-    for (let key in obj1) {
-        if (!(key ** 2 in obj2)) {
-            return false;
-        }
-        if (obj1[key] !== obj2[key ** 2]) {
-            return false;
-        }
-    }
-
-    return true
 }
 
 console.log(same([4, 1, 2, 3], [16, 1, 4, 9])) // true
-// console.log(same([1, 2, 3], [1, 9])) // false
-// console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)
+console.log(same([1, 2, 3], [1, 9])) // false
+console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)
