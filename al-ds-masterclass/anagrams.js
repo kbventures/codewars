@@ -5,10 +5,36 @@
 // You can assume they are single words, no spaces , no periods, nopunctuations, no numbers, all lower case letters.
 
 
-validAnagram('', '') // true
-validAnagram('aaz', 'zza') // false
-validAnagram('anagram', 'nagaram') // true
-validAnagram("rat", "car") // false) // false
-validAnagram('awesome', 'awesom') // false
-validAnagram('qwerty', 'qeywrt') // true
-validAnagram('texttwisttime', 'timetwisttext') // true
+function validAnagram(string1, string2) {
+    if (string1 === "" && string2 === "") return true;
+
+    let str1 = {}
+    let str2 = {}
+    for (key of string1) {
+        str1[key] ? str1[key]++ : str1[key] = 1;
+    }
+
+    for (key of string2) {
+        str2[key] ? str2[key]++ : str2[key] = 1;
+    }
+
+    for (key in str1) {
+        if (!(key in str2)) return false;
+
+        if (str1[key] !== str2[key]) return false;
+    }
+
+    return true;
+
+}
+
+
+
+
+console.log(validAnagram('', '')) // true
+console.log(validAnagram('aaz', 'zza')) // false
+console.log(validAnagram('anagram', 'nagaram')) // true
+console.log(validAnagram("rat", "car")) // false) // false
+console.log(validAnagram('awesome', 'awesom')) // false
+console.log(validAnagram('qwerty', 'qeywrt')) // true
+console.log(validAnagram('texttwisttime', 'timetwisttext')) // true
