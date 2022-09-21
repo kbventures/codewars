@@ -83,6 +83,8 @@ function same(arr1, arr2) {
 
 }
 
+
+
 console.log(same([4, 1, 2, 3], [16, 1, 4, 9])) // true
 console.log(same([1, 2, 3], [1, 9])) // false
 console.log(same([1, 2, 3], [4, 4, 1])) // false(must be same frequency)

@@ -17,7 +17,6 @@ function validAnagram(first, second) {
         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
 
-    console.log(lookup)
 
     for (let i = 0; i < second.length; i++) {
         let letter = second[i];
@@ -54,6 +53,12 @@ function validAnagram(first, second) {
 //     return true;
 
 // }
+
+
+
+function validAnagram(first, second) {
+
+}
 
 
 
