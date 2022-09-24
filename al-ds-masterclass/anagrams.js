@@ -60,13 +60,6 @@ function validAnagram(first, second) {
 
 }
 
-
-
-
-
-
-
-
 console.log(validAnagram('', '')) // true
 console.log(validAnagram('aaz', 'zza')) // false
 console.log(validAnagram('anagram', 'nagaram')) // true
