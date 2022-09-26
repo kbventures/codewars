@@ -14,3 +14,21 @@ function getCommonDirectoryPath(pathes) {
     }
     return commonPath
 }
+
+// function getCommonDirectoryPath(pathes) {
+//     for (let i=0; i<pathes.length; i++) {
+//       pathes[i] = pathes[i].split('/');
+//     }
+    
+//     let result = pathes[0];
+//     for (let i=1; i<pathes.length; i++) {
+//       for (let j=0; j<pathes[i].length; j++) {  
+//         if (pathes[i][j] != result[j]) {
+//           result.splice(j);
+//           break;
+//         }
+//       }
+//     }
+    
+//     return result.length ? result.join('/') + '/' : result.join('/');
+//   }
