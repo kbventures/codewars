@@ -7,6 +7,7 @@ function getCommonDirectoryPath(pathes) {
             index = +index;
             if (commonPath[index] !== path[index]) {
                 commonPath = path.slice(0, pointer + 1);
+                break; 
             } else if (path[index] === '/') {
                 pointer = index;
             }
