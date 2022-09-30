@@ -58,12 +58,14 @@
 
 function validAnagram(first, second) {
 
+
+
 }
 
-console.log(validAnagram('', '')) // true
-console.log(validAnagram('aaz', 'zza')) // false
-console.log(validAnagram('anagram', 'nagaram')) // true
-console.log(validAnagram("rat", "car")) // false) // false
+// console.log(validAnagram('', '')) // true
+// console.log(validAnagram('aaz', 'zza')) // false
+// console.log(validAnagram('anagram', 'nagaram')) // true
+// console.log(validAnagram("rat", "car")) // false) // false
 console.log(validAnagram('awesome', 'awesom')) // false
-console.log(validAnagram('qwerty', 'qeywrt')) // true
-console.log(validAnagram('texttwisttime', 'timetwisttext')) // true
+// console.log(validAnagram('qwerty', 'qeywrt')) // true
+// console.log(validAnagram('texttwisttime', 'timetwisttext')) // true
