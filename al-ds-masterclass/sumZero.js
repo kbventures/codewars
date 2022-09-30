@@ -2,15 +2,20 @@
 // Return an array that includes both values that sum to zero or undefined if a pair does not exist
 
 // naive solution
-function sumZero(arr) {
-    // console.log(arr)
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            let temp = arr[i] + arr[j]
-            if (temp === 0) return [arr[i], arr[j]]
-        }
+// function sumZero(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             let temp = arr[i] + arr[j]
+//             if (temp === 0) return [arr[i], arr[j]]
+//         }
+//     }
+// }
 
-    }
+
+
+
+function sumZero(arr) {
+
 }
 
 
