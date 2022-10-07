@@ -36,18 +36,24 @@ let catAttack = "af)|Cz>:CGAHY1_2+(OHYYTM!2vka,&yAlWJ3.r&ZVs4F5&bEa<1r1_nlsR!eA-
 function catMess(str) {
     let withoutCatMess = ""
     withoutCatMess = str.slice(str.indexOf('c'))
-
-
     withoutCatMess = withoutCatMess.replace(/Eek!/g, "")
-    return withoutCatMess.split(' ').map(e => {
+    let temp = withoutCatMess.split(' ').map(e => {
         return e.split('').reverse().join('')
-    }).reverse().join(' ')
+    }).reverse().join(' ').split('v')
+
+    let temp1 = temp.slice(1)
+    return temp1.map(e => {
+        return e[0]
+    })
 }
 
 let result = "Split this string up on *lowercase* 'V'. The first character in each substring besides this first one is what you need to remember for tomorrow's task. vS.A-#IYbSEkiQS5Sn@tq!CcG;+:^myl%CJcWzUZ;vpZQP*nH1KA*GRFI+B/xHR:><%&4.zf*2+Ey0x-#Kci LGcoOz3XKA)SAZ/j>T3sT=~kVs !6=B_Yei~@5~Gn)Q?Q7zI4yqfgXeTsdi9ga43?w^oC~KMqw8i02WHHm%-0QdTBJEum%@R_?,dJk 2t5QmgZRN8xW$fQ@Ge>tub)Ep1YjX()dpD3ru1(Q<8m?vaotN<SqFz-7z8fDWj7s|=UR*E:/CYLzj*?K:uCUmhkASg8;H^/%<HU%>=hhPpLPdb|fBAMvcA=)#4HH=Q^4nVHx^w,!T<11M~RQ.iI7Xk?lbtc d35csP&k1Xk2zk87NF^w691a4_xuveA=)#4HH=Q^4nVHx^w,!T<11M~RQ.iI7Xk?lbtc d35csP&k1Xk2zk87NF^w691a4_xuc"
 
 
-console.log(result.split('v'))
+// console.log(result.split('v'))
 console.log(catMess(catAttack))
+
+console.log(catMess("e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
+))
 
 
