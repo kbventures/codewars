@@ -13,12 +13,9 @@ console.log(temp)
 
 // code = code.replace(/(dog|bark|bone)/gi, "")
 
-
 // Total length of pun cannot be a multiple of 5 (this includes spaces and punctuation)
 
-
 // The sum of the charCodes of the 1st and last characters must be odd (my friend's a bit of a character, but she's great once you get to know her)
-
 
 
 // Character directly after the middle of the string may not be 'e' (For example the character to check in even-length string center is t, for odd an example would be weird -> 'r')
