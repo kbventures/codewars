@@ -25,5 +25,12 @@ function moveZeros(arr) {
     return arrWithoutZeros;
 }
 
+// function moveZeros(arr) {
+//     let zeros = arr.filter(e=>e===0)
+//     let notZero = arr.filter(e => e !== 0)
+//     return notZero.concat(zeros)
+//   }
+
 // Solution
-  //  return arr.filter(function(x) {return x !== 0}).concat(arr.filter(function(x) {return x === 0;}));
+// var moveZeros = function (arr) {
+// return arr.filter(e => e !== 0).concat(arr.filter(e => e === 0));
