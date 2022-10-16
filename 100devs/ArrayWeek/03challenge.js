@@ -9,11 +9,6 @@
 myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy'] // => ['hola', 'hallo', 'hi', 'hej', 'hello', 'howdy', 'heyyy']
 
 
-
-
-
-
-
 function challengeThree(arr) {
 
     // [ hola, hello ]
@@ -34,7 +29,24 @@ function challengeThree(arr) {
     console.log(threeCharacters)
     console.log(remainder)
 
-    return containsA.concat(threeCharacters, remainder)
+    // return containsA.concat(threeCharacters, remainder)
+
+    return arr.filter(e =>
+        e.includes('a')
+    ).concat(arr.filter(e => !e.includes('a')
+    ).filter(e => e.length < 4), arr.filter(e =>
+        !e.includes('a')
+    ).filter(e => e.length > 3))
 }
 
 console.log(challengeThree(myArr))
+
+
+// Alternative Solution
+// function challengeThree(arr) {
+//     return arr
+//       .filter((e) => e.includes('a'))
+//       .concat(
+//         arr.filter((e) => !e.includes('a')).sort((a, b) => a.length - b.length)
+//       );
+//   }
