@@ -26,3 +26,4 @@ function myExampleFunction(arr) {
     if (arr.length > 10 || arr.length === 10) return arr.push('maximum')
     return (arr[0] === 'must be maximum') ? arr.push('failure') : asserts.push('success')
 }
+
