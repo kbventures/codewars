@@ -4,9 +4,40 @@
 
 //Make sure that you don't count duplicates; for example solve([[1,2],[4,4],[5,6,6]]) = 4, since the extra outcomes are just duplicates.
 
-function solve(arr) { }
+function solve(arr) {
+    return arr.map(e => new Set(e).size).reduce((acc, e) => {
+        return acc * e
+    }, 1);
+};
+
 
 solve([[1, 2], [4], [5, 6]]), 4)
 solve([[1, 2], [4, 4], [5, 6, 6]]), 4)
 solve([[1, 2], [3, 4], [5, 6]]), 8)
 solve([[1, 2, 3], [3, 4, 6, 6, 7], [8, 9, 10, 12, 5, 6]]), 72)
+
+
+// function solve(arr) {
+//     return arr.map(e => new Set(e).size).reduce((acc, e) => {
+//         return acc * e
+//     }, 1);
+// };
+
+// function solve(arr) {
+//     return arr.map(e => [...new Set(e)].length).reduce((acc, e) => {
+//         return acc * e
+//     }, 1);
+// };
+
+// function solve(arr) {
+//     return arr.map(e => new Set(e).size).reduce((acc, e) => {
+//         return acc * e
+//     }, 1);
+// };
+
+// function solve(arr) {
+//     return arr.reduce((acc, e) => acc * new Set(e).size, 1);
+// };
+
+
+

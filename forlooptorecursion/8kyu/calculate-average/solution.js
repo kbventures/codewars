@@ -12,3 +12,18 @@ function findAverage(array) {
     }
     return calc(arrayLength - 1) / array.length;
 }
+
+// Without Wrapper Function
+let array = [1, 2, 3]
+
+function calc(array, arrayLength = array.length - 1) {
+    if (typeof array !== 'undefined' && array.length === 0) {
+        return 0;
+    }
+    if (arrayLength === 0) {
+        return array[0]
+    }
+    return calc(array, arrayLength - 1) + array[arrayLength]
+}
+
+console.log(calc(array) / array.length)
