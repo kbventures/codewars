@@ -1,3 +1,4 @@
+// Imperative
 function combine(...data) {
     const result = {}; //(1)
     data.forEach(basket => { //(2)
@@ -12,6 +13,7 @@ function combine(...data) {
     return result; //(7)
 }
 
+// Funtional 
 function combine(...arr) {
     return arr.reduce((acc, elem) => {
         for (const [key, value] of Object.entries(elem)) {
