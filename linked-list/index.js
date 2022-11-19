@@ -56,4 +56,61 @@ let list = new LinkedList(node1)
 
 // Accessing the node
 
-console.log(list.head.next.data) 
+console.log(list.head.next.data)
+
+
+
+/*
+https://medium.com/@michael.dburke56/what-are-linked-lists-all-about-253e7c587c69
+
+class LinkedList {
+    constructor () {
+        this.head = null;
+    }
+    showAllNodes() {
+        let _current = this.head;
+        while (_current) {
+            console.log(data: ${_current.data});
+            _current = _current.next;
+        }
+    }
+
+}
+
+class Node {
+    constructor (_name, _data) {
+        this.name = _name;
+        this.data = _data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+
+const MyList = new LinkedList();
+
+const FirstNode = new Node("first node", 1);
+MyList.head = FirstNode;
+
+
+const SecondNode = new Node("second node", 2);
+
+FirstNode.next = SecondNode;
+SecondNode.prev = FirstNode;
+
+MyList.showAllNodes();
+insertAt(insertNode, index) {
+    let indexTracker = 0;
+    let node = this.head;
+    while (indexTracker !== index) {
+      indexTracker++;
+      node = node.next;
+      if (indexTracker === index) {
+        node.prev.next = insertNode;
+        insertNode.prev = node.prev;
+        insertNode.next = node;
+        node.prev = insertNode;
+        console.log(\n${insertNode.data} has been inserted at index ${index});
+      }
+    }
+*/
