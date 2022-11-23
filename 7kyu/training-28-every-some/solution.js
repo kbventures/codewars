@@ -16,3 +16,4 @@ function mirrorImage(arr) {
     }
     return [-1, -1]
 }
+
