@@ -95,3 +95,32 @@ bubbleSort([8, 1, 2, 3, 4, 5, 6, 7]);
 
 
 
+// More Optimized
+var arrayRandom = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+var arrayOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var arrayReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+function swap(array, j) {
+    var temp = array[j];
+    array[j] = array[j + 1];
+    array[j + 1] = temp;
+}
+function bubbleSort(arr) {
+    var noSwaps;
+    for (var i = arr.length; i > 0; i--) {
+        noSwaps = true;
+        for (var j = 0; j < i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr, j)
+                noSwaps = false;
+            }
+        }
+        if (noSwaps) break;
+    }
+    return arr;
+}
+
+console.log(bubbleSort(arrayRandom))
+
+
+
