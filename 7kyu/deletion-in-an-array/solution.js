@@ -7,3 +7,4 @@ function deleteValues(array, pred) {
     }
     return array;
 }
+
