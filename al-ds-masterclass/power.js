@@ -4,13 +4,36 @@ the exponent. This function should mimic the functionality of Math.pow()  - do n
 
 PURE, Helper Function & Memoization Version*/
 
+
+
+/* Pure function
+A Pure Function is a function (a block of code) that always returns the same result if the same arguments are passed. 
+It does not depend on any state or data change during a program’s execution. Rather, it only depends on its input arguments.
+
+Also a pure function does not produce any observable side effects such as network requests or data mutation etc.*/
+
+
 // PURE
-function power(base, exponent) {
-    if (exponent === 0) {
-        return 1;
-    }
-    return base * power(base, exponent - 1);
-}
+// Pure Function without recursion
+
+// function power(base, exp){
+//   let result = 1;
+//   for(let i =0; i<exp;i++){
+//     result *= base
+//   }
+//   return result
+// }
+
+
+// Pure function with recursion
+// function power(base,exp){
+//   if(exp ===0) return 1 
+//   return base * power(base, exp -1)
+// }
+
+
+
+// A helper function is a function that performs part of the computation of another function
 
 
 // Helper Function & Memoization
