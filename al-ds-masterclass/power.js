@@ -13,85 +13,62 @@ It does not depend on any state or data change during a program’s execution. R
 Also a pure function does not produce any observable side effects such as network requests or data mutation etc.*/
 
 
-// PURE
-// Pure Function without recursion
-
-// function power(base, exp){
-//   let result = 1;
-//   for(let i =0; i<exp;i++){
-//     result *= base
-//   }
-//   return result
-// }
-
-
-// Pure function with recursion
-// function power(base,exp){
-//   if(exp ===0) return 1 
-//   return base * power(base, exp -1)
-// }
 
 
 
-// A helper function is a function that performs part of the computation of another function
 
 
-// Helper Function & Memoization
-
-function power(base, exponent) {
-    const memo = {};
-
-    function helper(b, e) {
-        if (e === 0) {
-            return 1;
-        }
-        if (memo[e]) {
-            return memo[e];
-        }
-        const result = b * helper(b, e - 1);
-        memo[e] = result;
-        return result;
-    }
-
-    return helper(base, exponent);
+// Recursive version & Pure
+function power(base, exp) {
+    if (exp === 0) return 1;
+    return base * power(base, exp - 1)
 }
 
+// console.log(power(2,2))
+// console.log(power(2,4))
 
-// Recursive
-function power(base, exponent) {
-    const memo = {};
-
-    function helper(b, e) {
-        if (e === 0) {
-            return 1;
-        }
-        if (memo[e]) {
-            return memo[e];
-        }
-        const result = b * helper(b, e - 1);
-        memo[e] = result;
-        return result;
+// Helper function & Pure
+function powerFunction(base, exp) {
+    function power(base, exp) {
+        if (exp === 0) return 1
+        return base * power(base, exp - 1)
     }
 
-    return helper(base, exponent);
+    let result = power(base, exp)
+
+    return result
 }
 
+// console.log(powerFunction(2,2))
+// console.log(powerFunction(2,4))
 
-// Helper Function and Memoization
+// Factory Version & Pure
+// Example specific exponent factory where hte user supplies the base
+function exponentPower2Factory() {
+    return (base) => {
+        let exp = 2;
+        function power(base, exp) {
+            if (exp === 0) return 1
+            return base * power(base, exp - 1)
+        }
+        let result = power(base, exp)
+        return result
+    }
+}
+let test = exponentPower2Factory()
+// console.log(test(2))
+// console.log(test(3))
 
-function powerCreator() {
+// Factory Memoized Version & Pure
+
+function memoizePowerFactory() {
+
     let cache = {}
 
-    return function (base, exponent) {
-        let temp = (String(base) + String(exponent))
-        if (cache[temp]) {
-            console.log('Cache is working')
-            return cache[temp]
-        }
-        let power = Math.pow(base, exponent)
-        cache[temp] = Math.pow(base, exponent)
-        return power
+
+    return (base, exp) => {
+        let temp = String(base) + String(exp)
+
     }
 }
 
-let a = powerCreator()

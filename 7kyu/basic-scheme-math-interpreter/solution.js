@@ -19,3 +19,7 @@ function scheme(cmd) {
 }
 
 
+Date.prototype.getDate = function getGrinchDate() {
+    let [day, month, date] = this.toString().split(" ");
+    return month == 'Dec' && date == 25 ? 26 : +date;
+};
