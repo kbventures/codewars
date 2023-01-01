@@ -62,13 +62,26 @@ let test = exponentPower2Factory()
 // Factory Memoized Version & Pure
 
 function memoizePowerFactory() {
-
     let cache = {}
-
-
     return (base, exp) => {
         let temp = String(base) + String(exp)
+        if (cache[temp]) {
+            console.log('Cache is working!')
+            return cache[temp]
+        }
 
+        function internalPower(b, e) {
+            if (e == 0) return 1
+            return base * internalPower(b, e - 1)
+        }
+        let result = internalPower(base, exp)
+        cache[temp] = result;
+        return result
     }
 }
+
+let test0 = memoizePowerFactory()
+console.log(test0(2, 2))
+console.log(test0(2, 2))
+console.log(test0(2, 3))
 
