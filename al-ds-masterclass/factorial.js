@@ -41,23 +41,24 @@ function memoFactorial(x) {
 console.log(memoFactorial(4))
 console.log(memoFactorial(4))
 
-let cache = {}
-function memoFactorial(x) {
-    if (cache[x]) {
-        console.log('cache is working')
-        return cache[x]
-    }
-    function factorial(y) {
-        if (y === 0) return 1
-        return factorial(y - 1) * y
-    }
-
-    let result = factorial(x)
-    cache[x] = result;
-    return result;
-}
-
-console.log(memoFactorial(4))
-console.log(memoFactorial(4))
-
 // Factorial, pure, helper function, memo and reusable
+
+
+// reusable memoized recursive pure version
+
+function factorialReusable() {
+    let cache = {}
+    return (x) => {
+        if (cache[x]) {
+            console.log('cache is working')
+            return cache[x]
+        }
+        function factorial(x) {
+            if (x === 1) return 1
+            return factorial(x - 1) * x
+        }
+        let result = factorial(x)
+        cache[x] = result;
+        return result;
+    }
+}
