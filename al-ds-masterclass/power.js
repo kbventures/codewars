@@ -61,103 +61,34 @@ let test = exponentPower2Factory()
 
 // Factory Memoized Version & Pure
 
-function memoizePowerFactory() {
+function powerFunctionFactory() {
     let cache = {}
+
     return (base, exp) => {
         let temp = String(base) + String(exp)
         if (cache[temp]) {
-            console.log('Cache is working!')
-            return cache[temp]
+            console.log('cache is working', cache[temp])
+        }
+        function power(base, exp) {
+            if (exp === 0) return 1
+
+            return power(base, exp - 1) * base
         }
 
-        function internalPower(b, e) {
-            if (e == 0) return 1
-            return base * internalPower(b, e - 1)
-        }
-        let result = internalPower(base, exp)
-        cache[temp] = result;
-        return result
+        let result = power(base, exp)
+        cache[temp] = result
+        return result;
     }
+
 }
 
-let test0 = memoizePowerFactory()
-console.log(test0(2, 2))
-console.log(test0(2, 2))
-console.log(test0(2, 3))
+let test = powerFunctionFactory()
+
+console.log(test(2, 3))
+console.log(test(2, 3))
 
 
 
-// // Pure Version
-// var fib = function (n) {
-//     let result = [0, 1]
-
-//     if (n === 0 || n === 1) return n
-//     for (let i = 2; i <= n; i++) {
-//         let temp = result[i - 2] + result[i - 1]
-//         result.push(temp)
-//     }
-//     return result[result.length - 1]
-// };
-
-// console.log(fib(4))
-
-// // Recursive
-// function fib(n) {
-//     if (n < 2) return n
-
-//     return fib(n - 1) + fib(n - 2)
-// };
-
-// console.log(fib(2))
-
-// // Factory, helper & memoize version
-// function fibCreate() {
-//     let cache = {}
-
-//     return (n) => {
-//         if (cache[n]) {
-//             console.log('cache is working')
-//             return cache[n]
-//         }
-//         function fib(n) {
-//             if (n < 2) return n
-//             return fib(n - 1) + fib(n - 2)
-//         }
-
-//         let result = fib(n)
-//         cache[n] = result
-//         return result;
-//     };
-// }
-
-
-// let test = fibCreate()
-// console.log(test(5))
-// console.log(test(5))
-
-
-// Dynamic Programing
-function fibCreate() {
-    let memo = {}
-    return (n) => {
-        function fib(n) {
-            if (memo[n]) {
-                console.log('memo is working', memo[n])
-                return memo[n];
-            }
-            if (n <= 0) return 0;
-            if (n === 1) return 1;
-
-            memo[n] = fib(n - 1) + fib(n - 2);
-            return memo[n];
-        }
-        return fib(n)
-    };
-}
-
-let test = fibCreate();
-console.log(test(10))
-console.log(test(20))
 
 
 
