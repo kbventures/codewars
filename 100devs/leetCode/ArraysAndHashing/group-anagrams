@@ -1,50 +1,39 @@
-// let test = ["eat", "tea", "tan", "ate", "nat", "bat"]
 
-// function groupAnagram(arr) {
-//   let solution = []
-//   for (let i = 0; i < arr.length; i++) {
-//     let sortI = arr[i].slice().split('').sort((a, b) => { return a === b ? 0 : a < b ? -1 : 1; }).join('')
-//     console.log(arr[i])
-//     let tempArr = []
-//     tempArr.push(arr[i])
-//     for (let j = i + 1; j < arr.length; j++) {
-//       let sortJ = arr[j].slice().split('').sort((a, b) => {
-//         return a === b ? 0 : a < b ? -1 : 1;
-//       }).join('')
-//       if (sortI == sortJ) {
-//         solution.push(tempArr[arr[j]])
-//       }
-//       solution.push(tempArr)
-//     }
-//   }
-//   return solution
-// }
-
-
-// console.log(groupAnagram(test))
-
-
-let test = ["eat", "tea", "tan", "ate", "nat", "bat"]
-
-function groupAnagram(arr) {
-  let solution = []
-  for (let i = 0; i < arr.length; i++) {
-    let sortI = arr[i].slice().split('').sort((a, b) => { return a === b ? 0 : a < b ? -1 : 1; }).join('')
-    let tempArr = [arr[i]]
-    solution.push(tempArr)
-    for (let j = i + 1; j < arr.length; j++) {
-      let sortJ = arr[j].slice().split('').sort((a, b) => {
-        return a === b ? 0 : a < b ? -1 : 1;
-      }).join('')
-      if (sortI == sortJ) {
-        solution[i].push(arr[j])
-      }
+// Version 1
+var groupAnagrams = function (arr) {
+    let hash = {}
+    let solution = []
+    for (let key of arr) {
+        hash[key.split('').sort()] = []
     }
-  }
+    for (let i = 0; i < arr.length; i++) {
+        let temp = arr[i].split('').sort()
+        hash[temp].push(arr[i])
+    }
 
-  solution.forEach(e=>console.log(e))
-  return solution
+    for (let key in hash) {
+        solution.push(hash[key])
+    }
+
+    return solution;
 }
 
+// Version 2
 
-console.log(groupAnagram(test))
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function (arr) {
+    let hash = {}
+    let solution = []
+    for (let key of arr) {
+        let temp = key.split('').sort()
+        hash[temp] ? hash[temp].push(key) : hash[temp] = [key]
+
+    }
+    for (let key in hash) {
+        solution.push(hash[key])
+    }
+    return solution;
+}
