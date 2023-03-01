@@ -20,3 +20,29 @@ var isPalindrome = function (s) {
 
 
 // Two Pointers
+
+https://leetcode.com/problems/valid-palindrome/
+
+var isPalindrome = function (s) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyz0123456789"
+    let start = 0;
+    let end = s.length - 1
+
+    while (start < end) {
+        let tempStart = s[start].toLowerCase()
+        let tempEnd = s[end].toLowerCase()
+        if (alphabet.includes(tempStart) && alphabet.includes(tempEnd)) {
+            if (tempStart !== tempEnd) return false;
+            start++
+            end--
+            continue
+        }
+        if (!alphabet.includes(tempStart)) {
+            start++
+        }
+        if (!alphabet.includes(tempEnd)) {
+            end--
+        }
+    }
+    return true
+}
