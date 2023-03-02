@@ -1,20 +1,15 @@
-function longestCommonPrefix(strs) {
-    if (strs.length === 0) {
-        return "";
-    }
-    let result = "";
-    for (let i = 0; i < strs[0].length; i++) {
-        const char = strs[0][i];
-
+var longestCommonPrefix = function (strs) {
+    if (strs.length < 1) return strs
+    let result = ""
+    let test = strs[0].split("")
+    for (let i = 0; i < test.length; i++) {
         for (let j = 1; j < strs.length; j++) {
-            if (i >= strs[j].length || strs[j][i] !== char) {
-                return result;
-            }
+            if (test[i] !== strs[j][i]) return result
         }
-        result += char;
+        result += test[i]
     }
     return result;
-}
+};
 
 // Example usage
 const strs1 = ["flower", "flow", "flight"];
