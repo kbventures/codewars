@@ -429,40 +429,55 @@ class SinglyLinkedList {
             this.tail = null;
         }
         return current;
-
     }
-
     shift() {
         if (!this.head) return undefined;
-        let currentHead = this.head;
-        this.head = currentHead.next
-        this.length--
+        var currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
         if (this.length === 0) {
             this.tail = null;
         }
-        return currentHead
+        return currentHead;
     }
-
     unshift(val) {
-        let newNode = new Node(val)
+        var newNode = new Node(val);
         if (!this.head) {
             this.head = newNode;
             this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode
         }
-        this.length++
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
         return this;
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        var counter = 0;
+        var current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+    set(index, val) {
+        var foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
     }
 }
 
-
 var list = new SinglyLinkedList()
+
 list.push("HELLO")
 list.push("GOODBYE")
 list.push("!")
-
+list.push("<3")
+list.push(":)")
 /*
 Insert pseudocode
 
