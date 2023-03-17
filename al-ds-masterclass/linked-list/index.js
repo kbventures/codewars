@@ -389,6 +389,7 @@ If the node is found, set the value of that node to be the value passed to the f
 */
 
 class Node {
+    class Node {
     constructor(val) {
         this.val = val;
         this.next = null;
@@ -473,11 +474,10 @@ class SinglyLinkedList {
 
 var list = new SinglyLinkedList()
 
-list.push("HELLO")
-list.push("GOODBYE")
-list.push("!")
-list.push("<3")
-list.push(":)")
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
 /*
 Insert pseudocode
 
@@ -532,39 +532,67 @@ class SinglyLinkedList {
             this.tail = null;
         }
         return current;
-
     }
-
     shift() {
         if (!this.head) return undefined;
-        let currentHead = this.head;
-        this.head = currentHead.next
-        this.length--
+        var currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
         if (this.length === 0) {
             this.tail = null;
         }
-        return currentHead
+        return currentHead;
     }
-
     unshift(val) {
-        let newNode = new Node(val)
+        var newNode = new Node(val);
         if (!this.head) {
             this.head = newNode;
             this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode
         }
-        this.length++
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
         return this;
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        var counter = 0;
+        var current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+    set(index, val) {
+        var foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
 }
 
-
 var list = new SinglyLinkedList()
-list.push("HELLO")
-list.push("GOODBYE")
-list.push("!")
+
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
 
 
 /*
@@ -578,6 +606,119 @@ Set the next property on that node to be the next of the next node
 Decrement the length
 Return the value of the node removed
 */
+
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(val) {
+        var newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+    pop() {
+        if (!this.head) return undefined;
+        var current = this.head;
+        var newTail = current;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+    shift() {
+        if (!this.head) return undefined;
+        var currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+        if (this.length === 0) {
+            this.tail = null;
+        }
+        return currentHead;
+    }
+    unshift(val) {
+        var newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        }
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        var counter = 0;
+        var current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+    set(index, val) {
+        var foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        var previousNode = this.get(index - 1);
+        var removed = previousNode.next;
+        previousNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+}
+
+var list = new SinglyLinkedList()
+
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
 
 /* 
 Reverse pseudocode
