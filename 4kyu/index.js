@@ -36,7 +36,7 @@ function checkWord(board, word){
         if(i< 0 || i >= board.length || j < 0 || j >= board[0].length || word[index] !== board[i][j]){
             return false 
         }        
-        // Letter matches so we increase index by one to check the next letter
+        // Letter matches so we increase index by one to check the next lettert
         index++
         if(index === word.length) return true; 
         let temp = board[i][j];
