@@ -18,9 +18,8 @@
 //1) Calling function and passing word and board has parameter
 //2) Traversin throught the matrix  by rows and then colomns 
 //3) Calling DFS function recursively on each starting position
-//4) Return false if no valid position is found
-//5) Check if current position matching word index
-//6)
+//4) Check if current position matching the current letter. Else return false. 
+//5)
 
 
 let testBoard = 
@@ -29,38 +28,43 @@ let testBoard =
   ["I","U","A","O"],
   ["A","S","R","L"] ]
 
-  const positionAround = [[0,-1], [1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]
 
-
-function boggle(board, word){
+function checkWord(board, word){
     const positionAround = [[0,-1], [1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1]]
 
     function dfs(i,j,index){
-
         if(i< 0 || i >= board.length || j < 0 || j >= board[0].length || word[index] !== board[i][j]){
             return false 
-        }
-
+        }        
         // Letter matches so we increase index by one to check the next letter
         index++
+        if(index === word.length) return true; 
+        let temp = board[i][j];
+        console.log("temp", temp);
+        board[i][j] = " ";
+
+        console.log("Checking board", board)
         for(let y = 0; y < positionAround.length;y++){
-
+            if(dfs(i + positionAround[y][0], j + positionAround[y][1], index)){
+                return true; 
+            }
         }
-
+        index--
+        board[i][j] = temp;
+        console.log("Board back track", board)
+        return false; 
     }
 
-
-    for(let i =0; i<board.length;i++){
+    // Traverse the entire matrix 
+    for(let i = 0; i<board.length;i++){
         for(let j=0; j<board[0].length;j++){
+            // Death First Seach From Each Space Until a path is found
             if(dfs(i,j,0)){
                 return true;
             };
         }
     }
-
-
     return false; 
-
 }
 
 // Test.expect( checkWord( testBoard, "C" ) == true );
@@ -74,7 +78,9 @@ function boggle(board, word){
 // Test.expect( checkWord( testBoard, "CARS" ) == false, "Valid guesses cannot wrap around the edges of the board" );
 // console.log(checkWord(testBoard,"C"));
 
-// console.log(checkWord(testBoard,"EAR"));
+console.log(checkWord(testBoard,"EAR"));
+
+
 // console.log(checkWord(testBoard,"BAILER"));
 // console.log(checkWord(testBoard,"RSCAREIOYBAILNEA"));
 // console.log(checkWord(testBoard,"CEREAL"));
