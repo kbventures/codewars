@@ -46,6 +46,7 @@ function checkWord(board, word){
         console.log("Checking board", board)
         for(let y = 0; y < positionAround.length;y++){
             if(dfs(i + positionAround[y][0], j + positionAround[y][1], index)){
+                board[i][j] = temp;
                 return true; 
             }
         }
@@ -59,6 +60,7 @@ function checkWord(board, word){
     for(let i = 0; i<board.length;i++){
         for(let j=0; j<board[0].length;j++){
             // Death First Seach From Each Space Until a path is found
+            console.log("Current start", board[i][j])
             if(dfs(i,j,0)){
                 return true;
             };
