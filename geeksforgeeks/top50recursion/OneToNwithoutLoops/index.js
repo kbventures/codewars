@@ -19,21 +19,31 @@
 // 2) Recursively call itself until index is equal to n
 // 3) Return print n to 1
 
-function print1toNwithoutLoops(n){
-   let result = n;
+// function print1toNwithoutLoops(n){
+//    let result = n;
 
 
-   function recursive1toN(num){
-      if(num == 0) return 
-      result = num + " " + result;
-      recursive1toN(num- 1) 
-   }
-   recursive1toN(n - 1)
+//    function recursive1toN(num){
+//       if(num == 0) return 
+//       result = num + " " + result;
+//       recursive1toN(num- 1) 
+//    }
+//    recursive1toN(n - 1)
 
-   return result; 
+//    return result; 
 
-}
+// }
 
-console.log(print1toNwithoutLoops(10))
+// console.log(print1toNwithoutLoops(10))
 // console.log(print1toNwithoutLoops(1))
 // console.log(print1toNwithoutLoops(0))
+
+
+function OneToNoLoops(num, index = 1, result = "") {
+   if (num === index) {
+       return result + index;
+   }
+   return OneToNoLoops(num, index + 1, result + index + " ");
+}
+
+console.log(OneToNoLoops(3));
