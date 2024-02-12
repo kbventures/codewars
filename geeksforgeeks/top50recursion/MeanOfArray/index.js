@@ -63,11 +63,14 @@
 
 // 1 to n without loops
 
-function rec1toN(num, i=1, result = ""){
-    if(i === num) return result;
-    updatedResult = i + " " + result;  
-    console.log(updatedResult)
-    rec1toN(num, i+1, updatedResult)
+
+
+function OneToNoLoops(num, index = 0, result=""){
+    console.log("result", result)
+    if(num == index) return result.trim()
+    index++
+    result = result + index + " "; 
+    return OneToNoLoops(num, index, result)
 }
 
-console.log(rec1toN(10))
+console.log(OneToNoLoops(3));
