@@ -1,0 +1,63 @@
+List 1:
+
+Binary Search - Basic Implementation:
+Write a simple binary search algorithm to find the index of a given element in a sorted array. Handle the case when the element is not present in the array.
+
+Binary Search - Recursive Implementation:
+Implement the binary search algorithm using a recursive approach. Ensure the function has the correct base case and recursive calls.
+
+Binary Search - Finding First Occurrence:
+Modify the binary search algorithm to find the index of the first occurrence of a given element in a sorted array. Handle the case when the element is not present.
+
+Binary Search - Finding Last Occurrence:
+Extend the binary search algorithm to find the index of the last occurrence of a given element in a sorted array.
+
+Binary Search - Count Occurrences:
+Write a function to count the number of occurrences of a given element in a sorted array using binary search. Optimize the algorithm to achieve O(log n) time complexity.
+
+Binary Search - Rotated Array:
+Implement binary search in a rotated sorted array. The array is rotated at an unknown pivot, and you need to find the index of a given element.
+
+Binary Search - Smallest Element in Rotated Array:
+Find the smallest element in a rotated sorted array. The array is rotated at an unknown pivot, and you need to return the smallest element.
+
+Binary Search - Peak Element:
+Given an array that is initially sorted in ascending order, find a peak element. A peak element is an element that is greater than or equal to its neighbors.
+
+Binary Search - Median of Two Sorted Arrays:
+Given two sorted arrays, find the median element. The combined array formed by merging the two input arrays should also be sorted.
+
+Binary Search - Searching in a 2D Matrix:
+Given a 2D matrix where each row is sorted in ascending order, and the first element of each row is greater than the last element of the previous row, write an efficient algorithm to determine if a target element exists in the matrix.
+
+
+LIST 2: 
+Challenge 1: Implement a basic binary search algorithm.
+
+Challenge 2: Handle the case when the target is not present in the array.
+
+Challenge 3: Optimize the binary search to return the index of the target if found, -1 otherwise.
+
+Challenge 4: Modify the binary search to work with a rotated sorted array.
+
+Challenge 5: Extend binary search to find the first occurrence of a target in a sorted array with duplicates.
+
+Challenge 6: Implement binary search with a twist - find the peak element in a mountain array.
+
+Challenge 7: Enhance binary search to find the "bitonic peak" in a bitonic array.
+
+Challenge 8: Implement binary search to find the smallest missing element in a sorted array of distinct integers.
+
+Challenge 9: Upgrade binary search to find the median of two sorted arrays.
+
+Challenge 10: Extend binary search to find the smallest element in a rotated sorted array with duplicates.
+
+Challenge 11: Implement binary search to find the kth smallest element in a matrix.
+
+Challenge 12: Modify binary search to find the closest element to a given target in a sorted array.
+
+Challenge 13: Upgrade binary search to find the majority element in a sorted array.
+
+Challenge 14: Implement binary search to find the peak element in an array where adjacent elements are not necessarily distinct.
+
+Challenge 15: Extend binary search to find the length of the shortest unsorted continuous subarray in a given array.
