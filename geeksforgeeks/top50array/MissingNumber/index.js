@@ -45,24 +45,51 @@
 
 //V2 O(n) O(1) Using Map
 
+// function findMissingNumber(arr) { 
+//     const n = arr.length + 1; 
+//     const sumOfFirstN = (n * (n + 1)) / 2; 
+  
+//     let sumOfArray = 0; 
+//     for(let i = 0; i < n - 1; i++) { 
+//         sumOfArray = sumOfArray + arr[i]; 
+//     } 
+  
+//     let missingNumber = sumOfFirstN - sumOfArray; 
+  
+//     return missingNumber; 
+// } 
+
+// const result = findMissingNumber([1, 2, 3, 5]);
+
+
+// console.log(result); 
+
+
+// V3 Use Hashmap because you will not remember the formula
+
+
+
 function findMissingNumber(arr) { 
-    const n = arr.length + 1; 
-    const sumOfFirstN = (n * (n + 1)) / 2; 
-  
-    let sumOfArray = 0; 
-    for(let i = 0; i < n - 1; i++) { 
-        sumOfArray = sumOfArray + arr[i]; 
-    } 
-  
-    let missingNumber = sumOfFirstN - sumOfArray; 
-  
-    return missingNumber; 
+    let hashMap = {}
+    
+    for(let n in arr){
+        hashMap[arr[n]] = arr[n]
+    }
+    console.log(hashMap)
+    let temp = 1; 
+
+    for(const key in hashMap){
+        if(!(temp in hashMap)){
+            return temp
+        }
+        temp++
+    }
+
+    return temp; 
+
 } 
 
 const result = findMissingNumber([1, 2, 3, 5]);
 
 
 console.log(result); 
-
-
-// V3 Use Has because you will not remembber the formula
