@@ -1,0 +1,44 @@
+// Input: “geeksforgeeks”
+// Output: f
+// Explanation: As ‘f’ is first character in the string which does not repeat.
+
+// find-first-non-repeated-character-in-a-string
+
+
+// Input: “algorithm”
+// Output: a
+// Explanation: As ‘a’ is first character in the string which does not repeat.
+
+
+// The idea is to loop over the string and for every character check the occurrence of the same character in the string. 
+// If the count of its occurrence is 1 then return that character. Otherwise, search for the remaining characters.
+
+// V1 Probably Incorrect
+// function FindFirstNonRepChar(arr){
+
+//     const sorted = arr.split("").sort((a, b) => a.localeCompare(b)).join("");
+//     // console.log(sorted)
+
+// const HashMap = {}
+// let num = 0; 
+// let temp = sorted[0]
+// for(const index of sorted){
+//     if(index == temp){
+//         num++
+//     } else if( index !== temp){
+//         if(num == 1){
+//             return temp
+//         } 
+//             temp = index; 
+//             console.log("switch",temp)
+//             num =1; 
+//         }
+//     }
+
+// }
+
+// const result  = FindFirstNonRepChar("Geeksforgeeks")
+// console.log(result)
+
+
+// V2 Hashmap the whole world first and keep track of the first occurence of a single letter while iterating over it!
