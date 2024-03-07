@@ -23,11 +23,11 @@ DONE https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-c
 DONE https://www.geeksforgeeks.org/find-union-and-intersection-of-two-unsorted-arrays/
 DONE https://www.geeksforgeeks.org/find-missing-elements-of-a-range/
 https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/
+https://www.geeksforgeeks.org/count-distinct-elements-in-an-array/
 
 Add to Banki
 
 Find first non repeated character optimal version!
-
 function findFirstNonRepChar(str) {
     const charCountMap = {};
     const charOrder = [];
