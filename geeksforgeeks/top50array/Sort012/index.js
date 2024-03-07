@@ -24,16 +24,82 @@
 // const result = Sort012([2,0,1]);
 // console.log(result)
 
-// V2 Sort in place O(1) space complexity and O(n) time complexity
-function Sort012(arr){
-    let zero =0;
-    let one = Math.floor(arr.length / 2);
-    let two = arr.length -1;  
+//V2 Counting
 
-    console.log(zero,one,two)
-    // while
-    
-}
+// function Sort012(arr){
+// let zero =0
+// let one = 0;
+// let two =0;
 
-const result = Sort012([2,0,1,2,0,1]);
-console.log(result)
+// for(let i = 0; i < arr.length;i++){
+//     console.log(arr[i])
+//     if (arr[i]==0){
+//         zero++
+//     } else if (arr[i]==1){
+//         one++
+//     } else{
+//         two++
+//     }
+// }
+
+// console.log(zero, one, two )
+// for(let i = 0; i <= arr.length-1;i++){
+//     if (zero != 0){
+//         arr[i] = 0; 
+//         zero--
+//     } else if (one != 0){
+//         arr[i] = 1
+//         one--
+//     } else{
+//         arr[i] = 2
+//         two--
+//     }
+// }
+
+// return arr; 
+// }
+
+// const result = Sort012([0,2,1,0,1,2,2,0,0,1,1])
+
+// console.log(result);
+
+// V3 Pointer approach
+    function Sort012(a)
+    {
+         
+        let lo = 0; 
+        let hi = a.length - 1; 
+        let mid = 0;
+        let temp = 0; 
+        while (mid <= hi)
+        {
+            // If the element is 0
+            if(a[mid] == 0)
+            {
+                temp = a[lo]; 
+                a[lo] = a[mid]; 
+                a[mid] = temp; 
+                lo++; 
+                mid++; 
+            }
+            // If the element is 1
+            else if(a[mid] == 1)
+            {
+                mid++; 
+            }
+            // If the element is 2
+            else
+            {
+                temp = a[mid]; 
+                a[mid] = a[hi]; 
+                a[hi] = temp; 
+                hi--;
+            }
+             
+        }
+        return a; 
+    }
+
+    const result = Sort012([0,1,2,0,0,2,2,1,0,2])
+
+    console.log(result)

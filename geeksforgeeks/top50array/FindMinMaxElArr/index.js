@@ -1,7 +1,4 @@
 // Program to find the minimum (or maximum) element of an array
-// Read
-// Courses
-// Practice
 // Given an array, write functions to find the minimum and maximum elements in it. 
 
 // The most simplest way to find min and max value of an element is to use inbuilt function sort() in java. So, that value at 0th position will min and value at nth position will be max.
