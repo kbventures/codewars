@@ -1,0 +1,83 @@
+// Road map 
+https://neetcode.io/
+
+
+// Exercise resources
+https://github.com/kbventures/best-leetcode-resources?tab=readme-ov-file
+https://geeksforgeeks.com
+
+
+// Recursion
+https://www.geeksforgeeks.org/top-50-interview-problems-on-recursion-algorithm/
+
+// Array
+https://www.geeksforgeeks.org/top-50-array-coding-problems-for-interviews/
+
+
+
+// Hash Map
+https://www.geeksforgeeks.org/top-50-problems-on-hash-data-structure-asked-in-sde-interviews/
+DONE https://www.geeksforgeeks.org/find-whether-an-array-is-subset-of-another-array-set-1/
+DONE https://www.geeksforgeeks.org/frequency-of-each-character-in-a-string-using-unordered_map-in-c/
+DONE https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/
+DONE https://www.geeksforgeeks.org/find-union-and-intersection-of-two-unsorted-arrays/
+DONE https://www.geeksforgeeks.org/find-missing-elements-of-a-range/
+https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/
+
+Add to Banki
+
+Find first non repeated character optimal version!
+
+function findFirstNonRepChar(str) {
+    const charCountMap = {};
+    const charOrder = [];
+
+    for (const char of str) {
+        charCountMap[char] = (charCountMap[char] || 0) + 1;
+
+        // Keep track of the order of characters encountered
+        if (charCountMap[char] === 1) {
+            charOrder.push(char);
+        } else {
+            // Remove from the order if the character is repeating
+            const index = charOrder.indexOf(char);
+            if (index !== -1) {
+                charOrder.splice(index, 1);
+            }
+        }
+    }
+
+    // The first element in charOrder is the first non-repeating character
+    return charOrder.length > 0 ? charOrder[0] : null;
+}
+
+const result = findFirstNonRepChar("Geeksforgeeks");
+console.log(result);
+
+// Two Pointers
+https://www.geeksforgeeks.org/two-pointers-technique/#practice
+
+// Stack
+https://www.geeksforgeeks.org/top-50-problems-on-stack-data-structure-asked-in-interviews/
+
+
+// Sliding Window
+https://leetcode.com/discuss/study-guide/3630462/Top-20-Sliding-Window-Problems-for-beginners
+
+// Binary Search
+https://www.geeksforgeeks.org/most-asked-binary-search-interview-questions/
+
+// Queue
+https://www.geeksforgeeks.org/top-50-problems-on-queue-data-structure-asked-in-sde-interviews/#practice
+
+// Linkedlist
+
+/Trees
+
+
+
+Add to anki:
+Fibonaci Recursion
+Binary Search
+Binary Searc Number Of Occurence(array section in geeks for geeks)
+Sort012
