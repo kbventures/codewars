@@ -42,24 +42,24 @@
 
 // V2 HashSet
 
-// function TwoSum(arr,sum){
+// function TwoSum(arr, sum) {
+//     const numMap = new Map();
 
-// let HashMap={}
-//     for(const i of arr){
-//         if(!HashMap[i]){
-//             HashMap[i] = i;
+//     for (let i = 0; i < arr.length; i++) {
+//         const complement = sum - arr[i];
+
+//         if (numMap.has(complement)) {
+//             return true; // Found a pair
 //         }
-//     }
-//     console.log(HashMap)
 
-//     // False by default 
-//     return false;
+//         numMap.set(arr[i], i); // Store the current element and its index
+//     }
+
+//     return false; // No pair found
 // }
 
-// const result = TwoSum([0, -1, 2, -3, 1], -2)
-
-// // Is true?
-// console.log(result)
+// const result = TwoSum([0, -1, 2, -3, 1], -2);
+// console.log(result);
 
 // V3 Two Pointers
 
