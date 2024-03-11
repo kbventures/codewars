@@ -15,14 +15,37 @@
 // The idea is to use hash table (HashSet in Java) to store all generated substrings. Finally we return size of the HashSet.
 
 
+// function DistinctSubStr(str){
+//     let pointer1 = 0
+//     let pointer2 = str.length
+//     let result = []
+
+//     while(pointer1 < str.length){
+//         let temp = str.slice(pointer1, pointer2)
+//         result.push(temp)
+//         pointer2--
+//         if(pointer2 == pointer1){
+//             pointer1++
+//             pointer2 = str.length
+//         }
+
+//     }
+//     return result.join(" ")
+// }
+
+// const result = DistinctSubStr("aaa")
+// console.log(result)
+
+
+// V2 HashMap Version
 function DistinctSubStr(str){
     let pointer1 = 0
     let pointer2 = str.length
-    let result = []
+    let result = new Set()
 
     while(pointer1 < str.length){
-        let temp = str.slice(pointer1, pointer2)
-        result.push(temp)
+        // let temp = str.slice(pointer1, pointer2)
+        result.add(str.substring(pointer1,pointer2))
         pointer2--
         if(pointer2 == pointer1){
             pointer1++
@@ -30,11 +53,8 @@ function DistinctSubStr(str){
         }
 
     }
-    return result.join(" ")
+    return Array.from(result).join(" ")
 }
 
-const result = DistinctSubStr("aaa")
+const result = DistinctSubStr("abcd")
 console.log(result)
-// abcd abc ab a bcd bc b cd c d
-// You need to use two pointers to iterate throught the array and use hashmap to check if an iteration doesn't exisit, add it if it does and include string in result array
-// we will use slice has it doesn't use a shallow copy
