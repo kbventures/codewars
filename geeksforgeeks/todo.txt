@@ -22,12 +22,104 @@ DONE https://www.geeksforgeeks.org/frequency-of-each-character-in-a-string-using
 DONE https://www.geeksforgeeks.org/given-a-string-find-its-first-non-repeating-character/
 DONE https://www.geeksforgeeks.org/find-union-and-intersection-of-two-unsorted-arrays/
 DONE https://www.geeksforgeeks.org/find-missing-elements-of-a-range/
-https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/
-https://www.geeksforgeeks.org/count-distinct-elements-in-an-array/
-https://www.geeksforgeeks.org/count-number-of-distinct-substring-in-a-string/
+DONE https://www.geeksforgeeks.org/check-if-pair-with-given-sum-exists-in-array/
+DONE https://www.geeksforgeeks.org/count-distinct-elements-in-an-array/
+DONE https://www.geeksforgeeks.org/count-number-of-distinct-substring-in-a-string/
+DONE https://www.geeksforgeeks.org/print-unique-words-string/
+DONE https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
+https://www.geeksforgeeks.org/remove-minimum-number-elements-no-common-element-exist-array/
+https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-with-permutations-allowed/
+https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/
+https://www.geeksforgeeks.org/remove-duplicates-sorted-array/
+
+
+
+
+
+https://www.geeksforgeeks.org/print-unique-words-string/
+// Memorize
+function cleanString(inputString) {
+    // Use a regular expression to match non-alphabetical characters and spaces
+    const cleanedString = inputString.replace(/[^a-zA-Z]+/g, '');
+
+    return cleanedString;
+}
+// function UniqueWords(str){
+//     let array = str.split(" ")
+//     console.log(array)
+//     let cleanArray = array.filter(ele=> cleanString(ele))
+//     console.log(cleanArray)
+// }
+
+// V1
+function UniqueWords(str){
+    let array = str.split(" ")
+    let HashMap = {}
+    for(const i of array){
+        let temp = cleanString(i)
+        if(!HashMap[temp]){
+            HashMap[temp]=1;
+        } else {
+            HashMap[temp]++
+        }
+    }
+    return Object.keys(HashMap).filter(e=> {return HashMap[e] == 1});
+    
+}
+const result = UniqueWords("Java is great. Grails is also great"); 
+console.log("result", result)
+
+https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
+var MAX = 100000;
+function countPairsWithDiffK(arr, n, k)
+{
+    var count = 0;  // Initialize count
+ 
+    // Initialize empty hashmap.
+    var hashmap = Array(MAX).fill(false);
+ 
+    // Insert array elements to hashmap
+    for (var i = 0; i < n; i++)
+        hashmap[arr[i]] = true;
+ 
+    for (var i = 0; i < n; i++)
+    {
+        var x = arr[i];
+        if (x - k >= 0 && hashmap[x - k])
+            count++;
+        if (x + k < MAX && hashmap[x + k])
+            count++;
+        hashmap[x] = false;
+    }
+    return count;
+}
 
 
 Add to Banki
+Find Disctinc Element Hash Map Version
+
+//https://www.geeksforgeeks.org/count-number-of-distinct-substring-in-a-string/
+// V2 HashMap Version
+function DistinctSubStr(str){
+    let pointer1 = 0
+    let pointer2 = str.length
+    let result = new Set()
+
+    while(pointer1 < str.length){
+        // let temp = str.slice(pointer1, pointer2)
+        result.add(str.substring(pointer1,pointer2))
+        pointer2--
+        if(pointer2 == pointer1){
+            pointer1++
+            pointer2 = str.length
+        }
+
+    }
+    return Array.from(result).join(" ")
+}
+
+const result = DistinctSubStr("abcd")
+console.log(result)
 
 Find first non repeated character optimal version!
 function findFirstNonRepChar(str) {
