@@ -1,5 +1,6 @@
 // Road map 
 https://neetcode.io/
+https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
 
 
 // Exercise resources
@@ -27,7 +28,7 @@ DONE https://www.geeksforgeeks.org/count-distinct-elements-in-an-array/
 DONE https://www.geeksforgeeks.org/count-number-of-distinct-substring-in-a-string/
 DONE https://www.geeksforgeeks.org/print-unique-words-string/
 DONE https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
-https://www.geeksforgeeks.org/remove-minimum-number-elements-no-common-element-exist-array/
+DONE https://www.geeksforgeeks.org/remove-minimum-number-elements-no-common-element-exist-array/
 https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-with-permutations-allowed/
 https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/
 https://www.geeksforgeeks.org/remove-duplicates-sorted-array/

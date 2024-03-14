@@ -66,34 +66,33 @@
 // console.log(result)
 
 //v2 Refactor
-function minNumNoComEl(arr1,arr2){
-    Ha = {}
-    Hb = {}
-    results=0; 
-    for(let i of arr1){
-        // console.log(i)
-        if(!Ha[i]){
-            Ha[i]=1
-        } else {
-            Ha[i]++
-        }
-    }
-    for(let i of arr2){
-        console.log(i)
-        if(!Hb[i]){
-            Hb[i]=1
-            if(Ha[i]){
-                results++
-                console.log(results)
-            }
-        } else {
-            Ha[i]++
-        }
-    }
-    return results
-}
+// function minNumNoComEl(arr1,arr2){
+//     Ha = {}
+//     Hb = {}
+//     results=0; 
+//     for(let i of arr1){
+//         // console.log(i)
+//         if(!Ha[i]){
+//             Ha[i]=1
+//         } else {
+//             Ha[i]++
+//         }
+//     }
+//     for(let i of arr2){
+//         console.log(i)
+//         if(!Hb[i]){
+//             Hb[i]=1
+//             if(Ha[i]){
+//                 results++
+//                 console.log(results)
+//             }
+//         } else {
+//             Ha[i]++
+//         }
+//     }
+//     return results
+// }
 
-const result = minNumNoComEl([1,2,3,4],[4,5,6,7])
-console.log(result)
+// const result = minNumNoComEl([1,2,3,4],[4,5,6,7])
+// console.log(result)
 
-//V3 Loops through them both at the same time
