@@ -83,28 +83,3 @@
 //     // console.log(result)
 //     return result; 
 // }
-
-
-var MAX = 100000;
-function countPairsWithDiffK(arr, n, k)
-{
-    var count = 0;  // Initialize count
- 
-    // Initialize empty hashmap.
-    var hashmap = Array(MAX).fill(false);
- 
-    // Insert array elements to hashmap
-    for (var i = 0; i < n; i++)
-        hashmap[arr[i]] = true;
- 
-    for (var i = 0; i < n; i++)
-    {
-        var x = arr[i];
-        if (x - k >= 0 && hashmap[x - k])
-            count++;
-        if (x + k < MAX && hashmap[x + k])
-            count++;
-        hashmap[x] = false;
-    }
-    return count;
-}
