@@ -29,13 +29,35 @@ DONE https://www.geeksforgeeks.org/count-number-of-distinct-substring-in-a-strin
 DONE https://www.geeksforgeeks.org/print-unique-words-string/
 DONE https://www.geeksforgeeks.org/count-pairs-difference-equal-k/
 DONE https://www.geeksforgeeks.org/remove-minimum-number-elements-no-common-element-exist-array/
-https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-with-permutations-allowed/
+DONE https://www.geeksforgeeks.org/minimum-insertions-to-form-a-palindrome-with-permutations-allowed/
 https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/
 https://www.geeksforgeeks.org/remove-duplicates-sorted-array/
 
 
+https://www.geeksforgeeks.org/remove-duplicates-sorted-array/
+// V2 Two Pointers
+function removeDuplicates(arr) {
+    if (arr.length === 0) return [];
 
+    let index = 0;
+    for (let i = 1; i < arr.length; i++) {
+        console.log("index",index)
+        if (arr[i] !== arr[index]) {
+            index++;
+            arr[index] = arr[i];
+            console.log(index, arr[index], arr[i])
+            console.log("arr",arr)
+        }
+    }
 
+    // Trim the array to remove duplicates
+    arr.length = index + 1;
+    
+    return arr;
+}
+
+const result = removeDuplicates([1, 2, 2, 3, 4, 4, 4, 5, 5]);
+console.log(result); // Output: [1, 2, 3, 4, 5]
 
 https://www.geeksforgeeks.org/print-unique-words-string/
 // Memorize
@@ -187,8 +209,73 @@ for(const i of arr){
 const result = Distinct([10, 20, 20, 10, 30, 10, 40])
 console.log(result)
 
+********************************************************************************************************
+********************************************************************************************************
+
 // Two Pointers
 https://www.geeksforgeeks.org/two-pointers-technique/#practice
+https://www.geeksforgeeks.org/explore?page=3&category=two-pointer-algorithm&sortBy=submissions&itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_articlehttps://www.geeksforgeeks.org/explore?page=3&category=two-pointer-algorithm&sortBy=submissions&itm_source=geeksforgeeks&itm_medium=article&itm_campaign=bottom_sticky_on_article
+https://leetcode.com/discuss/study-guide/1688903/Solved-all-two-pointers-problems-in-100-days
+https://medium.com/javarevisited/13-two-pointer-problems-that-can-help-you-land-a-job-5eb2a502aa84
+
+https://leetcode.com/discuss/study-guide/1688903/Solved-all-two-pointers-problems-in-100-days
+
+
+
+1. Running from both ends of an array
+The first type of problems are, having two pointers at left and right end of array, then moving them to the center while processing something with them.
+
+
+2 Sum problem
+(*) https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+https://leetcode.com/problems/3sum/
+https://leetcode.com/problems/4sum/
+https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/
+https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+https://leetcode.com/problems/sum-of-square-numbers/
+https://leetcode.com/problems/boats-to-save-people/
+https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/
+https://leetcode.com/problems/3sum-with-multiplicity/
+
+Trapping Water
+(*) https://leetcode.com/problems/trapping-rain-water/
+https://leetcode.com/problems/container-with-most-water/
+
+Next Permutation
+(*) https://leetcode.com/problems/next-permutation/
+https://leetcode.com/problems/next-greater-element-iii/
+https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number/
+
+Reversing / Swapping
+https://leetcode.com/problems/valid-palindrome/
+
+DONE (*) https://leetcode.com/problems/reverse-string/
+
+NEXT https://leetcode.com/problems/reverse-vowels-of-a-string/
+https://leetcode.com/problems/valid-palindrome-ii/
+https://leetcode.com/problems/reverse-only-letters/
+https://leetcode.com/problems/remove-element/
+https://leetcode.com/problems/sort-colors/
+https://leetcode.com/problems/flipping-an-image/
+https://leetcode.com/problems/squares-of-a-sorted-array/
+https://leetcode.com/problems/sort-array-by-parity/
+https://leetcode.com/problems/sort-array-by-parity-ii/
+https://leetcode.com/problems/pancake-sorting/
+https://leetcode.com/problems/reverse-prefix-of-word/
+https://leetcode.com/problems/reverse-string-ii/
+https://leetcode.com/problems/reverse-words-in-a-string/
+https://leetcode.com/problems/reverse-words-in-a-string-iii/
+
+Others
+https://leetcode.com/problems/bag-of-tokens/
+https://leetcode.com/problems/di-string-match/
+https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/
+https://leetcode.com/problems/sentence-similarity-iii/
+https://leetcode.com/problems/find-k-closest-elements/
+https://leetcode.com/problems/shortest-distance-to-a-character/
+
+**********************************************************************
+**********************************************************************
 
 // Stack
 https://www.geeksforgeeks.org/top-50-problems-on-stack-data-structure-asked-in-interviews/
@@ -196,6 +283,7 @@ https://www.geeksforgeeks.org/top-50-problems-on-stack-data-structure-asked-in-i
 
 // Sliding Window
 https://leetcode.com/discuss/study-guide/3630462/Top-20-Sliding-Window-Problems-for-beginners
+https://medium.com/leetcode-patterns/leetcode-pattern-2-sliding-windows-for-strings-e19af105316b
 
 // Binary Search
 https://www.geeksforgeeks.org/most-asked-binary-search-interview-questions/
