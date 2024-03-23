@@ -38,3 +38,44 @@
 // console.log(result0)
 
 
+// v2 TWO POINTERS
+function reverseWords(s) {
+    // Convert the string to an array for easier manipulation
+    const chars = s.split('');
+    
+    let start = 0;
+    let end = 0;
+    
+    // Iterate through the characters of the string
+    while (end < chars.length) {
+        // Move the end pointer to the end of the current word
+        while (end < chars.length && chars[end] !== ' ') {
+            end++;
+        }
+        
+        // Reverse the characters of the current word
+        reverse(chars, start, end - 1);
+        
+        // Move the start and end pointers to the beginning of the next word
+        start = end + 1;
+        end = start;
+    }
+    
+    // Convert the array back to a string
+    return chars.join('');
+}
+
+// Helper function to reverse characters in place within a range
+function reverse(chars, start, end) {
+    while (start < end) {
+        const temp = chars[start];
+        chars[start] = chars[end];
+        chars[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+// Example usage:
+console.log(reverseWords("Let's take LeetCode contest")); // Output: "s'teL ekat edoCteeL tsetnoc"
+console.log(reverseWords("Mr Ding")); // Output: "rM gniD"
