@@ -251,10 +251,36 @@ https://leetcode.com/problems/valid-palindrome/
 
 DONE (*) https://leetcode.com/problems/reverse-string/
 
-NEXT https://leetcode.com/problems/reverse-vowels-of-a-string/
+DONE https://leetcode.com/problems/reverse-vowels-of-a-string/
+
+var reverseVowels = function(s) {
+    let stringArr = s.split("");
+    let start = 0;
+    let end = stringArr.length -1;
+    let vowels = ['a','e','i','o','u','A','E','I','O','U']
+    
+    while( start < end){
+
+        if(vowels.includes(stringArr[start]) && vowels.includes(stringArr[end])){
+            let temp = stringArr[start];
+            stringArr[start]=stringArr[end];
+            stringArr[end]= temp;
+            start++
+            end--
+        } else if (!vowels.includes(stringArr[start])){
+            start++
+        } else if (!vowels.includes(stringArr[end])){
+            end--
+        }
+
+    }
+    return stringArr.join('')
+};
 https://leetcode.com/problems/valid-palindrome-ii/
-https://leetcode.com/problems/reverse-only-letters/
-https://leetcode.com/problems/remove-element/
+
+DONE https://leetcode.com/problems/reverse-only-letters/
+
+NEXT https://leetcode.com/problems/remove-element/
 https://leetcode.com/problems/sort-colors/
 https://leetcode.com/problems/flipping-an-image/
 https://leetcode.com/problems/squares-of-a-sorted-array/
