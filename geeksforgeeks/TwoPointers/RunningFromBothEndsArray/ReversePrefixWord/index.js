@@ -51,9 +51,8 @@ for(let i = 0; i< middle ;i++){
     let temp = wordTemp[i]
     wordTemp[i] = wordTemp[indexOfCh-i]
     wordTemp[indexOfCh-i]= temp; 
-    // console.log(wordTemp)
 }
-// console.log(wordTemp)
+
 return wordTemp.join('')
 };
 
@@ -62,25 +61,4 @@ const result0 = reversePrefix("abcdefd", "d");
 
 console.log(result0)
 
-// V3
-var reversePrefix = function(word, ch) {
-    let indexOfCh = word.indexOf(ch);
-    if (indexOfCh === -1) return word; // If ch is not found, return the original word
-
-    let left = 0;
-    let right = indexOfCh;
-    
-    while (left < right) {
-        let temp = word[left];
-        word[left] = word[right];
-        word[right] = temp;
-        
-        left++;
-        right--;
-    }
-
-    return word;
-};
-
-const result0 = reversePrefix("arzquwnjyn", "j");
-console.log(result0); // Output: "jnwuqzarny"
+// v3 
