@@ -280,8 +280,8 @@ https://leetcode.com/problems/valid-palindrome-ii/
 
 DONE https://leetcode.com/problems/reverse-only-letters/
 
-NEXT https://leetcode.com/problems/remove-element/
-https://leetcode.com/problems/sort-colors/
+DONE https://leetcode.com/problems/remove-element/ **** ADD TO BANKI
+MEDIUM https://leetcode.com/problems/sort-colors/
 https://leetcode.com/problems/flipping-an-image/
 https://leetcode.com/problems/squares-of-a-sorted-array/
 https://leetcode.com/problems/sort-array-by-parity/
