@@ -62,3 +62,26 @@ const result0 = reversePrefix("abcdefd", "d");
 console.log(result0)
 
 // v3 
+var reversePrefix = function(word, ch) {
+    let indexOfCh = word.indexOf(ch);
+    if (indexOfCh === -1) return word; // If ch is not found, return the original word
+
+    let left = 0;
+    let right = indexOfCh;
+    
+    while (left < right) {
+        let temp = word[left];
+        word = replaceCharAt(word, left, word[right]);
+        word = replaceCharAt(word, right, temp);
+        
+        left++;
+        right--;
+    }
+
+    return word;
+};
+
+// Function to replace character at a specific index in a string
+function replaceCharAt(str, index, char) {
+    return str.substring(0, index) + char + str.substring(index + 1);
+}
