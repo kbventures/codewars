@@ -39,43 +39,77 @@
 
 
 // v2 TWO POINTERS
-function reverseWords(s) {
-    // Convert the string to an array for easier manipulation
-    const chars = s.split('');
+// function reverseWords(s) {
+//     // Convert the string to an array for easier manipulation
+//     const chars = s.split('');
     
-    let start = 0;
+//     let start = 0;
+//     let end = 0;
+    
+//     // Iterate through the characters of the string
+//     while (end < chars.length) {
+//         // Move the end pointer to the end of the current word
+//         while (end < chars.length && chars[end] !== ' ') {
+//             end++;
+//         }
+        
+//         // Reverse the characters of the current word
+//         reverse(chars, start, end - 1);
+        
+//         // Move the start and end pointers to the beginning of the next word
+//         start = end + 1;
+//         end = start;
+//     }
+    
+//     // Convert the array back to a string
+//     return chars.join('');
+// }
+
+// // Helper function to reverse characters in place within a range
+// function reverse(chars, start, end) {
+//     while (start < end) {
+//         const temp = chars[start];
+//         chars[start] = chars[end];
+//         chars[end] = temp;
+//         start++;
+//         end--;
+//     }
+// }
+
+
+
+
+// V4 Reverse Words Attemp at Two Pointers
+
+var reverseWords = function(s) {
     let end = 0;
-    
-    // Iterate through the characters of the string
-    while (end < chars.length) {
-        // Move the end pointer to the end of the current word
-        while (end < chars.length && chars[end] !== ' ') {
-            end++;
+    let start = s.length -1;
+    let chars = s.split("")
+
+    while(end !== s.length -1){
+        while(chars[end] !== " " && chars[end] !== undefined){
+            end++
         }
-        
-        // Reverse the characters of the current word
-        reverse(chars, start, end - 1);
-        
-        // Move the start and end pointers to the beginning of the next word
-        start = end + 1;
+        function reverseString(start,end,chars){
+            while(start < end){
+                let temp = chars[start];
+                chars[start] = chars[end]
+                chars[end] = temp; 
+                chars++
+                end--
+            }
+
+        }
+        reverseString(start,end,chars)
+        start = end + 1
         end = start;
     }
-    
-    // Convert the array back to a string
-    return chars.join('');
-}
+    return s; 
+};
 
-// Helper function to reverse characters in place within a range
-function reverse(chars, start, end) {
-    while (start < end) {
-        const temp = chars[start];
-        chars[start] = chars[end];
-        chars[end] = temp;
-        start++;
-        end--;
-    }
-}
 
-// Example usage:
 console.log(reverseWords("Let's take LeetCode contest")); // Output: "s'teL ekat edoCteeL tsetnoc"
-console.log(reverseWords("Mr Ding")); // Output: "rM gniD"
+// console.log(reverseWords("Mr Ding")); // Output: "rM gniD"
+
+
+
