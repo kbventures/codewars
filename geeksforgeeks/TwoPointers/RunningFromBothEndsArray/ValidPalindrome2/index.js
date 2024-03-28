@@ -22,45 +22,59 @@
 // 1 <= s.length <= 105
 // s consists of lowercase English letters.
 
+// V1 Brute Force
+var validPalindrome = function(s) {
+
+    let sArr = s.split("")
+    let start =0;
+    let end = s.length -1; 
+
+    while(sArr[start] == sArr[end]){
+        // console.log(sArr[start],sArr[end])
+        start++
+        end--
+        if( start == s.length-1 )return true; 
+
+    }
+    const leftArr = sArr.slice(0,start).concat(sArr.slice(start+1))
+    const rightArr = sArr.slice(0, end).concat(sArr.slice(end + 1))
+    start = 0;
+    end = rightArr.length -1;
+
+    while(rightArr[start] == rightArr[end]){
+        start++
+        end--
+        if( start == s.length-1 )return true; 
+
+    }
+
+    start = 0;
+    end = leftArr.length -1; 
+
+    while(leftArr[start] == leftArr[end]){
+        // console.log(sArr[start],sArr[end])
+        start++
+        end--
+        if( start == s.length-1 )return true; 
+
+    }
+
+
+
+
+
+    return false; 
+};
+
+const result = validPalindrome("abcdefghhgfedcwba")
+console.log(result)
+
+
+
 /**
  * @param {string} s
  * @return {boolean}
  */
-var validPalindrome = function(s) {
-    let splitS = s.split("")
-    let start =0;
-    let end = splitS.length -1;
-    let counter =0; 
 
-    while(start <= end){
-        if(splitS[start] !== splitS[end]){
-            if(counter !== 1 || (start + 1 == end) || (start + 2 == end)){ 
-                return true
-            }
-            console.log(splitS[start],splitS[end])
-            if (splitS[start + 1] == splitS[end]){
-                start++
-                counter++
-                if(counter ==1) return false; 
-            } else if( splitS[start] == splitS[end-1]){
-                end--
-                counter++
-                if(counter ==1) return false; 
-            } else {
-                console.log('is not supposed to happen 2')
-                return false;
-            }
-            }
-        start++
-        end--
-    }
-    return true;
-    
-};
 
-const result = validPalindrome("abc")
-console.log(result)
 
-// FAILED TO DO IT
-// https://nileshsaini09.medium.com/valid-palindrome-ii-b3660a1931e5
-// Do it again after studying answers. 
