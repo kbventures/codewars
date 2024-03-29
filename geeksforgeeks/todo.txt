@@ -247,7 +247,7 @@ https://leetcode.com/problems/next-greater-element-iii/
 https://leetcode.com/problems/minimum-adjacent-swaps-to-reach-the-kth-smallest-number/
 
 Reversing / Swapping
-https://leetcode.com/problems/valid-palindrome/
+DONE https://leetcode.com/problems/valid-palindrome/
 
 DONE (*) https://leetcode.com/problems/reverse-string/
 
@@ -276,7 +276,8 @@ var reverseVowels = function(s) {
     }
     return stringArr.join('')
 };
-https://leetcode.com/problems/valid-palindrome-ii/
+DONE https://leetcode.com/problems/valid-palindrome-ii/
+https://nileshsaini09.medium.com/valid-palindrome-ii-b3660a1931e5
 
 DONE https://leetcode.com/problems/reverse-only-letters/
 
@@ -287,10 +288,9 @@ https://leetcode.com/problems/squares-of-a-sorted-array/
 https://leetcode.com/problems/sort-array-by-parity/
 https://leetcode.com/problems/sort-array-by-parity-ii/
 https://leetcode.com/problems/pancake-sorting/
-DONE BUT DO IT AGAIN THIS TIME 2 POINTERS https://leetcode.com/problems/reverse-prefix-of-word/
-https://leetcode.com/problems/reverse-string-ii/
-https://leetcode.com/problems/reverse-words-in-a-string/
-https://leetcode.com/problems/reverse-words-in-a-string-iii/
+DONE Possibly refactor once your master reverse string 3 https://leetcode.com/problems/reverse-prefix-of-word/
+https://leetcode.com/problems/reverse-string-ii/ WTF?
+DONE BUT YOU NEED TO REDO THE TWO POINTER VERSION https://leetcode.com/problems/reverse-words-in-a-string-iii/
 
 Others
 https://leetcode.com/problems/bag-of-tokens/
