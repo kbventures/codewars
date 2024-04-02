@@ -63,7 +63,20 @@ var sortArrayByParity = function(nums) {
     let right = nums.length -1;
 
     while(left < right){
-       
+       if(nums[left] % 2 == 1 && nums[right] % 2 !== 1){
+        let temp = nums[left]
+        nums[left] = nums[right]
+        nums[right]=temp; 
+        left++
+        right--
+       } else if (nums[left] % 2 !== 1 && nums[right] % 2 == 1){
+        left++
+        right--
+       } else if (nums[left] % 2 == 1 && nums[right] % 2 == 1) {
+        right--
+       } else if(nums[left] % 2 == 0 && nums[right] % 2 == 0){
+        left++
+       }
     }
     return nums
 };
@@ -73,5 +86,8 @@ var sortArrayByParity = function(nums) {
 // Expected
 // [2,4,3,1]
 
-const result0 = sortArrayByParity([3,1,2,4])
+const result0 = sortArrayByParity([0,1,2])
+// [0,1,2]
+// Expected
+// [0,2,1]
 console.log(result0)
