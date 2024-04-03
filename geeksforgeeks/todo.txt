@@ -284,8 +284,8 @@ DONE https://leetcode.com/problems/reverse-only-letters/
 DONE https://leetcode.com/problems/remove-element/ **** ADD TO BANKI
 MEDIUM https://leetcode.com/problems/sort-colors/
 https://leetcode.com/problems/flipping-an-image/
-https://leetcode.com/problems/squares-of-a-sorted-array/
-https://leetcode.com/problems/sort-array-by-parity/
+*** ANKI https://leetcode.com/problems/squares-of-a-sorted-array/ ***
+DONE https://leetcode.com/problems/sort-array-by-parity/
 https://leetcode.com/problems/sort-array-by-parity-ii/
 https://leetcode.com/problems/pancake-sorting/
 DONE Possibly refactor once your master reverse string 3 https://leetcode.com/problems/reverse-prefix-of-word/
