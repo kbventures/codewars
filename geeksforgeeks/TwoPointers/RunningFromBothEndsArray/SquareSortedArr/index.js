@@ -83,26 +83,30 @@
  // v3 BANKI!
  // https://leetcode.com/problems/squares-of-a-sorted-array/
 
- var sortedSquares = function(nums) {
-    let arr = new Array(nums.length);
-    let left = 0, right = nums.length-1,index = nums.length-1;
-    while(left <= right) {
-        let leftValue = nums[left] * nums[left];
-        let rightValue =nums[right] * nums[right];
-        if(leftValue > rightValue) {
-            arr[index] =  leftValue
+// V4 Re-Attemp
+
+var sortedSquares = function(nums) {
+    let result = [];
+    // Left and right pointer
+    let left = 0;
+    let right = nums.length - 1;
+    // Position to add squared number to A
+    let index = nums.length-1;
+
+    // Add the higher number to the array and then decrease the pointer
+    while (left <= right) {
+        const leftSquare = nums[left] * nums[left];
+        const rightSquare = nums[right] * nums[right];
+        if (leftSquare > rightSquare) {
+            result[index] = leftSquare;
             left++;
-            index--;
-        }else {
-            arr[index] = rightValue;
+            index--
+        } else {
+            result[index] = rightSquare;
             right--;
             index--
         }
-        console.log(arr, leftValue,rightValue)
     }
-    return arr;
-};
 
- const result0 = sortedSquares([1,2,3,4,5])
- 
- console.log(result0)
+    return result;
+};
