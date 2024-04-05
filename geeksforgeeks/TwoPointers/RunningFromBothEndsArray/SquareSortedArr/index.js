@@ -110,3 +110,33 @@ var sortedSquares = function(nums) {
 
     return result;
 };
+
+
+// Attemp 5
+var sortedSquares = function(nums) {
+// 5
+let result = new Array(nums.length)
+let left = 0;
+let right = nums.length -1;
+let index =  nums.length -1;
+
+    while(left <= right){
+    console.log(result)
+    let rightTemp = nums[right] * nums[right];
+    let leftTemp = nums[left] * nums[left];
+        if(leftTemp > rightTemp){
+            result[index] = leftTemp
+            left++
+            index--
+        } else {
+            result[index] = rightTemp;
+            right--
+            index--
+        }
+    }
+return result; 
+};
+
+const result0 = sortedSquares([-7,-3,2,3,11])
+ 
+ console.log("console.log",result0)
