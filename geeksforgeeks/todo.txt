@@ -286,7 +286,7 @@ MEDIUM https://leetcode.com/problems/sort-colors/
 https://leetcode.com/problems/flipping-an-image/
 *** ANKI https://leetcode.com/problems/squares-of-a-sorted-array/ ***
 DONE https://leetcode.com/problems/sort-array-by-parity/
-NEXT https://leetcode.com/problems/sort-array-by-parity-ii/
+ANKI OPTIMAL solution https://leetcode.com/problems/sort-array-by-parity-ii/
 MEDIUM https://leetcode.com/problems/pancake-sorting/
 DONE Possibly refactor once your master reverse string 3 https://leetcode.com/problems/reverse-prefix-of-word/
 https://leetcode.com/problems/reverse-string-ii/ WTF?
