@@ -121,7 +121,6 @@ let right = nums.length -1;
 let index =  nums.length -1;
 
     while(left <= right){
-    console.log(result)
     let rightTemp = nums[right] * nums[right];
     let leftTemp = nums[left] * nums[left];
         if(leftTemp > rightTemp){
