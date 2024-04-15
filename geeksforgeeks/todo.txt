@@ -294,11 +294,11 @@ DONE BUT YOU NEED TO REDO THE TWO POINTER VERSION https://leetcode.com/problems/
 
 Others
 https://leetcode.com/problems/bag-of-tokens/
-https://leetcode.com/problems/di-string-match/
+DONE https://leetcode.com/problems/di-string-match/
 https://leetcode.com/problems/minimum-length-of-string-after-deleting-similar-ends/
-https://leetcode.com/problems/sentence-similarity-iii/
-https://leetcode.com/problems/find-k-closest-elements/
-https://leetcode.com/problems/shortest-distance-to-a-character/
+MEDIUM https://leetcode.com/problems/sentence-similarity-iii/
+MEDIUM https://leetcode.com/problems/find-k-closest-elements/
+ANKI https://leetcode.com/problems/shortest-distance-to-a-character/
 
 **********************************************************************
 **********************************************************************
@@ -328,3 +328,10 @@ Fibonaci Recursion
 Binary Search
 Binary Searc Number Of Occurence(array section in geeks for geeks)
 Sort012
+
+
+
+
+
+Top 50 string
+ANKI !https://www.geeksforgeeks.org/longest-common-prefix-using-sorting/
