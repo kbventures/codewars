@@ -23,3 +23,7 @@ var revIndWords = function(s) {
 const result0 = revIndWords("Hello World")
 
 console.log(result0)
+
+
+
+
