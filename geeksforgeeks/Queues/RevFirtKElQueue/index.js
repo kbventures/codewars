@@ -38,7 +38,7 @@ constructor(){
 }
 
 //     enqueue(x) : Add an item x to rear of queue
-        enqeue(x){
+        enQueue(x){
             let newNode = new Node(x)
             if(this.isEmpty()){
                 this.front = newNode;
@@ -78,11 +78,14 @@ constructor(){
             return this.isEmpty ? undefined : this.front.data; 
         }
         visualize(){
+            if(this.isEmpty()) return undefined; 
             let current = this.front; 
             let queueStr = "Front: "
             while(current){
-                queueStr 
+                queueStr += current.data + " "; 
+                current = current.next;
             }
+            return queueStr; 
         }
 
 }
@@ -101,13 +104,40 @@ newQueue.enQueue(80);
 newQueue.enQueue(90);
 
 
-function revFirstKElQueue(q, k){
+// function revFirstKElQueue(q, k) {
+//     if (k === 0) {
+//         return q;
+//     } 
+//     let temp = q.dequeue();
+//     q.enQueue(temp);
+//     return revFirstKElQueue(q, k - 1);
+// }
 
-    if(k ===0)return queue; 
-    let rem = q.dequeue()
-    q.enQueue(rem)
+// const result0 = revFirstKElQueue(newQueue, 3);
+// console.log(result0.visualize());
 
+
+
+
+function recRevFirstKElQueue(q, k) {
+    if (k === 0) {
+        return q;
+    } 
+    let temp = q.dequeue();
+    q.enQueue(temp);
+    return recRevFirstKElQueue(q, k - 1);
 }
 
+function revFirstKElQueue(nQ, num){
+    let sortedQ = recRevFirstKElQueue(nQ,num)
+    let result = []
+    while(!sortedQ.isEmpty()){
+        console.log(sortedQ.visualize())
+        let temp = sortedQ.dequeue()
+        result.push(temp)
+    }
+    return result; 
+}
 
-const result0 = revFirstKElQueue(queue,3)
+const result0 = revFirstKElQueue(newQueue, 3);
+console.log(result0);
