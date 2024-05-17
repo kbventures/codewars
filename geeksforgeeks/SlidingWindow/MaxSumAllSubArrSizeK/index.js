@@ -38,20 +38,24 @@
 
 // V2 Sliding Window 
 const maxSumAllSubArrK = function(arr, n){
+    if(arr.length < n) return false;
+    let maxSum =0; 
 
-    let max=0;    
-    let leftPointer=1;
-    let rightPointer=n;
+    for(let i =0; i<n;i++){
+    maxSum+= arr[i]
+    }
+    let currSum = maxSum
 
-    for(let i =0;i<n;i++){
-        max = max + arr[i]
+
+    for(let i = n; i<arr.length;i++){
+        currSum = currSum + arr[i] -arr[i-n]
+        if(currSum > maxSum){
+            maxSum = currSum; 
+        }
+    }
+
+    return maxSum
     }
     
-    while(rightPoiner< arr.length){
-        let tempSum = arr
-    }
-    return max; 
-    }
-    
-    const result = maxSumAllSubArrK([100,200,300,400],2)
+    const result = maxSumAllSubArrK([1, 4, 2, 10, 23, 3, 1, 0, 20],4)
     console.log(result)
