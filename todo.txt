@@ -1,0 +1,11 @@
+bfs dfs tress and graphs
+dynamic programming
+backgracking
+Sliding window
+top k 5 elements
+
+Graphs
+Stacks
+Hasmap/map
+Binary tree
+heap
