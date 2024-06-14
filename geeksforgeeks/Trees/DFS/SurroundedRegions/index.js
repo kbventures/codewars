@@ -185,13 +185,14 @@
 //   ])
 
 
-// V5
+// V5 WORKING BUT INEFFICIENT
 /**
  * Solves the "Surrounded Regions" problem on a 2D board inplace by flipping surrounded 'O's to 'X's.
  * Only 'O's on the border or connected to an 'O' on the border will remain as 'O'.
  * @param board A 2D array of strings representing the board
  */
 function solve(board) {
+    console.log("start",board)
 
     const rowL = board.length -1;
     const columnL = board[0].length-1;
@@ -202,12 +203,16 @@ function solve(board) {
 
     function DFS(y,x){
         board[y][x] = "."
-
-        for([bY,bX]of directions){
-            if(){
+        console.log("DFS O",board[y][x],y,x)
+        for([bY,bX] of directions){
+            let tempY = bY + y;
+            let tempX = bX + x
+            if(tempY < 0 || tempX < 0 || tempY >= board.length || tempX >= board[0].length){
                 continue; 
             }
-            
+            if(board[tempY][tempX]== "O"){
+                DFS(tempY,tempX);
+            }         
         }
     }
 
@@ -216,42 +221,42 @@ function solve(board) {
     for(let r=0; r<=rowL;r++){
         for(let c=0; c<=columnL;c++){
             const borderCell= r == 0 || c == 0 || r == rowL || c == columnL
-            if(borderCell){
-                console.log(r,c)
+            if(borderCell && board[r][c]=="O"){
+                DFS(r,c)
             }
         }
     }
 
 
-    // Flip surrounded regions to X
+    // Flip surrounded regions to X and . to O
     for(let r=0; r<=rowL;r++){
         for(let c=0; c<=columnL;c++){
             if(board[r][c]=="O"){
                 board[r][c] = "X"
+            } else if (board[r][c]=="."){
+                board[r][c]="O"
             }
         }
     }
-
-
-    // Flip non surrounded regions "." to "O"
-    for(let r=0; r<=rowL;r++){
-        for(let c=0; c<=columnL;c++){
-            if(board[r][c]=="."){
-                board[r][c] = "O"
-            }
-        }
-    }
+    console.log("result",board)
     return board; 
 }
 
+// const result = solve([
+//     [ 'X', 'X', 'X', 'X', 'X', 'X' ],
+//     [ 'X', 'X', 'X', 'X', 'X', 'X' ],
+//     [ 'X', 'X', 'X', 'X', 'X', 'X' ],
+//     [ 'O', 'O', 'O', 'O', 'X', 'X' ],
+//     [ 'X', 'X', 'O', 'O', 'X', 'X' ],
+//     [ 'X', 'X', 'X', 'X', 'X', 'X' ]
+//   ])
+
+
 const result = solve([
-    [ 'X', 'X', 'X', 'X', 'X', 'X' ],
-    [ 'X', 'X', 'X', 'X', 'X', 'X' ],
-    [ 'X', 'X', 'X', 'X', 'X', 'X' ],
-    [ 'O', 'O', 'O', 'O', 'X', 'X' ],
-    [ 'X', 'X', 'O', 'O', 'X', 'X' ],
-    [ 'X', 'X', 'X', 'X', 'X', 'X' ]
-  ])
+    ["O","O","O"],
+    ["O","O","O"],
+    ["O","O","O"]
+])
 
 
 
