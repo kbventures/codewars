@@ -196,12 +196,12 @@ function solve(board) {
 
     const rowL = board.length -1;
     const columnL = board[0].length-1;
-    const directions=[[-1,0],[0,1],[1,0],[0,-1]]
 
 
     // DFS border "O" regions and flip them to "."
 
     function DFS(y,x){
+        const directions=[[-1,0],[0,1],[1,0],[0,-1]]
         board[y][x] = "."
         console.log("DFS O",board[y][x],y,x)
         for([bY,bX] of directions){
@@ -215,6 +215,8 @@ function solve(board) {
             }         
         }
     }
+
+    
 
 
     // Travere 2d Matrix, Identify Border "O" Regions and Call DFS 
