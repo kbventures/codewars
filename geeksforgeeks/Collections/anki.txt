@@ -24,3 +24,5 @@ const twoSum = (nums, target) => {
 
   // https://leetcode.com/problems/two-sum/description/
 
+  // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/1306134479/
+
