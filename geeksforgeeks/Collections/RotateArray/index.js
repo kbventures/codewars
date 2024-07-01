@@ -39,32 +39,52 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
  // V1 Brute Force
- var rotate = function(nums, k) {
-   if (k === 0) return nums;
-   k = k % nums.length; // Handle cases where k is greater than the array length
-   temp = [...nums.slice(-k), ...nums.slice(0, -k)];
-   for(let i = 0; i< temp.length;i++){
-       nums[i]= temp[i]
-   }
-};
+//  var rotate = function(nums, k) {
+//    if (k === 0) return nums;
+//    k = k % nums.length; // Handle cases where k is greater than the array length
+//    temp = [...nums.slice(-k), ...nums.slice(0, -k)];
+//    for(let i = 0; i< temp.length;i++){
+//        nums[i]= temp[i]
+//    }
+// };
 
 
 
 // V2 Two pointers
-var rotate = function(nums, k) {
-    if (k === 0) return nums;
-    k = k % nums.length; // Handle cases where k is greater than the array length
-    let shallowCopy = nums.slice()
-    //  Loop through shallow copy and move moved element on the origianl array
-    // Loop through shallow copy and move remaining elements to orrigin array in new position
- };
+// Helper function to reverse a portion of the array
+const reverse = (nums, left, right) => {
+    while (left < right) {
+      // Swap elements at the left and right indices
+      [nums[left], nums[right]] = [nums[right], nums[left]];
+      // Move the left pointer to the right
+      left++;
+      // Move the right pointer to the left
+      right--;
+    }
+  };
+  
+  // Main function to rotate the array
+  const rotate = (nums, k) => {
+    // Calculate the effective number of rotations needed
+    let temp = k % nums.length;
+  
+    // Step 1: Reverse the entire array
+    reverse(nums, 0, nums.length - 1);
+    // Step 2: Reverse the first 'temp' elements
+    reverse(nums, 0, temp - 1);
+    // Step 3: Reverse the remaining elements from 'temp' to the end
+    reverse(nums, temp, nums.length - 1);
+  };
+  
+  // Example usage
+  let nums = [1, 2, 3, 4, 5];
+  let k = 2;
+  
+  // Rotates the array nums to the right by k steps
+  rotate(nums, k);
+  console.log(nums); // Output: [4, 5, 1, 2, 3]
+  
 
 
 
-
-
-console.log("result1")
-const result3 = rotate([1,2,3,4,5,6,7],3)
-// Expected [2,1]
-console.log("result1",result3)
 
