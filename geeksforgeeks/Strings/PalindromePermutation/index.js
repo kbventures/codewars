@@ -59,36 +59,3 @@ var palindromePermutation = function(str) {
 const res = palindromePermutation("aab");
 
 console.log("result", res);
-
-
-// V2 Two Pointers
-// var palindromePermutation = function(str) {
-//     let result = true; 
-
-//     // 1 is odd 0 is even
-//     let oddOrEven = str.length % 2;  
-//     console.log("oddOrEvent",oddOrEven)
-
-//     let obj = {}
-
-//     for( let i of str){
-//         obj[i] ? obj[i]++ : obj[i] = 1
-//     }
-
-//     // Scenario 1 length is even: all characters must occur an even number of time
-//     if(oddOrEven == 1){
-//         for(let z in obj){
-//             if(obj[z] % 2 !== 0) return false; 
-//         }
-//     }
-//     // Scenario 2 length is odd: all characters must occur an even number of time
-
-
-
-//     return result; 
-// };
-
-
-// const res = palindromePermutation("aa");
-
-// console.log("result", res);
