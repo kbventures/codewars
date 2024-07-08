@@ -45,7 +45,7 @@ if(s.length == t.length){
 } 
 // Insert a character into s to get t
 if((s.length+1)== t.length){
-    for(let y =0; y<=t.length;y++){
+    for(let y =0; y<t.length;y++){
         let temp1 = s.slice(0,y) + t[y] + s.slice(y); 
         console.log("temp1",temp1)
         if(temp1 == t){
@@ -56,21 +56,18 @@ if((s.length+1)== t.length){
 }
 
 // Delete a character from s to get t
-
 if((s.length-1)== t.length){
-    for(let i in s){
-            let temp1 = s.replace(s[i],"") 
-            if(temp1 === t){
-                editCount++
-                if(editCount == 2) return false; 
-            }
+    for (let i = 0; i < s.length; i++) {
+        let newStr = s.slice(0, i) + s.slice(i + 1);
+        if(newStr == t){
+            editCount++
+                if(editCount ==2) return false; 
+        }
     }
 }
-    if(editCount ==2 || editCount == 0){
-        return false
-        } else {
-        return true;
-    }
+
+    return editCount > 1 
+        
 }
 
 // // Delete Example
@@ -79,5 +76,5 @@ if((s.length-1)== t.length){
 
 
 // Insert Example
-const result1 = oneEditDistance("ab","abi")
+const result1 = oneEditDistance("abix","abi")
 console.log(result1)
