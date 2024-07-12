@@ -80,37 +80,37 @@
 // num1 = 9 num2 = 12 returns string "21" 
 
 
-var addStrings = function(num1, num2) {
-  // Pseudo code 
-  // Object identifying number value of string numbers
-  let stringNumbers = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
-  // While look that keep iterating until end either number
-  let i=num1.length-1;
-  let j=num2.length-1;
-  let result="";
-  let carry =0; 
-  while(i>=0 || j>=0){
-  // Add the sum of string numbers, update carry and string result
-  let tempI = i >= 0 ? stringNumbers[num1[i]] : 0;
-  let tempJ = i >= 0  ? stringNumbers[num2[j]] : 0;
+// var addStrings = function(num1, num2) {
+//   // Pseudo code 
+//   // Object identifying number value of string numbers
+//   let stringNumbers = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
+//   // While look that keep iterating until end either number
+//   let i=num1.length-1;
+//   let j=num2.length-1;
+//   let result="";
+//   let carry =0; 
+//   while(i>=0 || j>=0){
+//   // Add the sum of string numbers, update carry and string result
+//   let tempI = i >= 0 ? stringNumbers[num1[i]] : 0;
+//   let tempJ = i >= 0  ? stringNumbers[num2[j]] : 0;
   
-  // Temp result:
-  let tempNumResult = tempI + tempJ + carry; 
+//   // Temp result:
+//   let tempNumResult = tempI + tempJ + carry; 
 
-  // Carry
-  carry = Math.floor(tempNumResult / 10);
-  // Update Result
-  result = tempNumResult % 10 + result; 
-  console.log("update resul",result)
-  i--
-  j--
-  }
-  // Return Result String;
-  return result;
-};
+//   // Carry
+//   carry = Math.floor(tempNumResult / 10);
+//   // Update Result
+//   result = tempNumResult % 10 + result; 
+//   console.log("update resul",result)
+//   i--
+//   j--
+//   }
+//   // Return Result String;
+//   return result;
+// };
 
-const result0 = addStrings("87","107")
-console.log("Final Result: ", result0)
+// const result0 = addStrings("87","107")
+// console.log("Final Result: ", result0)
 
 
 // 14
@@ -120,3 +120,31 @@ console.log("Final Result: ", result0)
 
 
 // V4 Recursive version
+
+// PREP
+// Parameters is num1 and num2 are strings with number characters not starting with 0 but could be 0
+// Returns the sum of num1 and num2 converted as numbers to a string result
+// num1 = 9 num2 = 12 returns string "21" 
+
+const stringNumbers = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
+
+var addStrings = function(num1, num2, i = num1.length -1, j = num2.length -1,  carry = 0, result="") {
+  if(i<=-1 && j <=-1){
+    if(carry !== 0){
+      return carry + result; 
+    }
+    return result; 
+  }
+  //  Global Variable
+let tempValue1 = i >=0 ? stringNumbers[num1[i]] : 0; 
+let tempValue2 = j >=0 ? stringNumbers[num2[j]] : 0; 
+let tempSum = tempValue1 + tempValue2 + carry; 
+carry = Math.floor(tempSum / 10)
+result = (tempSum % 10) + result
+i--
+j--
+return addStrings(num1, num2,i,j,carry,result)
+};
+
+const result0 = addStrings("987","107")
+console.log("Final Result: ", result0)
