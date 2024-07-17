@@ -42,3 +42,66 @@
 
 // SOLUTIONS
 // https://baffinlee.com/leetcode-javascript/problem/min-stack.html
+
+
+// V1 Solution 1 Utilising a array
+var MinStack = function() {
+    this.stack = [];
+    this.min = []; 
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    this.stack.push(val)
+    if(this.min[0]=== undefined){
+        this.min.push(val)
+    } else {
+        let temp = this.getMin()
+        this.min[this.min.length-1] > val ? this.min[this.min.length-1] = val : this.min(this.min.length-1) = temp; 
+    }
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+ if()
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.stack[this.stack.length-1] ? this.stack[this.stack.length-1] : undefined; 
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.min[this.min.length-1] ? this.min[this.min.length-1] : undefined;  
+};
+
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * var obj = new MinStack()
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+
+let obj = new MinStack()
+
+console.log(obj.top(),obj.min)
+obj.push(3);
+console.log("getMin: ", obj.getMin())
+console.log(obj.top(),obj.min)
+obj.push(2);
+console.log("getMin: ", obj.getMin())
+obj.push(1);
+console.log("getMin: ", obj.getMin())
+console.log(obj.top(), obj.min)
