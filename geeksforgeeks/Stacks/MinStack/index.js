@@ -60,7 +60,9 @@ MinStack.prototype.push = function(val) {
         this.min.push(val)
     } else {
         let temp = this.getMin()
-        this.min[this.min.length-1] > val ? this.min[this.min.length-1] = val : this.min(this.min.length-1) = temp; 
+        this.min.push(temp)
+        this.min[this.min.length-1] > val ? this.min[this.min.length-1] = val : this.min[this.min.length-1] = temp; 
+        
     }
 };
 
@@ -68,7 +70,9 @@ MinStack.prototype.push = function(val) {
  * @return {void}
  */
 MinStack.prototype.pop = function() {
- if()
+ if(this.stack.length ===0) return undefined
+ let tempStack = this.stack.pop();
+ let tempMin = this.min.pop();
 };
 
 /**
@@ -96,12 +100,52 @@ MinStack.prototype.getMin = function() {
 
 let obj = new MinStack()
 
-console.log(obj.top(),obj.min)
-obj.push(3);
-console.log("getMin: ", obj.getMin())
-console.log(obj.top(),obj.min)
-obj.push(2);
-console.log("getMin: ", obj.getMin())
-obj.push(1);
-console.log("getMin: ", obj.getMin())
-console.log(obj.top(), obj.min)
+
+obj.stack;
+console.log("Stack:");
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.push(-2);
+console.log("After pushing -2: ");
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.push(0);
+console.log("After pushing 0: ");
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.push(-3);
+console.log("Push -3:" );
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.getMin();
+console.log("After pushing 2:", obj.stack, obj.min, obj.getMin());
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.pop();
+console.log("Pop: ", obj.pop());
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.top();
+console.log("Get Top: ", obj.top());
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+obj.getMin();
+console.log("getMin:", obj.getMin());
+console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// ["MinStack","push","push","push","getMin","pop","top","getMin"]
+
+
+
+// obj.push(3)
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+// obj.push(2)
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+// obj.push(1)
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+// obj.pop()
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+// obj.pop()
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+// obj.pop()
+// console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
