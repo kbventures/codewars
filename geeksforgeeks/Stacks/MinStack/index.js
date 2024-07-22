@@ -70,7 +70,7 @@ MinStack.prototype.push = function(val) {
  * @return {void}
  */
 MinStack.prototype.pop = function() {
- if(this.stack.length ===0) return undefined
+ if(this.stack.length ===0) return null
  let tempStack = this.stack.pop();
  let tempMin = this.min.pop();
 };
@@ -79,14 +79,14 @@ MinStack.prototype.pop = function() {
  * @return {number}
  */
 MinStack.prototype.top = function() {
-    return this.stack[this.stack.length-1] ? this.stack[this.stack.length-1] : undefined; 
+    return this.stack[this.stack.length-1] ? this.stack[this.stack.length-1] : null; 
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.getMin = function() {
-    return this.min[this.min.length-1] ? this.min[this.min.length-1] : undefined;  
+    return this.min[this.min.length-1] ? this.min[this.min.length-1] : null;  
 };
 
 /** 
