@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/min-stack/description/
+// Solutions guide https://baffinlee.com/leetcode-javascript/problem/min-stack.html
 
 // 155. Min Stack
 // Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
@@ -45,49 +46,49 @@
 
 
 // V1 Solution 1 Utilising a array
-var MinStack = function() {
-    this.stack = [];
-    this.min = []; 
-};
+// var MinStack = function() {
+//     this.stack = [];
+//     this.min = []; 
+// };
 
-/** 
- * @param {number} val
- * @return {void}
- */
-MinStack.prototype.push = function(val) {
-    this.stack.push(val)
-    if(this.min[0]=== undefined){
-        this.min.push(val)
-    } else {
-        let temp = this.getMin()
-        this.min.push(temp)
-        this.min[this.min.length-1] > val ? this.min[this.min.length-1] = val : this.min[this.min.length-1] = temp; 
+// /** 
+//  * @param {number} val
+//  * @return {void}
+//  */
+// MinStack.prototype.push = function(val) {
+//     this.stack.push(val)
+//     if(this.min[0]=== undefined){
+//         this.min.push(val)
+//     } else {
+//         let temp = this.getMin()
+//         this.min.push(temp)
+//         this.min[this.min.length-1] > val ? this.min[this.min.length-1] = val : this.min[this.min.length-1] = temp; 
         
-    }
-};
+//     }
+// };
 
-/**
- * @return {void}
- */
-MinStack.prototype.pop = function() {
- if(this.stack.length ===0) return null
- let tempStack = this.stack.pop();
- let tempMin = this.min.pop();
-};
+// /**
+//  * @return {void}
+//  */
+// MinStack.prototype.pop = function() {
+//  if(this.stack.length ===0) return null
+//  let tempStack = this.stack.pop();
+//  let tempMin = this.min.pop();
+// };
 
-/**
- * @return {number}
- */
-MinStack.prototype.top = function() {
-    return this.stack[this.stack.length-1] ? this.stack[this.stack.length-1] : null; 
-};
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.top = function() {
+//     return this.stack[this.stack.length-1] ? this.stack[this.stack.length-1] : null; 
+// };
 
-/**
- * @return {number}
- */
-MinStack.prototype.getMin = function() {
-    return this.min[this.min.length-1] ? this.min[this.min.length-1] : null;  
-};
+// /**
+//  * @return {number}
+//  */
+// MinStack.prototype.getMin = function() {
+//     return this.min[this.min.length-1] ? this.min[this.min.length-1] : null;  
+// };
 
 /** 
  * Your MinStack object will be instantiated and called as such:
@@ -98,40 +99,40 @@ MinStack.prototype.getMin = function() {
  * var param_4 = obj.getMin()
  */
 
-let obj = new MinStack()
+// let obj = new MinStack()
 
 
-obj.stack;
-console.log("Stack:");
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.stack;
+// console.log("Stack:");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.push(-2);
-console.log("After pushing -2: ");
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.push(-2);
+// console.log("After pushing -2: ");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.push(0);
-console.log("After pushing 0: ");
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.push(0);
+// console.log("After pushing 0: ");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.push(-3);
-console.log("Push -3:" );
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.push(-3);
+// console.log("Push -3:" );
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.getMin();
-console.log("After pushing 2:", obj.stack, obj.min, obj.getMin());
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.getMin();
+// console.log("After pushing 2:", obj.stack, obj.min, obj.getMin());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.pop();
-console.log("Pop: ", obj.pop());
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.pop();
+// console.log("Pop: ", obj.pop());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.top();
-console.log("Get Top: ", obj.top());
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.top();
+// console.log("Get Top: ", obj.top());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
-obj.getMin();
-console.log("getMin:", obj.getMin());
-console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+// obj.getMin();
+// console.log("getMin:", obj.getMin());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
 
 // ["MinStack","push","push","push","getMin","pop","top","getMin"]
 
@@ -149,3 +150,99 @@ console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top(
 // console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
 // obj.pop()
 // console.log("stack, min, getMin, Top", obj.stack, obj.min, obj.getMin(), obj.top())
+
+// V2 Utilising a stack linkedlist
+var MinStack = function() {
+    this.Node = function(data){
+        this.data = data;
+        this.next = null; 
+        this.min = 0; 
+    }
+    this.head = null; 
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    let newNode = new this.Node(val); 
+    if(this.head){
+        newNode.next = this.head; 
+        newNode.min = Math.min(val, this.head.min)
+    } else {
+        newNode.min = val
+    }
+    this.head = newNode; 
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    if(this.head){
+       this.head = this.head.next;
+    } else {
+        return undefined;
+    }
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.head ? this.head.data : undefined; 
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.head ? this.head.min : undefined; 
+};
+
+let obj = new MinStack()
+
+obj.push(2)
+obj.push(1)
+obj.push(0)
+obj.push(4)
+obj.pop()
+obj.pop()
+obj.pop()
+obj.pop()
+
+console.log(obj)
+
+
+// obj.stack;
+// console.log("Stack:");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.push(-2);
+// console.log("After pushing -2: ");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.push(0);
+// console.log("After pushing 0: ");
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.push(-3);
+// console.log("Push -3:" );
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.getMin();
+// console.log("After pushing 2:", obj.stack, obj.min, obj.getMin());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.pop();
+// console.log("Pop: ", obj.pop());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.top();
+// console.log("Get Top: ", obj.top());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
+
+// obj.getMin();
+// console.log("getMin:", obj.getMin());
+// console.log("Min ,Stac, getMin, top: ",obj.min,obj.stack, obj.getMin(), obj.top())
