@@ -30,121 +30,44 @@
 
 
 // V1 Brute Force
+
+
 /**
  * @param {string} num1
  * @param {string} num2
  * @return {string}
  */
-// const addStrings = (num1, num2) => {
-//     return (BigInt(num1) + BigInt(num2)).toString();
-//   };
+// Constrains numbers are between 1 and 10K
+var addStrings = function(num1, num2) {
 
-  // V2
-//   var addStrings = function(num1, num2) {
-//     const StringValue = {"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9,"0":0};
-//     let i = num1.length - 1;
-//     let j = num2.length - 1;
-//     let carry = 0;
-//     let result = '';
-
-//     while (i >= 0 || j >= 0) {
-//         let digit1 = i >= 0 ? StringValue[num1[i]] : 0;
-//         let digit2 = j >= 0 ? StringValue[num2[j]] : 0;
-//         let sum = digit1 + digit2 + carry;
-//         console.log("sum",sum)
-//         carry = Math.floor(sum / 10);
-//         console.log("carry", carry)
-//         result = (sum % 10) + result;
-//         console.log('result',result)
-//         i--;
-//         j--;
-//     }
-
-//     if (carry > 0) {
-//         result = carry + result;
-//     }
-
-//     return result;
-// };
-
-// const result0 = addStrings("87","107")
-// console.log("Final Result: ", result0)
-
-
-
-// V3 Personal Attemp
-
-// PREP
-// Parameters is num1 and num2 are strings with number characters not starting with 0 but could be 0
-// Returns the sum of num1 and num2 converted as numbers to a string result
-// num1 = 9 num2 = 12 returns string "21" 
-
-
-// var addStrings = function(num1, num2) {
-//   // Pseudo code 
-//   // Object identifying number value of string numbers
-//   let stringNumbers = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
-//   // While look that keep iterating until end either number
-//   let i=num1.length-1;
-//   let j=num2.length-1;
-//   let result="";
-//   let carry =0; 
-//   while(i>=0 || j>=0){
-//   // Add the sum of string numbers, update carry and string result
-//   let tempI = i >= 0 ? stringNumbers[num1[i]] : 0;
-//   let tempJ = i >= 0  ? stringNumbers[num2[j]] : 0;
-  
-//   // Temp result:
-//   let tempNumResult = tempI + tempJ + carry; 
-
-//   // Carry
-//   carry = Math.floor(tempNumResult / 10);
-//   // Update Result
-//   result = tempNumResult % 10 + result; 
-//   console.log("update resul",result)
-//   i--
-//   j--
-//   }
-//   // Return Result String;
-//   return result;
-// };
-
-// const result0 = addStrings("87","107")
-// console.log("Final Result: ", result0)
-
-
-// 14
-//  Sum 4, Carry 1
-//  Sum 8 + Carry 1 = 9 Carry: 0; 
-//  194
-
-
-// V4 Recursive version
-
-// PREP
-// Parameters is num1 and num2 are strings with number characters not starting with 0 but could be 0
-// Returns the sum of num1 and num2 converted as numbers to a string result
-// num1 = 9 num2 = 12 returns string "21" 
-
-const stringNumbers = {"0":0,"1":1,"2":2,"3":3,"4":4,"5":5,"6":6,"7":7,"8":8,"9":9}
-
-var addStrings = function(num1, num2, i = num1.length -1, j = num2.length -1,  carry = 0, result="") {
-  if(i<=-1 && j <=-1){
-    if(carry !== 0){
-      return carry + result; 
+  let result="";
+  let carry = "";   
+  for(let i=0;i<num1.length;i++){
+    // console.log(num1[i],num2[i])
+    
+    
+    tempResult = Number(num1[i]) + Number(num2[i])
+    if(tempResult < 10){
+      result += tempResult; 
+    } else {
+      // Remainder is the number that remains in position
+      let remainder = String(tempResult % 10)
+      carry = String(tempResult / 10)
+      console.log("remainder carry", remainder, carry )
+     
+      result += remainder
+      console.log(result)
     }
-    return result; 
   }
-  //  Global Variable
-let tempValue1 = i >=0 ? stringNumbers[num1[i]] : 0; 
-let tempValue2 = j >=0 ? stringNumbers[num2[j]] : 0; 
-let tempSum = tempValue1 + tempValue2 + carry; 
-carry = Math.floor(tempSum / 10)
-result = (tempSum % 10) + result
-i--
-j--
-return addStrings(num1, num2,i,j,carry,result)
+  console.log("result & carry", result, carry)
+  return carry + result; 
 };
 
-const result0 = addStrings("987","107")
-console.log("Final Result: ", result0)
+// const bruteForceResult = addStrings("1","1")
+const bruteForceResult = addStrings("9","1")
+// const bruteForceResult3 = addStrings("11","1")
+// const bruteForceResult2 = addStrings("1","11")
+// const bruteForceResult4 = addStrings("1","123")
+// const bruteForceResult5= addStrings("123","1")
+
+console.log(bruteForceResult)
