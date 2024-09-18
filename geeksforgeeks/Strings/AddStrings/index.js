@@ -38,36 +38,88 @@
  * @return {string}
  */
 // Constrains numbers are between 1 and 10K
+
+function appendZeros(bigLengthNum, smallLengthNum){
+  let bigLength = bigLengthNum.length;
+  let smallLength = smallLengthNum.length; 
+  let diff = bigLength - smallLength
+
+
+  for(let i =0; i< diff;i++){
+    smallLengthNum = "0" + smallLengthNum;
+  }
+
+  return [ bigLengthNum, smallLengthNum ] 
+}
+
+
 var addStrings = function(num1, num2) {
+
+  // Num1 & Num2 not same lenght will require appending 0's to the shortest number
+  if(num1.length > num2.length){
+    // Append 0's' to num2
+    [num1,num2] = appendZeros(num1,num2)
+  } else if(num1.length < num2.length){
+    // Append 0's to num1 and reverse return order
+    [num1, num2] = appendZeros(num2, num1)
+  }
 
   let result="";
   let carry = "";   
-  for(let i=0;i<num1.length;i++){
+  // for(let i=0;i<num1.length;i++){
+  //   // console.log(num1[i],num2[i])
+    
+  //   let numberOne = Number(num1[i])
+  //   let numberTwo = num2[i] ? Number(num2[i]) : 0; 
+  //   let tempResult = numberOne + numberTwo;
+  //   if(tempResult < 10){
+  //     result = tempResult +result; 
+  //     console.log(result, typeof result)
+  //   } else {
+  //     // Remainder is the number that remains in position
+  //     let remainder = String(tempResult % 10)
+  //     // Moves to the calculation of the next digit
+  //     carry = String(tempResult / 10)
+     
+  //     result += remainder
+  //   }
+  // }
+
+
+  for(let i= num1.length-1;i>=0;i--){
     // console.log(num1[i],num2[i])
     
-    
-    tempResult = Number(num1[i]) + Number(num2[i])
+    let numberOne = Number(num1[i])
+    let numberTwo = num2[i] ? Number(num2[i]) : 0; 
+    let tempResult = numberOne + numberTwo;
     if(tempResult < 10){
-      result += tempResult; 
+      result = tempResult +result; 
+      console.log(result, typeof result)
     } else {
       // Remainder is the number that remains in position
       let remainder = String(tempResult % 10)
+      // Moves to the calculation of the next digit
       carry = String(tempResult / 10)
-      console.log("remainder carry", remainder, carry )
      
       result += remainder
-      console.log(result)
     }
   }
-  console.log("result & carry", result, carry)
   return carry + result; 
 };
 
 // const bruteForceResult = addStrings("1","1")
-const bruteForceResult = addStrings("9","1")
-// const bruteForceResult3 = addStrings("11","1")
+// const bruteForceResult = addStrings("9","1")
+const bruteForceResult = addStrings("321","1")
 // const bruteForceResult2 = addStrings("1","11")
 // const bruteForceResult4 = addStrings("1","123")
 // const bruteForceResult5= addStrings("123","1")
 
 console.log(bruteForceResult)
+
+
+// Todo 
+// Apptend 0's to smaller if there is one so calculation is the same for both
+// Make sure carry suvives digit calcuations until completed
+// Space and time complexity analysis
+// Refactor
+// Veralize
