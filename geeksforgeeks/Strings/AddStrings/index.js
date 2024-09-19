@@ -65,52 +65,42 @@ var addStrings = function(num1, num2) {
   }
 
   let result="";
-  let carry = "";   
-  // for(let i=0;i<num1.length;i++){
-  //   // console.log(num1[i],num2[i])
-    
-  //   let numberOne = Number(num1[i])
-  //   let numberTwo = num2[i] ? Number(num2[i]) : 0; 
-  //   let tempResult = numberOne + numberTwo;
-  //   if(tempResult < 10){
-  //     result = tempResult +result; 
-  //     console.log(result, typeof result)
-  //   } else {
-  //     // Remainder is the number that remains in position
-  //     let remainder = String(tempResult % 10)
-  //     // Moves to the calculation of the next digit
-  //     carry = String(tempResult / 10)
-     
-  //     result += remainder
-  //   }
-  // }
-
+  let carryOver = "";   
 
   for(let i= num1.length-1;i>=0;i--){
-    // console.log(num1[i],num2[i])
     
     let numberOne = Number(num1[i])
-    let numberTwo = num2[i] ? Number(num2[i]) : 0; 
-    let tempResult = numberOne + numberTwo;
+    let numberTwo = Number(num2[i]) 
+    let tempResult,remainder; 
+
+    if(carryOver.length == 0){
+    tempResult = numberOne + numberTwo;
+    // console.log(tempResult)
+  } else {
+      tempResult = numberOne + numberTwo + Number(carryOver)
+      console.log(tempResult)
+    }
+
     if(tempResult < 10){
+      carryOver =""
       result = tempResult +result; 
-      console.log(result, typeof result)
     } else {
       // Remainder is the number that remains in position
-      let remainder = String(tempResult % 10)
+      remainder = String(tempResult % 10)
       // Moves to the calculation of the next digit
-      carry = String(tempResult / 10)
-     
+      carryOver = String(Math.floor(tempResult / 10))
       result += remainder
     }
+    // console.log("before looping: result remainder carryOver", result, remainder, carryOver)
   }
-  return carry + result; 
+  return carryOver + result; 
 };
 
 // const bruteForceResult = addStrings("1","1")
 // const bruteForceResult = addStrings("9","1")
-const bruteForceResult = addStrings("321","1")
-// const bruteForceResult2 = addStrings("1","11")
+// const bruteForceResult = addStrings("1","3221")
+const bruteForceResult = addStrings("299","2")
+// 1110
 // const bruteForceResult4 = addStrings("1","123")
 // const bruteForceResult5= addStrings("123","1")
 
