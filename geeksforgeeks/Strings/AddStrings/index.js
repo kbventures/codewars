@@ -44,10 +44,10 @@ function appendZeros(bigLengthNum, smallLengthNum){
   let smallLength = smallLengthNum.length; 
   let diff = bigLength - smallLength
 
-
-  for(let i =0; i< diff;i++){
-    smallLengthNum = "0" + smallLengthNum;
-  }
+  // for(let i =0; i< diff;i++){
+  //   smallLengthNum = "0" + smallLengthNum;
+  // }
+  smallLength = "0".repeat(diff) + smallLength;
 
   return [ bigLengthNum, smallLengthNum ] 
 }
@@ -75,21 +75,24 @@ var addStrings = function(num1, num2) {
 
     if(carryOver.length == 0){
     tempResult = numberOne + numberTwo;
+    console.log("tempResult when length of carryOver 0", tempResult)
     // console.log(tempResult)
   } else {
       tempResult = numberOne + numberTwo + Number(carryOver)
-      console.log(tempResult)
+      console.log("tempResult when carry over greater than 0: ",tempResult)
     }
 
     if(tempResult < 10){
       carryOver =""
       result = tempResult +result; 
+      console.log("result when tempresult < 10", result, typeof result)
     } else {
       // Remainder is the number that remains in position
       remainder = String(tempResult % 10)
       // Moves to the calculation of the next digit
       carryOver = String(Math.floor(tempResult / 10))
-      result += remainder
+      result = remainder + result;
+      console.log("stats when computation 10 or greater remainder, carryOver result", remainder, typeof remainder,  carryOver, typeof carryOver, result, typeof result)
     }
     // console.log("before looping: result remainder carryOver", result, remainder, carryOver)
   }
@@ -99,7 +102,7 @@ var addStrings = function(num1, num2) {
 // const bruteForceResult = addStrings("1","1")
 // const bruteForceResult = addStrings("9","1")
 // const bruteForceResult = addStrings("1","3221")
-const bruteForceResult = addStrings("299","2")
+const bruteForceResult = addStrings("322","299")
 // 1110
 // const bruteForceResult4 = addStrings("1","123")
 // const bruteForceResult5= addStrings("123","1")
