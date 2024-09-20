@@ -116,3 +116,16 @@ console.log(bruteForceResult)
 // Space and time complexity analysis
 // Refactor
 // Veralize
+
+
+// Optimal Two pointer Version
+var addStrings = function(num1, num2) {
+  let res = "", dot = 0, sum;
+  let i = num1.length - 1, j = num2.length - 1;
+  while(j >= 0 || i >= 0){
+      sum = (num1[i--] | 0) + (num2[j--] | 0) + dot;  // "9" | 0  ->  9,  undefined | 0  ->  0;
+      res = sum % 10 + res;
+      dot = sum > 9 ? 1: 0;
+  }
+  return (dot ? 1 : "") + res;
+};
