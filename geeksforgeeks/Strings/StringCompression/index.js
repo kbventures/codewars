@@ -34,22 +34,36 @@ var compress = function(chars) {
     // We then overwrite the original chars array with the character followed by the number of occurrences if more than one.
     let j =0;
     for(c of compressionMap){
-        chars[j] =  c[0]; 
-        chars[j+1] = String(c[1]);
-        j+=2
+        // console.log(c)
+     if(c[1]===1){
+        s+= c[0]
+     } else {
+        s = s + c[0] + c[1]
+     }
     }
-    chars.length = compressionMap.size * 2;
+    // console.log("current s:", s)
+
+    for(c in s){
+        console.log(c)
+        chars[c] = s[c]
+    }
+    chars.length = s.length;
+    console.log("final chars",chars)
 
     // We have to return the length of the array after the modifications.
+    // console.log("chars result",chars)
     return chars.length;
 };
 
 // const result = compress(['a','a','b','b','c','c','c'])
-const result = compress(['a'])
+const result = compress(["a","a","a","b","b","a","a"])
+// ["a","3","b","2","a","2"]
+
+
 
 console.log(result)
 
 
 
-Expected
-["a","b","1","2"]
+// Expected
+// ["a","b","1","2"]
