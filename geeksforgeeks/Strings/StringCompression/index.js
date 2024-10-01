@@ -71,40 +71,57 @@ https://leetcode.com/problems/string-compression/description/
 
 
 
-// V2 Deals with reoccuring groups
-/**
- * @param {character[]} chars
- * @return {number}
- */
+// // V3 Two Pointer Sliding Window?
+// /**
+//  * @param {character[]} chars
+//  * @return {number}
+//  */
+
+
+
+
 var compress = function(chars) {
 
-    // Check for one letter
-    if(chars.length === 1) return chars;
-    
-    let s ="";
-    let group = chars[0]
-    let currenGroupCount = 1; 
-    
-    for(let i = 0; i<=chars.length;i++){
-        console.log(chars[i])
-        // Start with the second letter & check if they are of the same group or new group
-        // If new group add current group letter and count to s and initalise new group
-        // if final character add to s
+    if(chars.length ==1) return chars; 
+
+    function compressString(stringGroup){
+        if(stringGroup.length ===1){
+            return stringGroup[0]
+        } else{
+            return stringGroup[0] + stringGroup.length
+        }
     }
 
+    let s =""
+    let firstCharOfGroup = chars[0]
+    let currentGroup = chars[0]
+    
+// Iterate through chars
+for(let i=1;i<= chars.length;i++){
 
-    // Compress array to resulting array length
-    chars.length = s.length; 
+    if(chars[i]=== firstCharOfGroup)
+        {
+        currentGroup+= chars[i]
+    } else {
+        let temp =  compressString(currentGroup)
+        s += temp; 
+        currentGroup = chars[i];
+        firstCharOfGroup = chars[i]
+    }
+}
 
-    // Create for loop that appends compressed result  
-    return chars.length; 
+
+for( index in s){
+    chars[index] = s[index]
+}
+chars.length = s.length;
+return chars.length
 };
 
+
+
 // const result = compress(['a','a','b','b','c','c','c'])
-const result = compress(["a","a","a","b","b","a","a"])
-// ["a","3","b","2","a","2"]
-
-
-
+const result = compress(["a","b","b"])
 console.log(result)
+// // ["a","3","b","2","a","2"]
 
