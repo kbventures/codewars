@@ -25,30 +25,35 @@
 // All the numbers of nums are unique.
 
 
-// V1 Brute force
 /**
  * @param {number[]} nums
  * @return {number[][]}
  */
 var subsets = function(nums) {
-    let subSet = new Set()
-    subSet.add([])
-    console.log(subSet)
+    // Starting point
+    let result = [[]]
 
-    for(let i =0;i<nums.length;i++){
-        subSet.add([nums[i]])
-        for(let j =1;j<nums.length;j++){
-        subSet.add([nums[i],nums[j]])
-            } 
+    function recSubSet(res,numArr,len){
+        // Base case1
+        if(len == -1){
+            return res;
         }
+        // Counter
+        let temp = numArr.slice(1)
+        // Exclude
+        const include = recSubSet(res,temp, len -1)
+        // Include
+        res.push([numArr[0]])
+        const exclude = recSubSet(res, temp, len-1);
+        return res;
+    }
 
-    subSet.add([...nums])
-    return Array.from(subSet)
+    // Sets recursive DFS
+    return recSubSet(result, nums, nums.length-1)
 };
 
 
-const result = subsets([1,2,3,4,5])
+const result = subsets([1,2,3])
 
-console.log(result)
+console.log("Final subset", result)
 
-// V2 Recursion
