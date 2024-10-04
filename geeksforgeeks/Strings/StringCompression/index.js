@@ -71,57 +71,110 @@ https://leetcode.com/problems/string-compression/description/
 
 
 
-// // V3 Two Pointer Sliding Window?
-// /**
-//  * @param {character[]} chars
-//  * @return {number}
-//  */
+// // V3 Brute force
+// // /**
+// //  * @param {character[]} chars
+// //  * @return {number}
+// //  */
 
 
 
 
-var compress = function(chars) {
+// var compress = function(chars) {
 
-    if(chars.length ==1) return chars; 
+//     function compressString(stringGroup){
+//         if(stringGroup.length ===1){
+//             return stringGroup[0]
+//         } else{
+//             return stringGroup[0] + stringGroup.length
+//         }
+//     }
 
-    function compressString(stringGroup){
-        if(stringGroup.length ===1){
-            return stringGroup[0]
-        } else{
-            return stringGroup[0] + stringGroup.length
-        }
-    }
-
-    let s =""
-    let firstCharOfGroup = chars[0]
-    let currentGroup = chars[0]
+//     let s =""
+//     let firstCharOfGroup = chars[0]
+//     let currentGroup = chars[0]
     
-// Iterate through chars
-for(let i=1;i<= chars.length;i++){
+// // Iterate through chars
+// for(let i=1;i<= chars.length;i++){
 
-    if(chars[i]=== firstCharOfGroup)
-        {
-        currentGroup+= chars[i]
-    } else {
-        let temp =  compressString(currentGroup)
-        s += temp; 
-        currentGroup = chars[i];
-        firstCharOfGroup = chars[i]
-    }
-}
-
-
-for( index in s){
-    chars[index] = s[index]
-}
-chars.length = s.length;
-return chars.length
-};
+//     if(chars[i]=== firstCharOfGroup)
+//         {
+//         currentGroup+= chars[i]
+//     } else {
+//         let temp =  compressString(currentGroup)
+//         s += temp; 
+//         currentGroup = chars[i];
+//         firstCharOfGroup = chars[i]
+//     }
+// }
 
 
+// for( index in s){
+//     chars[index] = s[index]
+// }
+// chars.length = s.length;
+// return chars.length
+// };
 
-// const result = compress(['a','a','b','b','c','c','c'])
-const result = compress(["a","b","b"])
-console.log(result)
-// // ["a","3","b","2","a","2"]
+
+
+// // const result = compress(['a','a','b','b','c','c','c'])
+// const result = compress(["a","b","b"])
+// console.log(result)
+// // // ["a","3","b","2","a","2"]
+
+
+
+// // /**
+// //  * @param {character[]} chars
+// //  * @return {number}
+// //  */
+
+
+// var compress = function(chars) {
+
+//     function compressString(stringGroup){
+//         if(stringGroup.length ===1){
+//             return stringGroup[0]
+//         } else{
+//             return stringGroup[0] + stringGroup.length
+//         }
+//     }
+
+//     let s =""
+//     let firstCharOfGroup = chars[0]
+//     let currentGroup = chars[0]
+    
+// // Iterate through chars
+// for(let i=1;i<= chars.length;i++){
+
+//     if(chars[i]=== firstCharOfGroup)
+//         {
+//         currentGroup+= chars[i]
+//     } else {
+//         let temp =  compressString(currentGroup)
+//         s += temp; 
+//         currentGroup = chars[i];
+//         firstCharOfGroup = chars[i]
+//     }
+// }
+
+
+// for( index in s){
+//     chars[index] = s[index]
+// }
+// chars.length = s.length;
+// return chars.length
+// };
+
+
+
+// // const result = compress(['a','a','b','b','c','c','c'])
+// const result = compress(["a","b","b"])
+// console.log(result)
+// // // ["a","3","b","2","a","2"]
+
+
+
+
 
