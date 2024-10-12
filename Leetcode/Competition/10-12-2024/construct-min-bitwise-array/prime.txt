@@ -1,0 +1,14 @@
+A prime integer (or simply a prime number) is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number can only be divided by 1 and the number itself without leaving a remainder.
+
+Key Characteristics of Prime Numbers:
+Greater than 1: Prime numbers must be greater than 1.
+No divisors other than 1 and itself: A prime number cannot be divided evenly by any other numbers besides 1 and itself.
+Examples:
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, etc.
+Examples:
+2 is a prime number because its only divisors are 1 and 2.
+3 is a prime number because its only divisors are 1 and 3.
+4 is not a prime number because it can be divided evenly by 1, 2, and 4.
+Important Notes:
+2 is the smallest prime number and is also the only even prime number. All other even numbers are divisible by 2, so they can't be prime.
+Prime numbers are important in number theory and play a key role in cryptography, such as in RSA encryption.
