@@ -41,29 +41,151 @@
 // 2 <= k <= 10^14
 
 // Brute Force Attempt 1
-function getPotentialOfWinner(potential, k) {
+// function getPotentialOfWinner(potential, k) {
 
-    let player1 = 0
-    let player2 = 1
-    let players = potential.slice()
-    let currentPoints = 0; 
+//     let player1 = 0
+//     let player2 = 1
+//     let players = potential.slice()
+//     let currentPoints = 0; 
 
-    while(true){
-    if(players[player1]>players[player2]){
-    currentPoints++
-    players.push(players[player2])
-    players.splice(player2,1)
-    // console.log(players[player1], players[player2])
-    } else {
-    currentPoints = 1; 
-    players.push(players[player1])
-    players.splice(player1,1)
-    }
+//     while(true){
+//     if(players[player1]>players[player2]){
+//     currentPoints++
+//     players.push(players[player2])
+//     players.splice(player2,1)
+//     // console.log(players[player1], players[player2])
+//     } else {
+//     currentPoints = 1; 
+//     players.push(players[player1])
+//     players.splice(player1,1)
+//     }
    
     
-    if(k === currentPoints){
-    return players[player1]
-    }      
+//     if(k === currentPoints){
+//     return players[player1]
+//     }      
+//     }
+// }
+
+// // Example usage
+// const potential = [2,1,3];
+
+// // win
+// // const potential = [3, 2, 1, 4];
+// const k = 2; 
+// // loose
+// // const potential = [2, 3, 1, 4];
+// // const k = 2;
+// console.log(getPotentialOfWinner(potential, k)); // Output: 3
+
+
+
+// Queue LinkedList
+
+class Node{
+    constructor(value){
+        this.value = value;
+        this.next = null; 
+    }
+}
+
+
+class LinkedListQueue{
+    constructor(){
+    this.front = null;
+    this.rear = null;
+    this.size = 0; 
+    } 
+
+    enqueue(value){
+        let newNode = new Node(value)
+        if(this.isEmpty()){
+            this.front = newNode;
+            this.rear = newNode;
+        } else {
+            this.rear.next = newNode; 
+            this.rear = newNode; 
+        }
+
+        this.size++
+    }
+
+    dequeue(){
+        let temp; 
+        if(this.isEmpty()){
+            return undefined
+        } else if(this.size ===1){
+            temp = this.front.value
+            this.front = null; 
+            this.rear = null; 
+        } else {
+            temp = this.front.value; 
+            this.front = this.front.next; 
+        }
+        return temp; 
+    }
+
+    isEmpty(){
+        return this.size === 0;
+    }
+
+    length(){
+        return this.size;
+    }
+
+    peek(){
+        if(this.isEmpty()){
+            return undefined
+        } else {
+            return this.front.value
+        }
+    }
+}
+
+
+// There are n number of players and they are given to us with their potentials
+
+// Index 0 and 1 player first.. winner stays while looser is moved to the end of the que and winning cont goes up or resets to 1
+
+// This goes on until k consecutive wins in a row happen
+
+
+function getPotentialOfWinner(potential, k) {
+
+    const queue = new LinkedListQueue()
+    let currentWinningStreak = 1; 
+
+    // Initialize queue
+    for( let z of potential){
+        queue.enqueue(z)
+    }
+
+
+    let player1 = queue.dequeue()
+    let player2 = queue.dequeue()
+    let lead, nextOpponent;
+
+    // Find the initial winner
+    if(player1 > player2){
+        lead = player1
+        queue.enqueue(player2)
+    } else {
+        lead = player2;
+        queue.enqueue(player1)
+    }
+
+    // Iterate until final winner is found
+    while(true){
+
+    if(currentWinningStreak === k ) return lead; 
+    nextOpponent = queue.dequeue()
+    if(lead > nextOpponent){
+        currentWinningStreak++
+        queue.enqueue(nextOpponent)
+    } else {
+        currentWinningStreak = 1; 
+        queue.enqueue(lead)
+    }
     }
 }
 
@@ -78,9 +200,6 @@ const k = 2;
 // const k = 2;
 console.log(getPotentialOfWinner(potential, k)); // Output: 3
 
-
-
-// Queue
 
 
 // Reference Queue
