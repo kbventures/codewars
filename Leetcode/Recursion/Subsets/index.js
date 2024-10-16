@@ -204,9 +204,7 @@ var subsets = function(nums) {
         // base case
         if(index === nums.length){
             //do something
-            console.log(allSubsets)
             allSubsets.push(currentSubset.slice())
-            console.log(allSubsets)
             // backtrack
             return
         }
@@ -230,6 +228,12 @@ var subsets = function(nums) {
 
 const finalResult = subsets([1,2,3])
 console.log(finalResult)
+
+
+// Summary of Breakpoints
+// Before each dfs(index + 1) call: To track when you include/exclude an element.
+// After adding to allSubsets: To see the complete subset being stored.
+// Before popping from currentSubset: To observe the state before backtracking.
 
 
 

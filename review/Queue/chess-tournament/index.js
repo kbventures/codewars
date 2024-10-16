@@ -152,6 +152,10 @@ class LinkedListQueue{
 
 function getPotentialOfWinner(potential, k) {
 
+    if(potential.length==1) return potential[0]
+
+    if(potential.length==0) return null; 
+
     const queue = new LinkedListQueue()
     let currentWinningStreak = 1; 
 
@@ -185,6 +189,7 @@ function getPotentialOfWinner(potential, k) {
     } else {
         currentWinningStreak = 1; 
         queue.enqueue(lead)
+        lead = nextOpponent;
     }
     }
 }
