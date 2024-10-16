@@ -205,6 +205,7 @@ var subsets = function(nums) {
         if(index === nums.length){
             //do something
             allSubsets.push(currentSubset.slice())
+            console.log("allSubsets", JSON.stringify(allSubsets, null))
             // backtrack
             return
         }
@@ -213,6 +214,7 @@ var subsets = function(nums) {
         dfs(index+1)
 
         currentSubset.push(nums[index])
+        console.log("currentSubset", JSON.stringify(currentSubset, null))
 
         // include
         dfs(index+1)
@@ -220,6 +222,8 @@ var subsets = function(nums) {
         // reduce index
 
         currentSubset.pop()
+        console.log("currentSubset pop: ", JSON.stringify(currentSubset,null))
+
     }
 
     dfs(0)
@@ -234,6 +238,191 @@ console.log(finalResult)
 // Before each dfs(index + 1) call: To track when you include/exclude an element.
 // After adding to allSubsets: To see the complete subset being stored.
 // Before popping from currentSubset: To observe the state before backtracking.
+
+
+// add allSubsets [[]]
+// add current subset [3]
+// add allSubsets [[],[3]]
+// currentSubset pop:  []
+// add current subset [2]
+// add allSubsets [[],[3],[2]]
+// add current subset [2,3]
+// add allSubsets [[],[3],[2],[2,3]]
+// currentSubset pop:  [2]
+// currentSubset pop:  []
+// add current subset [1]
+// add allSubsets [[],[3],[2],[2,3],[1]]
+// add current subset [1,3]
+// add allSubsets [[],[3],[2],[2,3],[1],[1,3]]
+
+
+
+
+// Starting Array [1,2]
+
+// Step-by-Step Execution
+// Start: Call dfs(0)
+
+// index = 0, currentSubset = []
+// Exclude 1: Call dfs(1)
+// Second Call: dfs(1)
+
+// index = 1, currentSubset = []
+// Exclude 2: Call dfs(2)
+// Third Call: dfs(2)
+
+// index = 2, currentSubset = [] (Base case)
+// Add [] to allSubsets
+// Return to dfs(1)
+// Back to Second Call: dfs(1)
+
+// Backtrack to currentSubset = []
+// Now include 2:
+// currentSubset = [2]
+// Call dfs(2)
+// Fourth Call: dfs(2)
+
+// index = 2, currentSubset = [2] (Base case)
+// Add [2] to allSubsets
+// Backtrack: pop 2 from currentSubset
+// Back to First Call: dfs(0)
+
+// Backtrack to currentSubset = []
+// Now include 1:
+// currentSubset = [1]
+// Call dfs(1)
+// Fifth Call: dfs(1)
+
+// index = 1, currentSubset = [1]
+// Exclude 2: Call dfs(2)
+// Sixth Call: dfs(2)
+
+// index = 2, currentSubset = [1] (Base case)
+// Add [1] to allSubsets
+// Backtrack: pop 1 from currentSubset
+// Back to Fifth Call: dfs(1)
+
+// Backtrack to currentSubset = []
+// Now include 2:
+// currentSubset = [1, 2]
+// Call dfs(2)
+// Seventh Call: dfs(2)
+
+// index = 2, currentSubset = [1, 2] (Base case)
+// Add [1, 2] to allSubsets
+// Backtrack: pop 2 from currentSubset
+
+
+// Starting array [1,2,3]
+
+// Step-by-Step Execution
+// Let’s break down the execution:
+
+// Start: Call dfs(0)
+
+// index = 0, currentSubset = []
+// Exclude 1: Call dfs(1)
+// Second Call: dfs(1)
+
+// index = 1, currentSubset = []
+// Exclude 2: Call dfs(2)
+// Third Call: dfs(2)
+
+// index = 2, currentSubset = []
+// Exclude 3: Call dfs(3)
+// Fourth Call: dfs(3)
+
+// index = 3, currentSubset = [] (Base case)
+// Add [] to allSubsets
+// Return to dfs(2)
+// Back to Third Call: dfs(2)
+
+// Now include 3:
+// currentSubset = [3]
+// Call dfs(3)
+// Fifth Call: dfs(3)
+
+// index = 3, currentSubset = [3] (Base case)
+// Add [3] to allSubsets
+// Backtrack: pop 3 from currentSubset
+// Back to Second Call: dfs(1)
+
+// Backtrack: currentSubset = [] (after popping 3)
+// Now include 2:
+// currentSubset = [2]
+// Call dfs(2)
+// Sixth Call: dfs(2)
+
+// index = 2, currentSubset = [2]
+// Exclude 3: Call dfs(3)
+// Seventh Call: dfs(3)
+
+// index = 3, currentSubset = [2] (Base case)
+// Add [2] to allSubsets
+// Backtrack: pop 2 from currentSubset
+// Back to Sixth Call: dfs(2)
+
+// Now include 3:
+// currentSubset = [2, 3]
+// Call dfs(3)
+// Eighth Call: dfs(3)
+
+// index = 3, currentSubset = [2, 3] (Base case)
+// Add [2, 3] to allSubsets
+// Backtrack: pop 3 from currentSubset
+// Back to First Call: dfs(0)
+
+// Backtrack: currentSubset = [] (after popping 3)
+// Now include 1:
+// currentSubset = [1]
+// Call dfs(1)
+// Ninth Call: dfs(1)
+
+// index = 1, currentSubset = [1]
+// Exclude 2: Call dfs(2)
+// Tenth Call: dfs(2)
+
+// index = 2, currentSubset = [1]
+// Exclude 3: Call dfs(3)
+// Eleventh Call: dfs(3)
+
+// index = 3, currentSubset = [1] (Base case)
+// Add [1] to allSubsets
+// Backtrack: pop 1 from currentSubset
+// Back to Tenth Call: dfs(2)
+
+// Now include 3:
+// currentSubset = [1, 3]
+// Call dfs(3)
+// Twelfth Call: dfs(3)
+
+// index = 3, currentSubset = [1, 3] (Base case)
+// Add [1, 3] to allSubsets
+// Backtrack: pop 3 from currentSubset
+// Back to Ninth Call: dfs(1)
+
+// Now include 2:
+// currentSubset = [1, 2]
+// Call dfs(2)
+// Thirteenth Call: dfs(2)
+
+// index = 2, currentSubset = [1, 2]
+// Exclude 3: Call dfs(3)
+// Fourteenth Call: dfs(3)
+
+// index = 3, currentSubset = [1, 2] (Base case)
+// Add [1, 2] to allSubsets
+// Backtrack: pop 2 from currentSubset
+// Back to Thirteenth Call: dfs(2)
+
+// Now include 3:
+// currentSubset = [1, 2, 3]
+// Call dfs(3)
+// Fifteenth Call: dfs(3)
+
+// index = 3, currentSubset = [1, 2, 3] (Base case)
+// Add [1, 2, 3] to allSubsets
+// Backtrack: pop 3 from currentSubset
 
 
 
