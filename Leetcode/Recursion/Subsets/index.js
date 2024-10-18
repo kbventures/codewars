@@ -230,7 +230,9 @@ var subsets = function(nums) {
     return allSubsets
 };
 
-const finalResult = subsets([1,2,3])
+// const finalResult = subsets([1])
+const finalResult = subsets([1,2])
+// const finalResult = subsets([1,2,3])
 console.log(finalResult)
 
 
@@ -282,10 +284,14 @@ console.log(finalResult)
 // Call dfs(2)
 // Fourth Call: dfs(2)
 
-// index = 2, currentSubset = [2] (Base case)
-// Add [2] to allSubsets
-// Backtrack: pop 2 from currentSubset
-// Back to First Call: dfs(0)
+
+// ******
+
+// // index = 2, currentSubset = [2] (Base case)
+// // Add [2] to allSubsets
+// // Backtrack: pop 2 from currentSubset
+// // Back to First Call: dfs(0)
+// *****
 
 // Backtrack to currentSubset = []
 // Now include 1:
