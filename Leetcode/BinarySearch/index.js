@@ -121,14 +121,38 @@
  */
 // V3 pure binary search
 var search = function(nums, target) {
+let left = 0;
+let right = nums.length-1;
+let middle; 
 
+while(left <= right){
+    middle = Math.floor((left+right)/2)
+
+    if(nums[middle] == target){
+        return middle; 
+    } else if(nums[middle] > target){
+        right = middle - 1
+    } else {
+        left = middle +1 
+    }
+}
+
+// Not found
+return -1 
 
 };
+
+const result = search([-1,0,3,5,9,12], 9)
+
+// left 0 right 6 middle 3
+// left 0 right 3 middle 1
+// left 1 right 3 middle 2
+// left 1 right 2 middle 1
 
 
 // const result = search([-1,0,3,4,9,12,13],9)
 
-const result = search([-1,0,5],5)
+// const result = search([-1,0,5],5)
 
 
 // const result = search([-1,0,3,5,9,12])
