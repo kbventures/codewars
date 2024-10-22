@@ -14,5 +14,20 @@
  * @return {number}
  */
 var guessNumber = function(n) {
-    
-};
+
+    let left = 1;
+    let right = n;
+    let middle;
+    while(left <= right){
+        middle = Math.floor((left + right) / 2)
+        let tempGuess = guess(middle)
+        if(tempGuess==0){
+            return middle
+        } else if (tempGuess ==1){
+            left = middle+1
+        } else {
+            right = middle -1
+        }
+    }
+        
+    };
