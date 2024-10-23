@@ -57,28 +57,35 @@ var searchRange = function(nums, target) {
     if (targetRangep[0] == -1 && targetRange[1] == -1 )return targetRange 
 
     // Look right
-    left = targetRange[0] + 1
-    right = nums.length; 
-    middle = Math.floor(left + right / 2); 
 
+    left = middle
 
-    while(left <= right){
-        if(nums[middle] == target){
-            targetRange[1] = middle;
-        }
-        let middle = Math.floor(left + right / 2); 
+    // condition needs to be set
+    while(true){
+        if(nums[right] =)
     }
 
+
     // Look for left
+
     
+
 };
 
 
 const result0 = searchRange([5,6,7,8,10],6)
 
-const result1 = searchRange([5,7,7,8,8,10], 8)
+const result1 = searchRange([5,7,7,8,8,10], 7)
+// Found 7 at [1,1]
+// Left is 0 and right is 2
 
-const result2 = searchRange([5,7,7,8,  8  ,8,8,8,10], 8)
+// Check right 
+// the range range would be at most middle to right; 
+
+// Check left
+// the range woudl be at most starting at left to current middle
+
+const result2 = searchRange([5,7,7,8, 8 ,8,8,8,10], 8)
 
 
 const result3 = searchRange([5,7,7,8,8,8,8,8,10], 5)
