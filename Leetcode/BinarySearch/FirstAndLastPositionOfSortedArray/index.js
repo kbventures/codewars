@@ -61,9 +61,9 @@ var searchRange = function(nums, target) {
     left = middle
 
     // condition needs to be set
-    while(true){
-        if(nums[right] =)
-    }
+    // while(true){
+    //     if(nums[right] =)
+    // }
 
 
     // Look for left
