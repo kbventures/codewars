@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+// 2
 
 // Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
 
@@ -35,6 +35,39 @@
  * @param {number} target
  * @return {number[]}
  */
+// var searchRange = function(nums, target) {
+
+//     let left =0;
+//     let right = nums.le        
+//     let middle = Math.floor(left + right / 2); 
+//     let targetRange = [-1,-1]
+//     // Find Initial target
+//     while(left <= right){
+//         if(nums[middle] === target){
+//             targetRange = [middle, middle]; 
+//             break; 
+//         } else if (middle < target){
+//             left = middle +1
+//         } else {
+//             right = middle -1;
+//         }
+//         let middle = Math.floor(left + right / 2); 
+//     }
+// };
+
+
+// const result0 = searchRange([5,6,7,8,10],6)
+
+// const result1 = searchRange([5,7,7,8,8,10], 7)
+
+// const result2 = searchRange([5,7,7,8,8,8,8,8,10], 8)
+
+
+
+
+
+// Recursive call search range again with range 6,6 one recursion for the left and one reccursion for the right?
+
 var searchRange = function(nums, target) {
 
     let left =0;
@@ -45,6 +78,8 @@ var searchRange = function(nums, target) {
     while(left <= right){
         if(nums[middle] === target){
             targetRange = [middle, middle]; 
+            right = middle -1
+            middle = Math.floor(right+left /2)
             break; 
         } else if (middle < target){
             left = middle +1
@@ -53,39 +88,53 @@ var searchRange = function(nums, target) {
         }
         let middle = Math.floor(left + right / 2); 
     }
-    // Not found
-    if (targetRangep[0] == -1 && targetRange[1] == -1 )return targetRange 
 
-    // Look right
+    // if target is found return [-1,-1]
 
-    left = middle
+    // Find left
+    while(left <= right){
+        if(nums[middle] === target){
+            targetRange[0] = middle; 
+            right = middle -1
+        } else if (middle < target){
+            left = middle +1
+        } else {
+            right = middle -1;
+        }
+        let middle = Math.floor(left + right / 2); 
+    }
 
-    // condition needs to be set
-    // while(true){
-    //     if(nums[right] =)
-    // }
+    // Find right
+    while(left <= right){
+        if(nums[middle] === target){
+            targetRange[0] = middle; 
+            right = middle -1
+        } else if (middle < target){
+            left = middle +1
+        } else {
+            right = middle -1;
+        }
+        let middle = Math.floor(left + right / 2); 
+    }
 
 
-    // Look for left
-
-    
-
+    return targetRange; 
 };
 
+// 0 + 13 /2 6
+// 6 = 8 donc starting range is [6,6]
+// right is now middle -1 = 5 and we're assigned to what's round to right as we we'll be checking left next
+// left is wherever we left it
+// new middle is 3 
 
-const result0 = searchRange([5,6,7,8,10],6)
-
-const result1 = searchRange([5,7,7,8,8,10], 7)
-// Found 7 at [1,1]
-// Left is 0 and right is 2
-
-// Check right 
-// the range range would be at most middle to right; 
-
-// Check left
-// the range woudl be at most starting at left to current middle
-
-const result2 = searchRange([5,7,7,8, 8 ,8,8,8,10], 8)
+// checking left
+// check if 3 is equal.. which it is... so we move left range to [3,6]
+// right is now itself -1 = 2, left is whrever we left it in this case 0
 
 
-const result3 = searchRange([5,7,7,8,8,8,8,8,10], 5)
+// checking right 
+
+
+const result3 = searchRange([5,7,7,8,8,8,8,8,8,8,8,8,10], 8)
+
+
