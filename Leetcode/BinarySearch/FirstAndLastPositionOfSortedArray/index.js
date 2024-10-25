@@ -70,58 +70,72 @@
 
 var searchRange = function(nums, target) {
 
+    // Init range
     let left =0;
-    let right = nums.le        
-    let middle = Math.floor(left + right / 2); 
+    let right = nums.length;         
+    let middle = Math.floor((left + right) / 2); 
     let targetRange = [-1,-1]
+
     // Find Initial target
-    while(left <= right){
+    while(left < right){
         if(nums[middle] === target){
             targetRange = [middle, middle]; 
-            right = middle -1
-            middle = Math.floor(right+left /2)
             break; 
-        } else if (middle < target){
+        } else if (nums[middle] < target){
             left = middle +1
         } else {
             right = middle -1;
         }
-        let middle = Math.floor(left + right / 2); 
+        if(left == right) return targetRange; 
+        middle = Math.floor((left + right) / 2); 
     }
 
-    // if target is found return [-1,-1]
+    // if target is found return it will still be [-1,1]
+
+    // Init Left Check
+    left = 0;
+    right = middle -1; 
+    middle = Math.floor((left + right) / 2); 
 
     // Find left
     while(left <= right){
         if(nums[middle] === target){
             targetRange[0] = middle; 
-            right = middle -1
-        } else if (middle < target){
-            left = middle +1
+        } else if (nums[middle] < target){
+            left = middle + 1
         } else {
             right = middle -1;
         }
-        let middle = Math.floor(left + right / 2); 
+        if(left == right) break; 
+        middle = Math.floor(left + right / 2); 
     }
 
+
+    // Init Right Check
+    left = targetRange[1] + 1
+    right = nums.length; 
+    middle = Math.floor((left+right)/2)
+    console.log(left, right, middle)
+    console.log("sanity check")
+    return; 
     // Find right
     while(left <= right){
         if(nums[middle] === target){
-            targetRange[0] = middle; 
+            targetRange[1] = middle; 
             right = middle -1
         } else if (middle < target){
-            left = middle +1
+
         } else {
             right = middle -1;
         }
-        let middle = Math.floor(left + right / 2); 
+        if(left == right) break; 
+        middle = Math.floor(left + right / 2); 
     }
-
 
     return targetRange; 
 };
 
-// 0 + 13 /2 6
+// 0 + 13 / 2 6
 // 6 = 8 donc starting range is [6,6]
 // right is now middle -1 = 5 and we're assigned to what's round to right as we we'll be checking left next
 // left is wherever we left it
@@ -135,6 +149,9 @@ var searchRange = function(nums, target) {
 // checking right 
 
 
-const result3 = searchRange([5,7,7,8,8,8,8,8,8,8,8,8,10], 8)
+// const result3 = searchRange([5,7,7,8,8,8,8,8,8, 8 ,8,8,10], 8)
 
+const result3 = searchRange([5,6,7,8,8,9,10], 8)
+
+console.log(result3)
 
