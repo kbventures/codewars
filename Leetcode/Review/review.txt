@@ -37,6 +37,8 @@ Implementation
 Tree
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 https://leetcode.com/problems/symmetric-tree/submissions/1438381982/
+Medium https://leetcode.com/problems/binary-tree-level-order-traversal/
+https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 
 Notes: look at your other lists for review items
 
@@ -48,11 +50,6 @@ Homework trees:2
 Here’s a list of 20 easy LeetCode challenges focused on tree data structures:
 https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
 
-Maximum Depth of Binary Tree: Find the maximum depth of a binary tree.
-
-Minimum Depth of Binary Tree: Find the minimum depth of a binary tree.
-
-Symmetric Tree: Check whether a binary tree is symmetric (i.e., a mirror of itself).
 
 Binary Tree Inorder Traversal: Return the inorder traversal of a binary tree's nodes' values.
 
