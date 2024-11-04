@@ -35,10 +35,17 @@ Implementation
 
 
 Tree
-https://leetcode.com/problems/maximum-depth-of-binary-tree/
-https://leetcode.com/problems/symmetric-tree/submissions/1438381982/
+11/01/20244 https://leetcode.com/problems/maximum-depth-of-binary-tree/
+REVIEW AGAIN 11/01/2024 https://leetcode.com/problems/symmetric-tree/submissions/1438381982/
 Medium https://leetcode.com/problems/binary-tree-level-order-traversal/
 https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+
+SHOULD KNOw
+Inorder: Left, node, right; yields sorted values for BSTs.
+Preorder: Node, left, right; useful for tree copying.
+Postorder: Left, right, node; used for tree deletion and evaluation.
+
 
 Notes: look at your other lists for review items
 
@@ -51,11 +58,6 @@ Here’s a list of 20 easy LeetCode challenges focused on tree data structures:
 https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
 
 
-Binary Tree Inorder Traversal: Return the inorder traversal of a binary tree's nodes' values.
-
-Binary Tree Preorder Traversal: Return the preorder traversal of a binary tree's nodes' values.
-
-Binary Tree Postorder Traversal: Return the postorder traversal of a binary tree's nodes' values.
 
 Convert Sorted Array to Binary Search Tree: Convert a sorted array into a height-balanced binary search tree.
 
