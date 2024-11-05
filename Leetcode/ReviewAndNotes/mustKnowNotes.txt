@@ -1,0 +1,9 @@
+Binary tree
+Inorder: Left, node, right; yields sorted values for BSTs.
+Preorder: Node, left, right; useful for tree copying.
+Postorder: Left, right, node; used for tree deletion and evaluation
+
+Memorise
+https://algo.monster/flowchart
+
+Backtracking patterns: 
