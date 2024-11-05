@@ -4,3 +4,12 @@ https://algomonster.com
 
 Tree Traversal Techniques:
 https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+
+In Order
+Left Node right
+
+Pre Order
+Node Left right
+
+Post Order
+Left Right Node
