@@ -40,11 +40,8 @@ REVIEW AGAIN 11/01/2024 https://leetcode.com/problems/symmetric-tree/submissions
 Medium https://leetcode.com/problems/binary-tree-level-order-traversal/
 https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 https://leetcode.com/problems/binary-tree-inorder-traversal/description/
-
-SHOULD KNOw
-Inorder: Left, node, right; yields sorted values for BSTs.
-Preorder: Node, left, right; useful for tree copying.
-Postorder: Left, right, node; used for tree deletion and evaluation.
+https://leetcode.com/problems/search-in-a-binary-search-tree/description/
+.
 
 
 Notes: look at your other lists for review items
