@@ -41,7 +41,9 @@ Medium https://leetcode.com/problems/binary-tree-level-order-traversal/
 https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 https://leetcode.com/problems/search-in-a-binary-search-tree/description/
-.
+https://leetcode.com/problemset/?difficulty=EASY&page=1&search=binary+search+tree
+
+https://leetcode.com/problemset/?difficulty=EASY&page=1&search=binary+search+tree
 
 
 Notes: look at your other lists for review items
@@ -88,5 +90,14 @@ Construct Binary Tree from Preorder and Inorder Traversal: Build a binary tree f
 
 // Notes
 https://github.com/kbventures/best-leetcode-resources?tab=readme-ov-file2
+
+
+
+
+Competition
+
+11-09-2024
+Solve and refactor to Sliding Window
+https://leetcode.com/contest/biweekly-contest-143/problems/maximum-frequency-of-an-element-after-performing-operations-i/
 
 
