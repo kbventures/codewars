@@ -1,6 +1,3 @@
-We need to find a way to efficiently increase the frequency of one number as much as possible. 
-A good approach to solving this problem is sorting the array and then using a sliding window to find the largest group of numbers that can be turned into the same value by applying the allowed range of operations.
-
 // https://leetcode.com/contest/biweekly-contest-143/problems/maximum-frequency-of-an-element-after-performing-operations-i/description/
 
 // Q2. Maximum Frequency of an Element After Performing Operations I
@@ -97,3 +94,11 @@ console.log(maxFrequency([1, 4, 5], 1, 2)); // Output: 2
 
 // Example 2
 console.log(maxFrequency([5, 11, 20, 20], 5, 1)); // Output: 2
+
+
+
+
+
+// We need to find a way to efficiently increase the frequency of one number as much as possible. 
+// A good approach to solving this problem is sorting the array and then using a sliding window to find the largest group of numbers that can be turned into the same value by applying the allowed range of operations.
+
