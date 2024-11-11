@@ -50,13 +50,6 @@ Notes: look at your other lists for review items
 
 
 
-Homework trees:2
-
-
-Here’s a list of 20 easy LeetCode challenges focused on tree data structures:
-https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
-
-
 
 Convert Sorted Array to Binary Search Tree: Convert a sorted array into a height-balanced binary search tree.
 
