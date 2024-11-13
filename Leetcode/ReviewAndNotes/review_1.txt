@@ -36,14 +36,14 @@ Implementation
 
 Tree
 11/01/20244 https://leetcode.com/problems/maximum-depth-of-binary-tree/
-REVIEW AGAIN 11/01/2024 https://leetcode.com/problems/symmetric-tree/submissions/1438381982/
-Medium https://leetcode.com/problems/binary-tree-level-order-traversal/
-https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+11/01/2024 https://leetcode.com/problems/symmetric-tree/submissions/1438381982/
+https://leetcode.com/problems/binary-tree-level-order-traversal/
+10/12/24 https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 https://leetcode.com/problems/search-in-a-binary-search-tree/description/
-https://leetcode.com/problemset/?difficulty=EASY&page=1&search=binary+search+tree
+https://leetcode.com/problems/same-tree/
+11/13/2024 https://leetcode.com/problems/balanced-binary-tree/
 
-https://leetcode.com/problemset/?difficulty=EASY&page=1&search=binary+search+tree
 
 
 Notes: look at your other lists for review items
