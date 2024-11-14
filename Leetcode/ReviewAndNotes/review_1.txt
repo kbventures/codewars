@@ -43,6 +43,7 @@ https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 https://leetcode.com/problems/search-in-a-binary-search-tree/description/
 https://leetcode.com/problems/same-tree/
 11/13/2024 https://leetcode.com/problems/balanced-binary-tree/
+https://leetcode.com/problems/binary-tree-preorder-traversal/submissions/1452611959/
 
 
 
