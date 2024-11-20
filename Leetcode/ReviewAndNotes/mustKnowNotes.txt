@@ -7,3 +7,14 @@ Memorise
 https://algo.monster/flowchart
 
 Backtracking patterns: 
+
+
+
+
+
+The Map Object: 
+Holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
+
+
+Big O Notations
+https://builtin.com/software-engineering-perspectives/nlogn
