@@ -44,3 +44,16 @@ var twoSum = function(nums, target) {
 };
 
 // X + T = target donc target - X = T ou target - T = X
+
+
+var twoSum = function(nums, target) {
+    let newHash = {}
+    for(let i =0; i<nums.length;i++){
+        let complement = target - nums[i]
+
+        if(complement in newHash){
+            return [i,newHash[complement]]
+        }
+        newHash[nums[i]] = i; 
+    }
+};
