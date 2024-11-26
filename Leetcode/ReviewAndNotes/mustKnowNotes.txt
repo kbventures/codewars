@@ -18,3 +18,12 @@ Holds key-value pairs and remembers the original insertion order of the keys. An
 
 Big O Notations
 https://builtin.com/software-engineering-perspectives/nlogn
+
+
+Map VS {}
+Use {} (objects) when you have string keys, need simplicity, and care about performance for small datasets.
+Use Map when you need non-string keys, guaranteed insertion order, or efficient management of dynamic key-value pairs with built-in methods.
+
+
+Character Frequency Count	O(n)	O(1)	Faster, constant space, scalable	Limited to small fixed alphabet (e.g., 26 letters)
+Sorting Approach	O(n log n)	O(n)	Simple, works for any characters	Slower, uses more space for sorting

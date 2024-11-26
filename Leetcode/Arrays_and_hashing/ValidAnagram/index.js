@@ -83,6 +83,26 @@ var isAnagram = function(s, t) {
     return true;
 };
 
+var isAnagram = function(s, t) {
+    if(s.length !== t.length) return false; 
+    // Pseudocode
+    // Create array that is the size of the alphabet and fill it with 0 values
+    let alphabetArray = new Array(26).fill(0)
+
+    // Iterate values through s & t simultaneously convert their respectie letter to charcode and also convert to alphabet position. increment and decrement +1 -1 respective for s & t at their respetice alphabet position
+
+    for(let i in s){
+        alphabetArray[t.charCodeAt(i) -97]++
+        alphabetArray[s.charCodeAt(i)-97]--
+    }
+
+    // if any value is not equal to 0 return false; 
+    for(let y of alphabetArray){
+        if(y !== 0) return false; 
+    }
+    return true; 
+};
+
 
 
 
