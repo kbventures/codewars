@@ -13,3 +13,11 @@ Contains duplicate you did using hash objects, sets, maps and recursion
 
 Review: 
 
+
+
+Hash Map & Arrays:
+// November 22, 2024
+// https://leetcode.com/problems/valid-anagram/description/ Notes: review optimal version!
+
+
+
