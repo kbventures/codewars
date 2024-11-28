@@ -82,6 +82,7 @@ var groupAnagrams = function(strs) {
         }
         
         // Convert count array to a string to use as a unique key
+        // The # in count.join('#') ensures the joined string is unambiguous, preventing cases where counts like [1, 10] (joined as 110) look the same as [11, 0].
         let key = count.join('#');
         
         // Group by key
@@ -91,7 +92,7 @@ var groupAnagrams = function(strs) {
             newMap.set(key, [str]);
         }
     }
-    
+    console.log(newMap)
     // Return all grouped anagrams
     return Array.from(newMap.values())
 };
