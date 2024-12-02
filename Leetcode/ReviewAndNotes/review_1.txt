@@ -6,7 +6,11 @@ https://leetcode.com/problems/add-strings/solutions/437715/simple-javascript-sol
 Group anagrams:
 November 25, 2024
 https://leetcode.com/problems/group-anagrams/
-
+November 27, 2024
+https://leetcode.com/problems/top-k-frequent-elements
+December 1, 2024:
+// Understand, memorise and review
+https://leetcode.com/problems/product-of-array-except-self/
 
 Recursion:
 Factorial
@@ -39,6 +43,8 @@ Hash Map & Arrays:
 //https://leetcode.com/problems/two-sum/
 November 25, 2024: Improve efficiency if possible
 // https://leetcode.com/problems/group-anagrams/
+November 29th: You need to practices a lot of 2d grid, backtracking dfs before handling this one. 
+// https://leetcode.com/problems/valid-sudoku/
 
 
 
