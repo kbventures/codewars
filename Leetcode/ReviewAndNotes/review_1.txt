@@ -45,6 +45,9 @@ November 25, 2024: Improve efficiency if possible
 // https://leetcode.com/problems/group-anagrams/
 November 29th: You need to practices a lot of 2d grid, backtracking dfs before handling this one. 
 // https://leetcode.com/problems/valid-sudoku/
+// December 2th, 2024: This is a hard one you'll need to memorize it and do other versions of prefix suffix techniques
+// https://leetcode.com/problems/product-of-array-except-self/description/
+
 
 
 
