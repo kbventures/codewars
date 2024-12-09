@@ -43,61 +43,113 @@
 
 
 
+[[".",".",".",".","5",".",".","1","."],
+ [".","4",".","3",".",".",".",".","."],
+ [".",".",".",".",".","3",".",".","1"],
+ ["8",".",".",".",".",".",".","2","."],
+ [".",".","2",".","7",".",".",".","."],
+ [".","1","5",".",".",".",".",".","."],
+ [".",".",".",".",".","2",".",".","."],
+ [".","2",".","9",".",".",".",".","."],
+ [".",".","4",".",".",".",".",".","."]]
 
-const board = [
-  // A sample 9x9 Sudoku board
-  [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 9, 5, 0, 0, 0],
-  [0, 9, 8, 0, 0, 0, 0, 6, 0],
-  [8, 0, 0, 0, 6, 0, 0, 0, 3],
-  [4, 0, 0, 8, 0, 3, 0, 0, 1],
-  [7, 0, 0, 0, 2, 0, 0, 0, 6],
-  [0, 6, 0, 0, 0, 0, 2, 8, 0],
-  [0, 0, 0, 4, 1, 9, 0, 0, 5],
-  [0, 0, 0, 0, 8, 0, 0, 7, 9]
-];
+// var isValidSudoku = function(board) {
 
+//   const rowSets = Array.from({length:9},() => new Set())
+//   const colSets = Array.from({length:9},()=> new Set())
+  
+//   // let boxes = {};
+  
+//   // let row = 0, col = 0; // Example position
+//   // let boxKey = `${Math.floor(row / 3)},${Math.floor(col / 3)}`;
+  
+//   // if (!boxes[boxKey]) {
+//   //     boxes[boxKey] = new Set();
+//   // }
+  
+//   // boxes[boxKey].add(number);
+
+  
+//   // Traverse board and check rowSets, colSets and boxes for ilegal numbers
+
+//   // x corresponds to column while y responds to row
+  
+//   // Traverse the columns 
+//   for(let y=0;y < board.length;y++){
+//     for(let x= 0;x<board[y].length;x++){
+//       // console.log(x,y)
+//       console.log(board[y][x])
+//       if(rowSets[])
+//     }
+//   }
+
+//     // Traverse the rows
+//     // for(let y=0;y < board.length;y++){
+//     //   for(let x= 0;x<board[y].length;x++){
+//     //     // console.log(x,y)
+//     //     console.log(board[y][x])
+//     //   }
+//     // }
+  
+//   return true; 
+//   };
+
+//   const result = isValidSudoku(board)
+//   console.log("sudoku result", result)
+
+/**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
 var isValidSudoku = function(board) {
-
-  const rowSets = Array.from({length:9},() => new Set())
-  const colSets = Array.from({length:9},()=> new Set())
+    let rowSets = Array.from({length:9},()=> new Set())
+    let colSets = Array.from({length:9},()=> new Set())
   
-  // let boxes = {};
-  
-  // let row = 0, col = 0; // Example position
-  // let boxKey = `${Math.floor(row / 3)},${Math.floor(col / 3)}`;
-  
-  // if (!boxes[boxKey]) {
-  //     boxes[boxKey] = new Set();
-  // }
-  
-  // boxes[boxKey].add(number);
-
-  
-  // Traverse board and check rowSets, colSets and boxes for ilegal numbers
-
-  // x corresponds to column while y responds to row
-  
-  // Traverse the columns 
-  for(let y=0;y < board.length;y++){
-    for(let x= 0;x<board[y].length;x++){
-      // console.log(x,y)
-      console.log(board[y][x])
-      if(rowSets[])
+    // Traverses the board columns
+    for(let x=0;x<board.length;x++){
+        for(let y =0;y<board[x].length;y++){
+            if(rowSets[x].has(board[x][y])){
+                console.log("column fase")
+                return false; 
+            } else if(board[x][y] == ".") {
+                continue;
+            } else {
+                rowSets[x].add(board[x][y])
+            }
+        }
     }
-  }
-
-    // Traverse the rows
-    // for(let y=0;y < board.length;y++){
-    //   for(let x= 0;x<board[y].length;x++){
-    //     // console.log(x,y)
-    //     console.log(board[y][x])
-    //   }
-    // }
   
-  return true; 
+        // Traverses the board rows
+     for(let v=0; v < 9;v++){
+        for(let z =0;z< 9;z++){
+            if(colSets[v].has(board[z][v])){
+                 console.log("row false")
+                return false; 
+            } else if(board[z][v] == ".") {
+                continue;
+            } else {
+                colSets[v].add(board[z][v])
+            }
+        }
+    }
+  
+      let boxes = {}
+  
+    // Traverses the board columns
+    for(let x=0;x<board.length;x++){
+        for(let y =0;y<board[x].length;y++){
+         let currBox = `${Math.floor(x /3)}${Math.floor(y/3)}`
+         if(boxes[currBox] && boxes[currBox].has(board[x][y])){
+              "Box false"
+              return false
+         } else if(boxes[currBox]){
+          boxes[currBox].add(board[x][y])
+         } else {
+          boxes[currBox] = new Set()
+          boxes[currBox].add(board[x][y])
+         }
+        }
+    }
+    return true; 
   };
-
-  const result = isValidSudoku(board)
-  console.log("sudoku result", result)
 
