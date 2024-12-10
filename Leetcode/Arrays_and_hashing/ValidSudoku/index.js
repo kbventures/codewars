@@ -42,7 +42,7 @@
 // };
 
 
-
+const board = 
 [[".",".",".",".","5",".",".","1","."],
  [".","4",".","3",".",".",".",".","."],
  [".",".",".",".",".","3",".",".","1"],
@@ -102,6 +102,7 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
+    // console.log(board)
     let rowSets = Array.from({length:9},()=> new Set())
     let colSets = Array.from({length:9},()=> new Set())
   
@@ -109,7 +110,6 @@ var isValidSudoku = function(board) {
     for(let x=0;x<board.length;x++){
         for(let y =0;y<board[x].length;y++){
             if(rowSets[x].has(board[x][y])){
-                console.log("column fase")
                 return false; 
             } else if(board[x][y] == ".") {
                 continue;
@@ -134,22 +134,30 @@ var isValidSudoku = function(board) {
     }
   
       let boxes = {}
-  
     // Traverses the board columns
     for(let x=0;x<board.length;x++){
         for(let y =0;y<board[x].length;y++){
          let currBox = `${Math.floor(x /3)}${Math.floor(y/3)}`
-         if(boxes[currBox] && boxes[currBox].has(board[x][y])){
-              "Box false"
-              return false
-         } else if(boxes[currBox]){
-          boxes[currBox].add(board[x][y])
-         } else {
-          boxes[currBox] = new Set()
-          boxes[currBox].add(board[x][y])
-         }
+        // 
+        if(board[x][y] !== "."){
+            if(boxes[currBox] && boxes[currBox].has(board[x][y])){
+                                return false
+            } else if(boxes[currBox]){
+            boxes[currBox].add(board[x][y])
+            } else {
+            boxes[currBox] = new Set()
+            boxes[currBox].add(board[x][y])
+            }
+        }
+        //  
         }
     }
     return true; 
   };
+
+  // Is Valid Sudoku 
+
+  const result = isValidSudoku(board)
+
+  console.log("result: ",result)
 
