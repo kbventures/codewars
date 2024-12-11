@@ -1,0 +1,110 @@
+// https://leetcode.com/problems/longest-consecutive-sequence/description/
+
+
+// // V1
+// /**
+//  * @param {number[]} nums
+//  * @return {number}
+//  */
+// var longestConsecutive = function(nums) {
+
+//     // enable checking numbers utilisnig reference instead of looping through an array utilising  set
+//     let numsSet = new Set(nums)
+    
+//     // utilized to store the last longuest sequence
+//     let longSeq = []
+    
+    
+//     // Iterate through all the nums
+//     for(let i = 0; i < nums.length; i++){ 
+            
+//         // temporary hodler of current sequence
+//         let currSequence = []
+    
+//         // utilised to iterate when start of sequence is found
+//         let counter = 1; 
+    
+//         // is it start of sequence?
+//         if(!numsSet.has(nums[i]-1)){
+    
+//             // add initial sequence number
+//             currSequence.push(nums[i])
+    
+//             while(numsSet.has(nums[i]+counter)){
+//                 currSequence.push(nums[i+counter])
+//                 counter++
+//             }
+//         } 
+    
+//         if(currSequence.lenght > longSeq.length){
+    
+//             // replaces longSeq with shallow copy of current longuest sequence
+//             longSeq = currSquence.slice()
+//         }
+    
+    
+//         // reset counters and temporary variables
+//     }
+//     return longSeq.length
+//     };
+
+
+
+// Possible Improvements for Your Code:
+// Avoid Resetting Temporary Variables:
+
+// The currSequence variable is already reset at the start of each loop, so explicitly resetting it at the end is unnecessary.
+// Remove Redundant Operations:
+
+// In the final comparison if(currSequence > longSeq), directly assign longSeq = Math.max(longSeq, currSequence) to make it concise.
+// Optimize Iteration:
+
+// The Set already ensures unique elements, so iterating through numsSet instead of nums avoids unnecessary duplicates, which you already implemented well.
+// Comment Clarity:
+
+// Revise the comments for better readability and focus on what the code achieves instead of how it's implemented, as the implementation is already clear.
+
+
+// V2 Optimised
+
+// V1
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var longestConsecutive = function(nums) {
+
+    if(nums.length == 0) return 0; 
+
+    // enable checking numbers utilisnig reference instead of looping through an array utilising  set
+    let numsSet = new Set(nums)
+    
+    // utilized to store the last longuest sequence
+    let longSeq = 1
+    
+    
+    // Iterate through all the nums
+    for(const num of numsSet){ 
+            
+        // temporary hodler of current sequence
+        let currSequence= 1 
+    
+        // is it start of sequence?
+        if(!numsSet.has(num-1)){
+        
+            while(numsSet.has(num+currSequence)){
+                currSequence++
+            }
+        } 
+    
+        if(currSequence > longSeq){
+    
+            // replaces longSeq with shallow copy of current longuest sequence
+            longSeq = currSequence; 
+        }
+    
+    
+        // reset counters and temporary variables
+    }
+    return longSeq
+    };

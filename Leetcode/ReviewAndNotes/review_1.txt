@@ -48,6 +48,13 @@ November 29th: You need to practices a lot of 2d grid, backtracking dfs before h
 // December 2th, 2024: This is a hard one you'll need to memorize it and do other versions of prefix suffix techniques
 // https://leetcode.com/problems/product-of-array-except-self/description/
 
+// December 10, 2024 Redo optimal and brute force
+// https://leetcode.com/problems/valid-sudoku/description/
+
+// December 11, 2024 You did pretty good.  You need to go for speed and optimisation next and understand the key concepts around solving this problem.
+// https://leetcode.com/problems/longest-consecutive-sequence/description/
+
+
 
 
 
