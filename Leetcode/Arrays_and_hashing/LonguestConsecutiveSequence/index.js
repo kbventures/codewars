@@ -50,19 +50,6 @@
 
 
 
-// Possible Improvements for Your Code:
-// Avoid Resetting Temporary Variables:
-
-// The currSequence variable is already reset at the start of each loop, so explicitly resetting it at the end is unnecessary.
-// Remove Redundant Operations:
-
-// In the final comparison if(currSequence > longSeq), directly assign longSeq = Math.max(longSeq, currSequence) to make it concise.
-// Optimize Iteration:
-
-// The Set already ensures unique elements, so iterating through numsSet instead of nums avoids unnecessary duplicates, which you already implemented well.
-// Comment Clarity:
-
-// Revise the comments for better readability and focus on what the code achieves instead of how it's implemented, as the implementation is already clear.
 
 
 // V2 Optimised
@@ -80,7 +67,7 @@ var longestConsecutive = function(nums) {
     let numsSet = new Set(nums)
     
     // utilized to store the last longuest sequence
-    let longSeq = 1
+    let longSeq = 0
     
     
     // Iterate through all the nums
