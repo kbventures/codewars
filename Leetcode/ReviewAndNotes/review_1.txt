@@ -54,6 +54,9 @@ November 29th: You need to practices a lot of 2d grid, backtracking dfs before h
 // December 11, 2024 You did pretty good.  You need to go for speed and optimisation next and understand the key concepts around solving this problem.
 // https://leetcode.com/problems/longest-consecutive-sequence/description/
 
+// December 16 valid Palindrome. Focus on two pointer review
+// https://leetcode.com/problems/valid-palindrome/
+
 
 
 
