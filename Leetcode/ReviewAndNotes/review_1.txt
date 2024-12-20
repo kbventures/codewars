@@ -22,6 +22,11 @@ https://leetcode.com/problems/binary-search/description/
 
 
 
+Two Pointers:
+December 20th, 2024: Went well. Needs to be faster next time. 
+https://leetcode.com/problems/container-with-most-water/description/
+
+
 Binary Search
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
 
