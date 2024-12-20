@@ -4,42 +4,31 @@
  * @param {number[]} height
  * @return {number}
  */
+
 var maxArea = function(height) {
-    let containers = height.length -1
     let left =0;
     let right = height.length -1 
     result= 0; 
-    console.log(containers, left, right)
     while(left < right){
-        // console.log(height)
-        // console.log(height[left],height[right])
-        // // You need to figure out the calculation
-        // let figuremeout = height[left] >= height[right] ? height[left] : height[right]
-        // let currentWaterContained = figuremeout * containers;
+        // You need to figure out the calculation
+        let minHeight = Math.min(height[left],height[right])
+        let currentWaterContained = minHeight * (right - left);
+        // updates teh result of the current water container maintaing the higest value
+        if(currentWaterContained > result){
+            result = currentWaterContained; 
+        }
 
+        if(height[left] > height[right]){
+            right--
 
-        // // updates teh result of the current water container maintaing the higest value
-        // if(currentWaterContained> result){
-        //     result = currentWaterContained; 
-        //     console.log('result',result)
+        } else if (height[left] < height[right]){
+            left++
 
-        // }
-
-        // if(height[left] > height[right]){
-        //     right--
-        //             containers--
-
-        // } else if (height[left] < height[right]){
-        //     left++
-        //             containers--
-
-        // } else {
-        //     left++
-        //     right--
-        //             containers--
-
-        // }
+        } else {
+            left++
+            right--
+        }
     }
-
     return result; 
 };
+const test0 = maxArea([1,3,2,5,25,24,5])
