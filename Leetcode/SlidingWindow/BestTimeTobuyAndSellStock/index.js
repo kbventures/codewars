@@ -23,22 +23,15 @@
 
 // O(n) ???
 var maxProfit = function(prices) {
-    let profit =0; 
-    let i =0; 
-    let y = prices.length-1;
+  // Initialize the maximum profit as 0, since the minimum profit we can get is 0
+    let maxProfit = 0;
+    // Initialize the minimum price to the first price in the array
+    let minPrice = prices[0];
     
-    
-    // You need ot keep track of the lowest price
-    while(i<y){
-        if(prices[i]<prices[y]){
-            let tempProfit = prices[y]-prices[i]
-            if(tempProfit > profit){
-                profit = tempProfit
-            }
-            y--
-        } else{
-            i++
-        }
+    for(price of prices){
+        maxProfit = Math.max(maxProfit, (price - minPrice))
+        minPrice = Math.min(price, minPrice)
     }
-        return profit; 
-    };
+    // Return the maximum profit that can be achieved
+    return maxProfit;
+}
