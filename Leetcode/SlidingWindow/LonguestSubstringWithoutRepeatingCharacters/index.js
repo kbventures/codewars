@@ -9,6 +9,9 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
+
+        // Edge case lenght of one
+        if(s.length == 1) return 1
     let currStr = ""
     let maxStr = 0; 
     let newSet = {};
