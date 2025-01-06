@@ -8,6 +8,8 @@
  * @param {string} s
  * @return {number}
  */
+
+// V0 
 var lengthOfLongestSubstring = function(s) {
 
         // Edge case lenght of one
@@ -51,3 +53,29 @@ var lengthOfLongestSubstring = function(s) {
 
     return maxStr; 
 };
+
+
+
+// This will break it "dvdf"
+
+// Sliding window version
+// abcabcbb
+// bbbb
+var lengthOfLongestSubstring = function(s) {
+
+if(s.length ==0) return 0; 
+
+let currObj = {}
+let currStr = ""
+let maxLength = 1; 
+let i =0;
+let j= s.length-1; 
+while(true){
+if(currObj[s[i]])
+}
+
+
+return maxLength; 
+}
+
+
