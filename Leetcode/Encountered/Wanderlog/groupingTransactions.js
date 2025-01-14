@@ -58,5 +58,6 @@ return result
 
 const finalResult = groupTransactions(transactions)
 console.log("finalResult", finalResult)
+
 // Output:
 // ["prune 2", "apple 1", "banana 1", "pear 1"]
