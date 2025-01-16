@@ -106,3 +106,40 @@ var lengthOfLongestSubstring = function(s:string):number {
     
         return maxStrCount;
     };
+    
+
+    // Optimal solution
+
+
+    function lengthOfLongestSubstring(s: string): number {
+        // Initialize the length of the longest substring without repeating characters
+        let maxLength = 0;
+    
+        // Create a Set to store the unique characters of the current substring
+        const seenCharacters = new Set<string>();
+    
+        // Use two pointers i and j to denote the start and end of the substring
+        let i = 0;
+        let j = 0;
+    
+        while (i < s.length) {
+            // If the current character is already in the set, remove characters from the set starting from the beginning
+            // until the current character is no longer in the set
+            while (seenCharacters.has(s[i])) {
+                seenCharacters.delete(s[j]);
+                j++;
+            }
+    
+            // Add the current character to the set
+            seenCharacters.add(s[i]);
+    
+            // Calculate the length of the current substring and update the maxLength if needed
+            maxLength = Math.max(maxLength, i - j + 1);
+    
+            // Move to the next character
+            i++;
+        }
+    
+        // Return the length of the longest substring without repeating characters
+        return maxLength;
+    }
