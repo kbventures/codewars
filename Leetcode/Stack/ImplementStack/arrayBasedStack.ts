@@ -1,4 +1,4 @@
-class Stack<T> {
+export default class Stack<T> {
     private items: T[]; // Array to store stack elements
 
     constructor() {
@@ -43,3 +43,5 @@ class Stack<T> {
         this.items = [];
     }
 }
+
+
