@@ -14,6 +14,7 @@ class StackClass {
         const newNode = new NodeClass(d);
         if (this.size == 0) {
             this.top = newNode;
+            this.previous = newNode;
         }
         else {
             this.previous = this.top;
@@ -63,9 +64,7 @@ console.log(newStack);
 newStack.push("Test 3");
 newStack.length();
 newStack.peek();
-newStack.pop();
 console.log(newStack);
 newStack.peek();
 newStack.pop();
 console.log(newStack);
-newStack.peek();
