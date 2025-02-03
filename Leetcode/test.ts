@@ -19,7 +19,8 @@ class StackClass<T>{
     push(d){
         const newNode= new NodeClass(d)
         if(this.size == 0){
-            this.top = newNode; 
+            this.top = newNode;
+            this.previous = newNode; 
         } else {
             this.previous = this.top;
             this.top = newNode;
@@ -36,6 +37,9 @@ class StackClass<T>{
             this.size = 0; 
         } else {
             this.top = this.previous; 
+            if(this.previous !== null){
+            this.previous = this.previous.previous; 
+            }
             this.size--
         }
     }
@@ -68,9 +72,7 @@ console.log(newStack)
 newStack.push("Test 3");
 newStack.length()
 newStack.peek()
-newStack.pop()
 console.log(newStack)
 newStack.peek()
 newStack.pop()
 console.log(newStack)
-newStack.peek()
