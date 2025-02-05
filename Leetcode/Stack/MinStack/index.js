@@ -1,4 +1,4 @@
-https://leetcode.com/problems/min-stack/description/
+// https://leetcode.com/problems/min-stack/description/
 
 
 
@@ -14,7 +14,7 @@ var MinStack = function() {
  */
 MinStack.prototype.push = function(val) {
     this.stack.push(val)
-    if(val > this.minValue || this.minValue == null){
+    if(this.minValue == null || val < this.minValue){
         this.minValue = val; 
     }
 };
@@ -23,14 +23,24 @@ MinStack.prototype.push = function(val) {
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-    
+    if(this.stack.length == 0){
+        return []
+    } else {
+        this.stack.pop()
+        let tempMinVal = Math.min(...this.stack)
+        this.minValue = tempMinVal; 
+        return this.minValue
+    }
 };
 
 /**
  * @return {number}
  */
 MinStack.prototype.top = function() {
-
+    if(this.stack == null){
+    } else {
+        return this.stack[this.stack.length-1]
+    }
 };
 
 /**

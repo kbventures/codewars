@@ -17,7 +17,7 @@ export default class Stack<T> {
             return undefined;
         }
         return this.items.pop();
-    }
+    /*  */}
 
     // Peek at the top element without removing it
     peek(): T | undefined {

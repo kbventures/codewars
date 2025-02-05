@@ -23,7 +23,6 @@ class Stack{
             console.log("Stack is empty!")
         } else{   
        this.top = this.top.next; 
-
         }
     }
 }
