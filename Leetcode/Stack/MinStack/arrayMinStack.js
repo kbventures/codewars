@@ -1,6 +1,12 @@
 // https://leetcode.com/problems/min-stack/description/
 
 
+// Overall Time Complexity:
+// The worst-case time complexity is O(n) due to the pop operation, which recalculates the minimum using Math.min(...this.stack) in O(n) time. All other operations (push, top, getMin) are O(1).
+
+// Overall Space Complexity:
+// The space complexity is O(n) because the stack stores all n elements, and only a constant amount of additional space is used for variables like minValue.
+
 
 // Function Constructor
 var MinStack = function() {
