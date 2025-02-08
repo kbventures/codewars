@@ -34,6 +34,7 @@ class StackClass {
         }
     }
     length() {
+        return this.size;
     }
 }
 const newStackClass = new StackClass();
@@ -50,5 +51,13 @@ newStackClass.length();
 newStackClass.peek();
 console.log(newStackClass);
 newStackClass.peek();
+newStackClass.pop();
+console.log(newStackClass);
+newStackClass.pop();
+console.log(newStackClass);
+newStackClass.pop();
+console.log(newStackClass);
+newStackClass.pop();
+console.log(newStackClass);
 newStackClass.pop();
 console.log(newStackClass);
