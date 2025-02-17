@@ -19,24 +19,25 @@
  * @return {number[]}
  */
  // Monotonic stack
- var dailyTemperatures = function(temperatures) {
-let stack = []
-let result = []
-
-for(let i =0; i<temperatures.length;i++){
-   if(stack.length==0){
-    stack.push([temperatures[i],i])
-   } else if(stack[stack.length-1] < temperatures[i]) {
-    //  Empty stack and update positions relative to higher tempeatures in result array
-    while(){
-        
+ // [73,74,75,71,69,72,76,73]
+function dailyTemperatures(temperatures) {
+    const totalDays = temperatures.length;
+    const daysUntilWarmer = new Array(totalDays).fill(0);
+    const indexStack = [];
+  
+    for (let currentIndex = totalDays - 1; currentIndex >= 0; --currentIndex) {
+        while (indexStack.length && temperatures[indexStack[indexStack.length - 1]] <= temperatures[currentIndex]) {
+            indexStack.pop();
+        }
+        if (indexStack.length) {
+            daysUntilWarmer[currentIndex] = indexStack[indexStack.length - 1] - currentIndex;
+        }
+        indexStack.push(currentIndex);
     }
-   } else {
 
-   }
+    return daysUntilWarmer;
 }
-return result; 
-};
+
 
 
 
