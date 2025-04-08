@@ -47,3 +47,9 @@ var maxDepth = function(root) {
     return 1 + Math.max(left, right)
     
 };
+
+// Time complexity O(n) and space complexity is O(n)
+function maxDepth(root: TreeNode | null): number {
+if (root === null) {
+return 0;
+}
