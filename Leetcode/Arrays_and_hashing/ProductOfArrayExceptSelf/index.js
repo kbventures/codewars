@@ -33,7 +33,7 @@
 
 
 
-
+  // [1,2,3,4]
     var productExceptSelf = function(nums) {
       let arr = new Array(nums.length).fill(0)
       let prefix=1;
