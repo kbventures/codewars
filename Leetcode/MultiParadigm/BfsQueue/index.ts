@@ -1,6 +1,4 @@
-
-// Time complexity is O(n) ie: total nodes once and space complexity is O(n) calculaculated has
-// has the maximum amount of nodes in a single level
+// Brute froce
 
 function levelOrder(root: TreeNode | null): number[][] {
     let result: number[][] = []
@@ -26,7 +24,7 @@ function levelOrder(root: TreeNode | null): number[][] {
     
 
     
-    // Ultimate optimized version
+    // Optimized for longer trees
     function levelOrder(root: TreeNode | null): number[][] {
     if (!root) return [];
     
