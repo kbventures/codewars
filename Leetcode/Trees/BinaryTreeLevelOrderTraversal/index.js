@@ -25,31 +25,6 @@ result.push(currentLevelValues)
 return result;
 };
 
-// Costly shift() fix
-function levelOrder(root: TreeNode | null): number[][] {
-const result: number[][] = [];
-if (!root) return result;
-
-const queue: TreeNode[] = [];
-let head = 0;
-queue.push(root);
-
-while (head < queue.length) {
-const levelSize = queue.length - head;
-const currentLevel: number[] = [];
-
-for (let i = 0; i < levelSize; i++) {
-const node = queue[head++];
-currentLevel.push(node.val);
-if (node.left) queue.push(node.left);
-if (node.right) queue.push(node.right);
-}
-
-result.push(currentLevel);
-}
-
-return result;
-}
 
 // Ultimate optimized version
 function levelOrder(root: TreeNode | null): number[][] {
@@ -74,5 +49,21 @@ result.push(level);
 start = end;
 }
 
+return result;
+}
+
+// Recursive version
+function levelOrder(root: TreeNode | null): number[][] {
+const result: number[][] = [];
+
+function dfs(node: TreeNode | null, depth: number) {
+if (!node) return;
+if (result.length === depth) result.push([]);
+result[depth].push(node.val);
+dfs(node.left, depth + 1);
+dfs(node.right, depth + 1);
+}
+
+dfs(root, 0);
 return result;
 }
