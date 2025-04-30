@@ -4,6 +4,20 @@
 
 // I used Infinity as a value to set an initial boundary for comparisons, ensuring that any valid node value in the binary search tree would be within the allowable range.
 
+// validateBST.ts
+
+    //       10
+    //      /  \
+    //     5   15
+    //    / \   / \
+    //   2   7 12  20
+    //  / \   /   
+    // 1   3 11    
+
+
+// [10, 5, 15, 2, 7, 12, 20, 1, 3, null, null, 11, null]
+
+const testTree = [10, 5, 15, 2, 7, 12, 20, 1, 3, null, null, 11, null]
 
 function isValidBST(root: TreeNode | null, min = -Infinity, max = Infinity): boolean {
     if (!root) return true;
@@ -14,3 +28,4 @@ function isValidBST(root: TreeNode | null, min = -Infinity, max = Infinity): boo
 
     return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
 }
+
