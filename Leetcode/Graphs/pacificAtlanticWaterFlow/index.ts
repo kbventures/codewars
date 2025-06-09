@@ -1,86 +1,71 @@
-// Time and Space Complexity of pacificAtlantic:
-// Time Complexity:
-// Let m be the number of rows and n be the number of columns.
+function PacificAtanticWaterFlow(sampleGrid: number[][]): number[][]{
 
-// Each cell is visited at most twice (once from Pacific DFS, once from Atlantic DFS).
+const result = [];
+const rowLength = sampleGrid.length;
+const colLength = sampleGrid[0].length;
+console.log(rowLength,colLength)
+const directions = [[0,-1], [1,0],[0,1],[-1,0]]
 
-// In each DFS, we explore up to 4 directions per cell.
+const grid = new Array(rowLength).fill(0).map( ()=>new Array(colLength).fill(0))
+const visited = new Array(rowLength).fill(0).map(()=> new Array(colLength).fill(false))
 
-// So the total time complexity is O(m × n).
-
-// Space Complexity:
-// grid, visited arrays → O(m × n)
-
-// Call stack for DFS recursion → O(m × n) in worst case
-
-// So the total space complexity is O(m × n).
-
-// Define the main function that returns all cells that have water flowing to both the Pacific and Atlantic ocean
-function pacificAtlantic(heights: number[][]): number[][] {
-const rowCount = heights.length; // Number of rows
-const colCount = heights[0].length; // Number of columns
-// Directions for moving up, down, left, or right
-const directions = [
-[1, 0], // move down
-[0, 1], // move right
-[-1, 0], // move up
-[0, -1], // move left
-];
-// Grid to track the number of oceans each cell can flow to
-const grid = new Array(rowCount).fill(0).map(() => new Array(colCount).fill(0));
-// Visited matrix to prevent revisiting cells
-const visited = new Array(rowCount).fill(0).map(() => new Array(colCount).fill(false));
-
-// Define the depth-first search function to explore the grid
-const dfs = (row: number, col: number) => {
-if (visited[row][col]) {
-return;
-}
-grid[row][col]++;
-visited[row][col] = true;
-const height = heights[row][col];
-// Explore adjacent cells
-for (const [dx, dy] of directions) {
-const newRow = row + dx;
-const newCol = col + dy;
-// Check if the adjacent cell is within bounds and its height is higher or equal
-if (height <= (heights[newRow]?.[newCol] ?? -1)) {
-dfs(newRow, newCol);
-}
-}
-};
-
-// Flow from the Pacific Ocean (top and left edges)
-for (let col = 0; col < colCount; col++) {
-dfs(0, col);
-}
-for (let row = 0; row < rowCount; row++) {
-dfs(row, 0);
-}
-// Reset visited cells before starting from the Atlantic Ocean (bottom and right edges)
-visited.forEach(row => row.fill(false));
-
-// Flow from the Atlantic Ocean (bottom and right edges)
-for (let col = 0; col < colCount; col++) {
-dfs(rowCount - 1, col);
-}
-for (let row = 0; row < rowCount; row++) {
-dfs(row, colCount - 1);
+function dfs(yCoor: number, xCoor: number){
+if(visited[yCoor][xCoor]) return
+grid[yCoor][xCoor]++
+visited[yCoor][xCoor] = true; 
+    for(let [dY, dX] of directions){
+        let tempY = dY + yCoor;
+        let tempX = dX + xCoor; 
+        if(sampleGrid[yCoor][xCoor] <= (sampleGrid[tempY]?.[tempX] ?? -1)){
+            console.log(sampleGrid[tempY][tempX])
+            dfs(tempY, tempX)
+        }
+    }
 }
 
-// Collect cells where the water can flow to both oceans
-const results: number[][] = [];
-for (let row = 0; row < rowCount; row++) {
-for (let col = 0; col < colCount; col++) {
-if (grid[row][col] === 2) { // If water flows to both oceans
-results.push([row, col]);
-}
-}
-}
-return results; // Return the list of cells with dual ocean water flow
+
+// Traverse North Pacific
+for(let x = 0, y =0; x < colLength; x++){
+    dfs(y,x)
 }
 
-// Example of how to use the function:
-// const heights = [[...], [...], ...];
-// const oceanCells = pacificAtlantic(heights);
-// console.log(oceanCells);
+// Traverse West Pacific
+for(let x =0, y =0; y<rowLength;y++){
+    dfs(y,x)
+}
+
+// // Reset visited 
+visited.forEach(e=>{
+    e.fill(false)
+})
+
+// // Traverse South Atlantic
+for(let x = 0, y = rowLength-1; x < colLength;x++){
+    dfs(y,x)
+}
+
+// // Traverse East Atlantics
+for(let y = 0, x = colLength-1; y < rowLength;y++){
+    dfs(y,x)
+}
+
+// // Traverse grid and get tiles that are == to 2.(ie: tiles that trickle water to both the pacific and atlantic ocean)
+
+for(let x = 0; x < rowLength; x++){  
+    for(let y = 0; y < colLength; y++){
+        if(grid[x][y] == 2) {
+            result.push([x,y])
+        }
+    }
+}
+
+// return [[1]]
+return result; 
+}
+
+
+const heights = [[1,2,2,3,5],[3,2,3,4,4],[2,4,5,3,1],[6,7,1,4,5],[5,1,1,2,4]]
+
+const result = PacificAtanticWaterFlow(heights)
+// [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
+console.log(result)
