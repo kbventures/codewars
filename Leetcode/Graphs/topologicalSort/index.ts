@@ -1,3 +1,6 @@
+// A topological sort gives a linear ordering of tasks (nodes) in a directed acyclic graph (DAG) such that for every arrow from one node to another 
+// (e.g., A → B), A comes before B in the order—useful for resolving dependencies.
+
 type Graph = Map<string, string[]>;
 
 const graph: Graph = new Map<string, string[]>();

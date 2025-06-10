@@ -1,9 +1,12 @@
+// Your time complexity is O(m × n) because each cell is visited up to twice (once from Pacific, once from Atlantic DFS).
+// Your space complexity is O(m × n) due to the grid, visited arrays, and the result list, which in the worst case can store all cells.
+
+
 function PacificAtanticWaterFlow(sampleGrid: number[][]): number[][]{
 
 const result = [];
 const rowLength = sampleGrid.length;
 const colLength = sampleGrid[0].length;
-console.log(rowLength,colLength)
 const directions = [[0,-1], [1,0],[0,1],[-1,0]]
 
 const grid = new Array(rowLength).fill(0).map( ()=>new Array(colLength).fill(0))
@@ -12,55 +15,54 @@ const visited = new Array(rowLength).fill(0).map(()=> new Array(colLength).fill(
 function dfs(yCoor: number, xCoor: number){
 if(visited[yCoor][xCoor]) return
 grid[yCoor][xCoor]++
-visited[yCoor][xCoor] = true; 
-    for(let [dY, dX] of directions){
-        let tempY = dY + yCoor;
-        let tempX = dX + xCoor; 
-        if(sampleGrid[yCoor][xCoor] <= (sampleGrid[tempY]?.[tempX] ?? -1)){
-            console.log(sampleGrid[tempY][tempX])
-            dfs(tempY, tempX)
-        }
-    }
+visited[yCoor][xCoor] = true;
+for(let [dY, dX] of directions){
+let tempY = dY + yCoor;
+let tempX = dX + xCoor;
+if(sampleGrid[yCoor][xCoor] <= (sampleGrid[tempY]?.[tempX] ?? -1)){
+dfs(tempY, tempX)
+}
+}
 }
 
 
 // Traverse North Pacific
 for(let x = 0, y =0; x < colLength; x++){
-    dfs(y,x)
+dfs(y,x)
 }
 
 // Traverse West Pacific
 for(let x =0, y =0; y<rowLength;y++){
-    dfs(y,x)
+dfs(y,x)
 }
 
-// // Reset visited 
+// // Reset visited
 visited.forEach(e=>{
-    e.fill(false)
+e.fill(false)
 })
 
 // // Traverse South Atlantic
 for(let x = 0, y = rowLength-1; x < colLength;x++){
-    dfs(y,x)
+dfs(y,x)
 }
 
 // // Traverse East Atlantics
 for(let y = 0, x = colLength-1; y < rowLength;y++){
-    dfs(y,x)
+dfs(y,x)
 }
 
 // // Traverse grid and get tiles that are == to 2.(ie: tiles that trickle water to both the pacific and atlantic ocean)
 
-for(let x = 0; x < rowLength; x++){  
-    for(let y = 0; y < colLength; y++){
-        if(grid[x][y] == 2) {
-            result.push([x,y])
-        }
-    }
+for(let x = 0; x < rowLength; x++){
+for(let y = 0; y < colLength; y++){
+if(grid[x][y] == 2) {
+result.push([x,y])
+}
+}
 }
 
 // return [[1]]
-return result; 
+return result;
 }
 
 
