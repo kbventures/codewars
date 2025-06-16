@@ -1,7 +1,16 @@
 // Space complexity: O(numCourses + prerequisites) for the adjacency list, in-degree array, and queue.
 // Time complexity: O(numCourses + prerequisites) since each course and prerequisite edge is processed once.
 
+
+// Cyclic example
+//  [[1,0],[2,1],[3,2],[0,3]] Number of course 4
+// Acyclic example
+//  [[1,0],[2,1],[3,2]] Number of courses 4
+
+
 function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+
+    const result: number[] = []
     // Create an adjacency list to represent the graph of courses
     const adjacencyList: number[][] = new Array(numCourses).fill(0).map(() => []);
   
@@ -33,17 +42,18 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
         const currentCourse = queue.shift()!;
       
         // Increment the count of courses that can be taken
-        count++;
+        result.push(currentCourse)
 
         // Decrease the in-degree of the adjacent courses and
         // add them to the queue if they have no other prerequisites
         for (const adjacentCourse of adjacencyList[currentCourse]) {
-            if (--inDegrees[adjacentCourse] === 0) {
+            inDegrees[adjacentCourse]--
+            if (inDegrees[adjacentCourse] === 0) {
                 queue.push(adjacentCourse);
             }
         }
     }
 
     // Compare the count of courses taken to the total number of courses
-    return count === numCourses;
+    return result.length === numCourses ? true :  false; ;
 }
