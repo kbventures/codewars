@@ -1,3 +1,16 @@
+// Kahn's algorithm is used to perform topological sorting on a Directed Acyclic Graph (DAG), especially when you need to:
+
+// Schedule tasks based on dependencies (e.g. course scheduling)
+
+// Determine a valid build order in compilers or CI pipelines
+
+// Resolve package/module dependencies
+
+// Detect cycles (if sorting fails before all nodes are visited)
+
+// It’s ideal when you want a BFS-based, level-order dependency resolution.
+
+
 // A topological sort gives a linear ordering of tasks (nodes) in a directed acyclic graph (DAG) such that for every arrow from one node to another 
 // (e.g., A → B), A comes before B in the order—useful for resolving dependencies.
 

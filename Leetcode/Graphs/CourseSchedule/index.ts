@@ -1,3 +1,4 @@
+// Topological sort : https://www.youtube.com/watch?v=eL-KzMXSXXI
 // Space complexity: O(numCourses + prerequisites) for the adjacency list, in-degree array, and queue.
 // Time complexity: O(numCourses + prerequisites) since each course and prerequisite edge is processed once.
 
@@ -32,9 +33,6 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
             queue.push(i);
         }
     }
-
-    // Counter for the number of courses with satisfied prerequisites
-    let count = 0;
 
     // Process the queue until it's empty
     while (queue.length) {
