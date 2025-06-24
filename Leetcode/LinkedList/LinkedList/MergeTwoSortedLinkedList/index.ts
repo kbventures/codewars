@@ -1,6 +1,73 @@
 // https://leetcode.com/problems/merge-two-sorted-lists/description/
 
 
+// Pseusdo Code
+
+// Initial Setup
+// list1 = [1 → 2 → 4]
+
+// list2 = [1 → 3 → 4]
+
+// Create dummy node: dummy = ListNode(0)
+
+// current = dummy
+
+// Step 1: Compare 1 and 1
+// Both are equal, choose list2's 1.
+
+// current.next = list2
+
+// Move list2 = list2.next (now points to 3)
+
+// Move current = current.next (now points to 1)
+
+// Step 2: Compare 1 and 3
+// list1.val < list2.val → pick list1's 1.
+
+// current.next = list1
+
+// Move list1 = list1.next (now points to 2)
+
+// Move current = current.next (now points to 1)
+
+// Step 3: Compare 2 and 3
+// list1.val < list2.val → pick 2.
+
+// current.next = list1
+
+// Move list1 = list1.next (now points to 4)
+
+// Move current = current.next (now points to 2)
+
+// Step 4: Compare 4 and 3
+// list2.val < list1.val → pick 3.
+
+// current.next = list2
+
+// Move list2 = list2.next (now points to 4)
+
+// Move current = current.next (now points to 3)
+
+// Step 5: Compare 4 and 4
+// Pick either; let’s pick list1.
+
+// current.next = list1
+
+// Move list1 = list1.next (now null)
+
+// Move current = current.next (now points to 4)
+
+// Step 6: list1 is null
+// Attach remaining list2 (which is just 4).
+
+// current.next = list2
+
+// ✅ Result
+// Merged list: [1 → 1 → 2 → 3 → 4 → 4]
+// Return dummy.next (skips the dummy node).
+
+
+
 function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     let dummy = new ListNode(0); // Step 1: Create a dummy node to act as the head
     let current = dummy;         // Step 2: Initialize `current` to keep track of the tail of the merged list
