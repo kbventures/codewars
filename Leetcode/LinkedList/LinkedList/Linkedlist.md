@@ -1,6 +1,6 @@
 🔁 Traversal & Modification
 
-203. Remove Linked List Elements (✅ you had this)
+203. Remove Linked List Elements (✅)
 
 204. Remove Duplicates from Sorted List (✅)
 
