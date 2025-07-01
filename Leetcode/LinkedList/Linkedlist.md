@@ -1,16 +1,21 @@
+https://leetcode.com/problem-list/linked-list/
+
 🔁 Traversal & Modification
 
-203. Remove Linked List Elements (✅)
+203. Remove Linked List Elements
+     (Added to anki)
 
 204. Remove Duplicates from Sorted List (✅)
+     (Added to anki)
 
 205. Remove Duplicates from Sorted List II (🆕)
 
-206. Delete Node in a Linked List (was incorrectly labeled 84)
+206. Delete Node in a Linked List
 
 ↩️ Reversal & Rearrangement
 
-206. Reverse Linked List (✅)
+206. Reverse Linked List
+     (Added ot anki)
 
 207. Reverse Linked List II (✅)
 
@@ -23,6 +28,9 @@
 211. Rotate List (was 94)
 
 212. Reorder List (✅)
+
+21 . Merge two sorted lists
+(Added to anki)
 
 🧮 Math with Lists
 

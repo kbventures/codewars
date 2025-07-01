@@ -1,5 +1,6 @@
-// Space complexity: O(n) because the array grows as you add elements.
 
+// Brute force
+// Space complexity: O(n) because the array grows as you add elements.
 // Time complexity: O(k * n log n) since you sort the array on each of the k calls to add.
 
 class KthLargest {
