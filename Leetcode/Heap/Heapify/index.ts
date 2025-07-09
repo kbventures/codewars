@@ -1,5 +1,10 @@
 class MinHeap {
+
     heap: number[] = [];
+    // We utilize an array because we can mathematically traverse child and parent nodes using index
+    // Parent of node at index i is at Math.floor((i - 1) / 2)
+    // Left child is at 2 * i + 1
+    // Right child is at 2 * i + 2
 
     insert(val: number) {
         this.heap.push(val);

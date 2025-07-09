@@ -1,61 +1,53 @@
 https://leetcode.com/problem-list/linked-list/
 
-🔁 Traversal & Modification
+# Optimal Linked List Problem-Solving Order
 
-203. Remove Linked List Elements
-     (Added to anki)
+## Phase 1: Core Foundations (1-2 days)
 
-204. Remove Duplicates from Sorted List (✅)
-     (Added to anki)
+### Basic Operations
 
-205. Remove Duplicates from Sorted List II (🆕)
+- [x] 203. Remove Linked List Elements
+- [x] 83. Remove Duplicates from Sorted List
+- [x] 237. Delete Node in a Linked List
 
-206. Delete Node in a Linked List
+### Essential Patterns
 
-↩️ Reversal & Rearrangement
+- [x] 206. Reverse Linked List
+- [x] 876. Middle of the Linked List _(Fast/Slow Pointer)_
 
-206. Reverse Linked List
-     (Added ot anki)
+## Phase 2: Two-Pointer Mastery
 
-207. Reverse Linked List II (✅)
+- [ ] 19. Remove Nth Node From End of List
+- [ ] 141. Linked List Cycle
+- [ ] 142. Linked List Cycle II _(Floyd's Algorithm)_
+- [ ] 160. Intersection of Two Linked Lists
 
-208. Swap Nodes in Pairs (was 93)
+## Phase 3: Advanced Reversal Techniques
 
-209. Reverse Nodes in k-Group (🆕)
+- [ ] 92. Reverse Linked List II _(Partial Reversal)_
+- [ ] 24. Swap Nodes in Pairs
+- [ ] 328. Odd Even Linked List
+- [ ] 143. Reorder List _(Half-Reverse Merge)_
 
-210. Odd Even Linked List (was 21)
+## Phase 4: Math & Hybrid Problems
 
-211. Rotate List (was 94)
+- [ ] 2. Add Two Numbers
+- [ ] 445. Add Two Numbers II _(Stack Approach)_
+- [x] 21. Merge Two Sorted Lists
 
-212. Reorder List (✅)
+## Phase 5: Structure Conversion
 
-21 . Merge two sorted lists
-(Added to anki)
+- [ ] 234. Palindrome Linked List
+- [ ] 138. Copy List with Random Pointer
+- [ ] 109. Convert Sorted List to BST
 
-🧮 Math with Lists
+## Phase 6: Expert Challenges (Optional)
 
-2. Add Two Numbers (✅)
+- [ ] 25. Reverse Nodes in k-Group
+- [ ] 23. Merge k-Sorted Lists
+- [ ] 146. LRU Cache _(DLL + Hashmap)_
 
-3. Add Two Numbers II (✅)
+### Key:
 
-🔍 Two-pointer & Positioning
-
-876. Middle of the Linked List (✅)
-
-877. Remove Nth Node From End of List (✅)
-
-878. Intersection of Two Linked Lists (was 20)
-
-🔄 Cycle Detection
-
-141. Linked List Cycle (✅)
-
-142. Linked List Cycle II (✅)
-
-🧠 Logic & Structure
-
-234. Palindrome Linked List (✅)
-
-235. Copy List with Random Pointer (🆕)
-
-236. Convert Sorted List to Binary Search Tree (🆕)
+- [x] = Prerequisite completed
+- [ ] = Next problem to solve
