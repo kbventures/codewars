@@ -1,7 +1,61 @@
-// To solve Reorder List (143), you need these basic linked list skills:
 
-// ✅ 876. Middle of the Linked List — to find the midpoint.
 
-// ✅ 206. Reverse Linked List — to reverse the second half.
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
 
-// ✅ 21. Merge Two Sorted Lists — for practice merging two lists alternately (not required, but helpful).
+// Brute force
+
+function reorderList(head: ListNode | null): void {
+    if (!head || !head.next) return;
+
+    // 1. Count nodes
+    let count = 0;
+    let node = head;
+    while (node) {
+        count++;
+        node = node.next;
+    }
+
+    // 2. Get to the node just before the second half
+    let mid = Math.floor((count + 1) / 2);
+    let prevMid = head;
+    for (let i = 1; i < mid; i++) {
+        prevMid = prevMid!.next!;
+    }
+
+    // 3. Reverse the second half
+    let second = prevMid!.next;
+    prevMid!.next = null; // cut the first half
+
+    let prev = null;
+    while (second) {
+        let next = second.next;
+        second.next = prev;
+        prev = second;
+        second = next;
+    }
+
+    // 4. Merge first half and reversed second half
+    let first = head;
+    second = prev; // prev is head of reversed second half
+
+    while (first && second) {
+        let tmp1 = first.next;
+        let tmp2 = second.next;
+
+        first.next = second;
+        second.next = tmp1;
+
+        first = tmp1!;
+        second = tmp2;
+    }
+}
