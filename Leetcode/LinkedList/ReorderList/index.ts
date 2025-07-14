@@ -1,25 +1,24 @@
 
 
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+
+  class ListNode {
+      val: number
+      next: ListNode | null
+      constructor(val?: number, next?: ListNode | null) {
+          this.val = (val===undefined ? 0 : val)
+          this.next = (next===undefined ? null : next)
+      }
+ }
 
 // Brute force
 
 function reorderList(head: ListNode | null): void {
+    // 0. Hedge case
     if (!head || !head.next) return;
 
     // 1. Count nodes
     let count = 0;
-    let node = head;
+    let node: ListNode | null = head;
     while (node) {
         count++;
         node = node.next;
@@ -36,7 +35,7 @@ function reorderList(head: ListNode | null): void {
     let second = prevMid!.next;
     prevMid!.next = null; // cut the first half
 
-    let prev = null;
+    let prev:ListNode | null = null;
     while (second) {
         let next = second.next;
         second.next = prev;
