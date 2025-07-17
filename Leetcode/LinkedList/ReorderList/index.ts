@@ -9,9 +9,7 @@
           this.next = (next===undefined ? null : next)
       }
  }
-
-// Brute force
-
+ // Space complexity is O(1) and spacd compexity is O(n)
 function reorderList(head: ListNode | null): void {
     // 0. Hedge case
     if (!head || !head.next) return;
