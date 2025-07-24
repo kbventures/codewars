@@ -17,8 +17,8 @@ https://leetcode.com/problem-list/linked-list/
 
 ## Phase 2: Two-Pointer Mastery
 
-- [ ] 19. Remove Nth Node From End of List
-- [ ] 141. Linked List Cycle
+- [x] 19. Remove Nth Node From End of List
+- [x] 141. Linked List Cycle
 - [ ] 142. Linked List Cycle II _(Floyd's Algorithm)_
 - [ ] 160. Intersection of Two Linked Lists
 
@@ -27,7 +27,7 @@ https://leetcode.com/problem-list/linked-list/
 - [ ] 92. Reverse Linked List II _(Partial Reversal)_
 - [ ] 24. Swap Nodes in Pairs
 - [ ] 328. Odd Even Linked List
-- [ ] 143. Reorder List _(Half-Reverse Merge)_
+- [x] 143. Reorder List _(Half-Reverse Merge)_
 
 ## Phase 4: Math & Hybrid Problems
 
