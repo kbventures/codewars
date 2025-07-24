@@ -1,5 +1,5 @@
 // Brute force
-// Time complexity is O(n) and space comlexity O(n)
+// Time complexity is O(n^2) and space comlexity O(n)
 class Solution {
     /**
      * @param {string[]} strs
