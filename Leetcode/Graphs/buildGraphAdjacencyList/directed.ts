@@ -1,5 +1,4 @@
-// Building a undirected cyclic graph from adjacency list
-
+// Build a directed graph for adjacency list
 
 class _Node {
   val: number;
