@@ -20,3 +20,31 @@ Review:
 Strings: 
 Make this a two pointer: 
 https://leetcode.com/problems/add-strings/solutions/437715/simple-javascript-solution/
+
+
+
+Good afternoon, friends.
+
+Our esteemed Project Manager is moving on to new challenges—thank you for bringing us so close to the finish line.
+
+The designs for the public-facing application pages have been implemented.
+
+Our back end now supports the necessary features for both the public-facing and private beta functionalities.
+
+During this transition, I’ll take on the role of Project Coordinator and continue leading the development team.
+
+The foundations you've built—both design and code—are impressive. We’re proud of what we’ve accomplished under Marco’s awesome leadership.
+
+To stay aligned with the organization's needs, I’ll be meeting with Dann, our direct, and possibly Marco.
+
+In the coming weeks, Dann and I would like to meet with the Design team to align objectives.
+
+In the meantime, we’re all professionals who’ve brought us this far, and we’re confident in your continued contributions.
+
+Development team (those not on vacation or job searching):
+Please continue connecting the implemented pages, testing the sign-up/sign-in flow, creating issues for any bugs, and resolving existing GitHub issues.
+
+Design team:
+Once integration and testing are complete, we’ll be ready to implement key features: Profile and Team Cards, Multi-Profile and Team Pages, and editing features for both. We’ll also build the public versions of the profile and team pages.
+
+Goal: A working app with all the above by September 23rd. Go team!
