@@ -11,6 +11,7 @@
  *     }
  * }
  */
+// Recursive DFS version
 // Time: O(n) - visits each node exactly once
 // Space: O(n) - call stack depth equals tree height (worst case n for skewed tree)
 function invertTree(root: TreeNode | null): TreeNode | null {
@@ -26,6 +27,7 @@ function invertTree(root: TreeNode | null): TreeNode | null {
         return root; 
 };
 
+// Iterative DFS Stack Version
 // Time: O(n) - visits each node exactly once
 // Space: O(h) - where h is height of tree (O(log n) balanced, O(n) skewed)
 function invertTree(root: TreeNode | null): TreeNode | null {
