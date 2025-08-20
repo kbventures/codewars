@@ -1,5 +1,7 @@
 // LRU cache
 
+// Time complexity is O(n) and space complexity is O(n)
+
 class LRUCache {
     lruCache:number[][];
     capacity:number;
@@ -36,13 +38,27 @@ class LRUCache {
         return keyValue;        
     }
 
+    // Update the value of the key if the key exists
     put(key: number, value: number): void {
+        // If value exists simply update it 
+        for(let i = 0; i < this.lruCache.length; i++){
+            if(this.lruCache[i][0] == key){
+                        this.lruCache[i][1] = value; 
+                        // since value is found we need to update the LRU
+                        let add = this.lruCache[i]
+                        let start = this.lruCache.slice(0,i)
+                        let end = this.lruCache.slice(i+1)
+                        let temp:number[][] = start.concat(end)
+                        temp.push(add)
+                        this.lruCache = temp;
+                        return;
+            }
+        }
+
         if(this.lruCache.length < this.capacity){
             this.lruCache.push([key,value])
             return;
         }
-        
-        // handle caces where we are over capacity
         this.lruCache.shift()
         this.lruCache.push([key,value]);
     }
@@ -86,26 +102,21 @@ class LRUCache {
 
 // ["LRUCache","put","put","get","put","put","get"]
 // [[2],[2,1],[2,2],[2],[1,1],[4,1],[2]]
+
 let obj = new LRUCache(2)
 
-obj.put(1,1)
+obj.put(2,1)
 console.log(obj.lruCache)
 obj.put(2,2)
 console.log(obj.lruCache)
-const getOne = obj.get(1)
-console.log(obj.lruCache)
-console.log(getOne);
-obj.put(3,3)
-console.log(obj.lruCache)
 const getTwo = obj.get(2)
+console.log(obj.lruCache)
 console.log(getTwo);
-obj.put(4,4);
+obj.put(1,1)
 console.log(obj.lruCache)
-const getOneAgain =obj.get(1);
-console.log(getOneAgain)
-const getThree =obj.get(3);
-console.log(getThree)
+obj.put(4,1)
 console.log(obj.lruCache)
-const getFour = obj.get(4)
-console.log(getFour)
-console.log(obj.lruCache)
+const getTwoAgain = obj.get(2)
+console.log(getTwoAgain);
+
+
