@@ -35,7 +35,7 @@ During this transition, I’ll take on the role of Project Coordinator and conti
 
 The foundations you've built—both design and code—are impressive. We’re proud of what we’ve accomplished under Marco’s awesome leadership.
 
-To stay aligned with the organization's needs, I’ll be meeting with Dann, our direct, and possibly Marco.
+To stay aligned with the organization's needs, I’ll be meeting with Dann, our director, and possibly Marco.
 
 In the coming weeks, Dann and I would like to meet with the Design team to align objectives.
 
@@ -46,5 +46,7 @@ Please continue connecting the implemented pages, testing the sign-up/sign-in fl
 
 Design team:
 Once integration and testing are complete, we’ll be ready to implement key features: Profile and Team Cards, Multi-Profile and Team Pages, and editing features for both. We’ll also build the public versions of the profile and team pages.
+
+We will recruit new leaders but this isn't in the card right away. 
 
 Goal: A working app with all the above by September 23rd. Go team!
