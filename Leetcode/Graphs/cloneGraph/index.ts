@@ -169,3 +169,38 @@ function cloneGraph(node: Node | null): Node | null {
 // Single-pass DFS	 O(n + m)	  O(n + m)	    Simple, elegant code	  Stack overflow risk
 // Iterative BFS	 O(n + m)	  O(n + m)	    Stack safe, explicit control	  More verbose
 // Two-pass DFS	 O(n + m)	  O(n + m)	    Clear separation of concerns	  Redundant, complex
+
+
+
+
+function cloneGraph(node: _Node | null): _Node | null {
+    if (!node) return null;
+
+    let newGraph = new Map<number, _Node>();
+    let visitedNeighbors = new Map<number, Set<number>>(); // track neighbors added
+    let stack = [node];
+
+    while (stack.length > 0) {
+        let currNode = stack.pop()!;
+        if (!newGraph.has(currNode.val)) {
+            newGraph.set(currNode.val, new _Node(currNode.val));
+            visitedNeighbors.set(currNode.val, new Set());
+        }
+
+        for (let n of currNode.neighbors) {
+            if (!newGraph.has(n.val)) {
+                newGraph.set(n.val, new _Node(n.val));
+                visitedNeighbors.set(n.val, new Set());
+                stack.push(n);
+            }
+
+            // only add neighbor if not already added
+            if (!visitedNeighbors.get(currNode.val)!.has(n.val)) {
+                newGraph.get(currNode.val)!.neighbors.push(newGraph.get(n.val)!);
+                visitedNeighbors.get(currNode.val)!.add(n.val);
+            }
+        }
+    }
+
+    return newGraph.get(node.val)!;
+}

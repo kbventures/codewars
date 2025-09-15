@@ -1,4 +1,5 @@
-// Implement singly linked list2
+// Implement singly linked stack
+// All operations are time complexity of O(1) excdept for search O(n) and space complexity is O(n) for the number of numberse
 
 namespace LinkedListStackNameSpace {
 export class Node{
