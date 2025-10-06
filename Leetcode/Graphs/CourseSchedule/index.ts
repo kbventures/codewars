@@ -1,57 +1,124 @@
-// Topological sort : https://www.youtube.com/watch?v=eL-KzMXSXXI
-// Space complexity: O(numCourses + prerequisites) for the adjacency list, in-degree array, and queue.
-// Time complexity: O(numCourses + prerequisites) since each course and prerequisite edge is processed once.
+// How: Traverse graph with DFS, use recursion stack to detect cycles.
+// Time: $ O(V + E) $.
+// Space: $ O(V + E) $.
+// Pros: Memory-efficient, simple code.
+// Cons: Recursive, stack overflow risk for deep graphs.
+
+// BFS (Kahn’s Algorithm) with Adjacency List
+
+// How: Use in-degree counts, queue nodes with no prerequisites, process until done or cycle detected.
+// Time: $ O(V + E) $.
+// Space: $ O(V + E) $.
+// Pros: Iterative, gives topological order.
+// Cons: Needs extra in-degree array.
 
 
-// Cyclic example
-//  [[1,0],[2,1],[3,2],[0,3]] Number of course 4
-// Acyclic example
-//  [[1,0],[2,1],[3,2]] Number of courses 4
+// DFS/BFS with Adjacency Matrix
 
+// How: Same as DFS/BFS but use matrix for graph.
+// Time: $ O(V + E) $, but neighbor listing is $ O(V) $.
+// Space: $ O(V^2) $.
+// Pros: Fast edge checks ($ O(1) $).
+// Cons: High memory for sparse graphs.
 
-function canFinish(numCourses: number, prerequisites: number[][]): boolean {
+// In graph theory:
 
-    const result: number[] = []
-    // Create an adjacency list to represent the graph of courses
-    const adjacencyList: number[][] = new Array(numCourses).fill(0).map(() => []);
-  
-    // Array to store the in-degree (number of dependencies) of each course
-    const inDegrees: number[] = new Array(numCourses).fill(0);
-  
-    // Fill the adjacency list and in-degree array based on prerequisites
-    for (const [course, prerequisite] of prerequisites) {
-        adjacencyList[prerequisite].push(course);
-        inDegrees[course]++;
+// $ V $: Number of vertices (nodes) in a graph, e.g., $ V = 100 $ means 100 nodes.
+// $ E $: Number of edges (connections between nodes), e.g., $ E = 200 $ means 200 connections.
+// In a sparse graph, E << V^2 , so for $ V = 100 $, E might be 200, far less than V^2 = 10,000(the max for a complete directed graph).
+
+// Best for Sparse Graphs: DFS or BFS with adjacency list (lower space than matrix). and there time and space complexity associated with each
+
+// 1. DFS with Adjacency List
+function canFinishDFSList(numCourses: number, prerequisites: number[][]): boolean {
+    const graph: number[][] = Array.from({ length: numCourses }, () => []);
+    for (const [dest, src] of prerequisites) {
+        graph[src].push(dest);
     }
-
-    // Queue for courses with no prerequisites (in-degree of 0)
-    const queue: number[] = [];
-  
-    // Initialize the queue with courses that have no prerequisites
-    for (let i = 0; i < numCourses; ++i) {
-        if (inDegrees[i] === 0) {
-            queue.push(i);
+    
+    const visited: number[] = new Array(numCourses).fill(0); // 0: unvisited, 1: visiting, 2: visited
+    function dfs(node: number): boolean {
+        if (visited[node] === 1) return false; // Cycle detected
+        if (visited[node] === 2) return true;  // Already processed
+        visited[node] = 1;
+        for (const neighbor of graph[node]) {
+            if (!dfs(neighbor)) return false;
         }
+        visited[node] = 2;
+        return true;
     }
-
-    // Process the queue until it's empty
-    while (queue.length) {
-        // Remove the first course from the queue
-        const currentCourse = queue.shift()!;
-      
-        // Increment the count of courses that can be taken
-        result.push(currentCourse)
-
-        // Decrease the in-degree of the adjacent courses and
-        // add them to the queue if they have no other prerequisites
-        for (const adjacentCourse of adjacencyList[currentCourse]) {
-            inDegrees[adjacentCourse]--
-            if (inDegrees[adjacentCourse] === 0) {
-                queue.push(adjacentCourse);
-            }
-        }
+    
+    for (let i = 0; i < numCourses; i++) {
+        if (visited[i] === 0 && !dfs(i)) return false;
     }
-
-    // Compare the count of courses taken to the total number of courses
-    return result.length === numCourses ? true :  false; ;
+    return true;
 }
+// Time Complexity: O(V + E), where V is number of courses, E is number of prerequisites.
+// Space Complexity: O(V + E) (adjacency list) + O(V) (visited array, recursion stack).
+// Pros: Memory-efficient for sparse graphs, simple to implement.
+// Cons: Recursive, potential stack overflow for very deep graphs.
+
+// 2. BFS (Kahn’s Algorithm) with Adjacency List
+function canFinishBFSList(numCourses: number, prerequisites: number[][]): boolean {
+    const graph: number[][] = Array.from({ length: numCourses }, () => []);
+    const inDegree: number[] = new Array(numCourses).fill(0);
+    
+    for (const [dest, src] of prerequisites) {
+        graph[src].push(dest);
+        inDegree[dest]++;
+    }
+    
+    const queue: number[] = [];
+    for (let i = 0; i < numCourses; i++) {
+        if (inDegree[i] === 0) queue.push(i);
+    }
+    
+    let count = 0;
+    while (queue.length) {
+        const node = queue.shift()!;
+        count++;
+        for (const neighbor of graph[node]) {
+            inDegree[neighbor]--;
+            if (inDegree[neighbor] === 0) queue.push(neighbor);
+        }
+    }
+    
+    return count === numCourses;
+}
+// Time Complexity: O(V + E).
+// Space Complexity: O(V + E) (adjacency list) + O(V) (queue, in-degree array).
+// Pros: Iterative, avoids recursion issues, produces topological order.
+// Cons: Requires extra in-degree array.
+
+// 3. DFS with Adjacency Matrix
+function canFinishDFSMatrix(numCourses: number, prerequisites: number[][]): boolean {
+    const graph: number[][] = Array.from({ length: numCourses }, () => new Array(numCourses).fill(0));
+    for (const [dest, src] of prerequisites) {
+        graph[src][dest] = 1;
+    }
+    
+    const visited: number[] = new Array(numCourses).fill(0); // 0: unvisited, 1: visiting, 2: visited
+    function dfs(node: number): boolean {
+        if (visited[node] === 1) return false; // Cycle detected
+        if (visited[node] === 2) return true;  // Already processed
+        visited[node] = 1;
+        for (let neighbor = 0; neighbor < numCourses; neighbor++) {
+            if (graph[node][neighbor] && !dfs(neighbor)) return false;
+        }
+        visited[node] = 2;
+        return true;
+    }
+    
+    for (let i = 0; i < numCourses; i++) {
+        if (visited[i] === 0 && !dfs(i)) return false;
+    }
+    return true;
+}
+// Time Complexity: O(V + E), but neighbor listing is O(V) per node.
+// Space Complexity: O(V^2) (matrix) + O(V) (visited array, recursion stack).
+// Pros: Fast edge checks (O(1)).
+// Cons: High memory usage for sparse graphs.
+
+// Notes:
+// Best for Sparse Graphs: DFS or BFS with adjacency list, due to lower space complexity (O(V + E)) compared to matrix (O(V^2)).
+// Adjacency list solutions are preferred for sparse graphs (where E << V^2), as they’re more memory-efficient.

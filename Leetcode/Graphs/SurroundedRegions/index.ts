@@ -52,3 +52,65 @@ function solve(board: string[][]): void {
         }
     }
 }
+
+
+
+/**
+ Do not return anything, modify board in-place instead.
+ */
+
+// Time Complexity: O(n * m) ✓ - You visit each cell at most once
+// Space Complexity: O(n * m) - Due to recursion call stack in worst case
+function solve(board: string[][]): void {
+    const directions = [[-1,0],[0,1],[1,0],[0,-1]]
+
+    function dfs(xCoor, yCoor){
+        board[xCoor][yCoor] = "."
+        for(const [xD, yD] of directions){
+            let tempX = xD + xCoor;
+            let tempY = yD + yCoor
+            if(tempX < 0 || tempY < 0 || tempX >= board.length || tempY >= board[0].length || board[tempX][tempY] == "X" || board[tempX][tempY] == ".") continue
+
+            dfs(tempX,tempY)
+        } 
+
+    }
+
+    // East and west
+  for(let i = 0; i < board.length;i++){
+
+    // West
+    if(board[i][0]=="O"){
+        dfs(i,0)
+    }
+
+    // East
+    if(board[i][board[0].length-1]=="O"){
+        dfs(i,board[0].length-1)
+    }
+  }  
+
+    // North and South
+    for(let i = 0; i < board[0].length;i++){
+    // North
+    if(board[0][i] == "O"){
+        dfs(0,i)
+    }
+
+    // South
+    if(board[board.length-1][i]=="O"){
+        dfs(board.length-1,i)
+    }
+
+  } 
+    for(let x = 0; x < board.length;x++){
+        for(let y = 0; y < board[0].length;y++){
+            if(board[x][y] == "."){
+                board[x][y] = "O"
+            } else if( board[x][y]== "O"){
+                board[x][y] ="X"
+            }
+        }
+    }
+
+};
