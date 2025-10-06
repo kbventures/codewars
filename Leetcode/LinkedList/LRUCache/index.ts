@@ -120,3 +120,93 @@ const getTwoAgain = obj.get(2)
 console.log(getTwoAgain);
 
 
+// Space complexity: O(capacity)
+// Time complexity: O(1) for get and put in worst case
+// class DLinkedNode {
+//     key: number;
+//     value: number;
+//     prev: DLinkedNode | null = null;
+//     next: DLinkedNode | null = null;
+
+//     constructor(key?: number, value?: number) {
+//         this.key = key ?? 0;
+//         this.value = value ?? 0;
+//     }
+// }
+
+// class LRUCache {
+//     private capacity: number;
+//     private cache: Map<number, DLinkedNode>;
+//     private head: DLinkedNode;
+//     private tail: DLinkedNode;
+
+//     constructor(capacity: number) {
+//         this.capacity = capacity;
+//         this.cache = new Map();
+
+//         this.head = new DLinkedNode();
+//         this.tail = new DLinkedNode();
+//         this.head.next = this.tail;
+//         this.tail.prev = this.head;
+//     }
+
+//     private addNode(node: DLinkedNode) {
+//         // always add right after head
+//         node.prev = this.head;
+//         node.next = this.head.next;
+//         this.head.next!.prev = node;
+//         this.head.next = node;
+//     }
+
+//     private removeNode(node: DLinkedNode) {
+//         const prev = node.prev!;
+//         const next = node.next!;
+//         prev.next = next;
+//         next.prev = prev;
+//     }
+
+//     private moveToHead(node: DLinkedNode) {
+//         this.removeNode(node);
+//         this.addNode(node);
+//     }
+
+//     private popTail(): DLinkedNode {
+//         const res = this.tail.prev!;
+//         this.removeNode(res);
+//         return res;
+//     }
+
+//     get(key: number): number {
+//         const node = this.cache.get(key);
+//         if (!node) return -1;
+//         this.moveToHead(node);
+//         return node.value;
+//     }
+
+//     put(key: number, value: number): void {
+//         let node = this.cache.get(key);
+//         if (node) {
+//             node.value = value;
+//             this.moveToHead(node);
+//         } else {
+//             node = new DLinkedNode(key, value);
+//             this.cache.set(key, node);
+//             this.addNode(node);
+
+//             if (this.cache.size > this.capacity) {
+//                 const tail = this.popTail();
+//                 this.cache.delete(tail.key);
+//             }
+//         }
+//     }
+// }
+
+
+// /**
+//  * Your LRUCache object will be instantiated and called as such:
+//  * var obj = new LRUCache(capacity)
+//  * var param_1 = obj.get(key)
+//  * obj.put(key,value)
+//  */
+
+
