@@ -26,7 +26,7 @@ class Solution {
             }
         }
 
-        temp.sort()
+        temp.sort((a,b)=>a-b)
 
         let result = new ListNode(0)
         let dummy = result;
