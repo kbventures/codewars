@@ -64,61 +64,90 @@
  */
 
 
-
 namespace MergeKSortedListV2 {
-    class ListNode {
-        val: number
-        next: ListNode | null
-        constructor(val:number = 0, next:ListNode|null = null){
-            this.val = val;
-            this.next = next;
-        }
-    }
+
+
+export class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val: number, next: ListNode | null = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
 export class Solution {
+  private mergeLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+    let dummy = new ListNode(0);
+    let tail = dummy;
 
-
-    mergeLists(list1: ListNode, list2: ListNode): ListNode{
-        let dummy = new ListNode(0)
-        let tail = dummy; 
-
-        while(list1 && list2){
-            if(list1.val > list2.val){
-                tail.next = list1; 
-                list1 = list1.next;
-            } else {
-                tail.next = list2;
-                list2 = list2.next;
-            }
-            // clean up work
-        }
-        return dummy.next;
+    while (list1 && list2) {
+      if (list1.val < list2.val) {
+        tail.next = list1;
+        list1 = list1.next;
+      } else {
+        tail.next = list2;
+        list2 = list2.next;
+      }
+      tail = tail.next;
     }
-    mergeKLists(lists:ListNode[]) {
-        if(lists.length == 0) return null
-        if(lists.length == 1) return lists;
 
+    tail.next = list1 || list2;
+    return dummy.next;
+  }
 
-        let listsWithoutEmpty:ListNode[] = [];
-        // remove empty lists
-        for(let i =0; i < lists.length;i++){
-            if(!lists[i]) continue ; 
-            listsWithoutEmpty.push(lists[i])
-        }
+  mergeKLists(lists: (ListNode | null)[]): ListNode | null {
+    if (lists.length === 0) return null;
 
-        let list1:ListNode = listsWithoutEmpty[0]
-        // merge sort all the linkedlist
-        for(let i = 1; listsWithoutEmpty.length < i; i++){
-            list1 = this.mergeLists(list1, listsWithoutEmpty[i])
-        }
-
-
-        return list1;
-
+    let list1 = lists[0];
+    for (let i = 1; i < lists.length; i++) {
+      list1 = this.mergeLists(list1, lists[i]);
     }
+
+    return list1;
+  }
+}
+
 
 }
 
-}
+
+// No namespace
+// Time: O(k · N) where k = number of lists, N = total nodes
+// More precisely: O(k² · n) if each list has n nodes
+// Space: O(1) - only reusing existing nodes, no new allocations (except dummy)
+// k² represents how many times you re-process the same nodes as the merged list grows, and n is the number of nodes in each list, so total work is k² · n.
+
+// function mergeLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+//     let dummy = new ListNode(0);
+//     let tail = dummy;
+
+//     while (list1 && list2) {
+//       if (list1.val < list2.val) {
+//         tail.next = list1;
+//         list1 = list1.next;
+//       } else {
+//         tail.next = list2;
+//         list2 = list2.next;
+//       }
+//       tail = tail.next;
+//     }
+
+//     tail.next = list1 || list2;
+//     return dummy.next;
+//   }
+
+//   function mergeKLists(lists: (ListNode | null)[]): ListNode | null {
+//     if (lists.length === 0) return null;
+
+//     let list1 = lists[0];
+//     for (let i = 1; i < lists.length; i++) {
+//       list1 = mergeLists(list1, lists[i]);
+//     }
+
+//     return list1;
+//   }
+
 
 
 // V2 Optimal Version Utilizing a heap
@@ -130,5 +159,17 @@ export class Solution {
 
 
 // }
+
+
+
+// V3 Min Heap
+// Create min-heap, push first node of each non-null list.
+// While heap not empty:
+// Extract smallest node
+// Append to result
+// Push its next node (if exists)
+namespace MergeKSortedListV3MinHeap {
+
+}
 
 
