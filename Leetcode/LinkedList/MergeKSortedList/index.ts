@@ -161,15 +161,84 @@ export class Solution {
 // }
 
 
+export class MinHeap {
+  private heap: ListNode[] = [];
 
-// V3 Min Heap
-// Create min-heap, push first node of each non-null list.
-// While heap not empty:
-// Extract smallest node
-// Append to result
-// Push its next node (if exists)
-namespace MergeKSortedListV3MinHeap {
+  get size() {
+    return this.heap.length;
+  }
 
+  push(node: ListNode) {
+    this.heap.push(node);
+    this.bubbleUp();
+  }
+
+  pop(): ListNode {
+    if (this.heap.length === 1) return this.heap.pop()!;
+    const top = this.heap[0];
+    this.heap[0] = this.heap.pop()!;
+    this.bubbleDown();
+    return top;
+  }
+
+  private bubbleUp() {
+    let idx = this.heap.length - 1;
+    const node = this.heap[idx];
+    while (idx > 0) {
+      const parentIdx = Math.floor((idx - 1) / 2);
+      if (this.heap[parentIdx].val <= node.val) break;
+      this.heap[idx] = this.heap[parentIdx];
+      idx = parentIdx;
+    }
+    this.heap[idx] = node;
+  }
+
+  private bubbleDown() {
+    let idx = 0;
+    const length = this.heap.length;
+    const node = this.heap[0];
+    while (true) {
+      let leftIdx = 2 * idx + 1;
+      let rightIdx = 2 * idx + 2;
+      let smallest = idx;
+
+      if (leftIdx < length && this.heap[leftIdx].val < this.heap[smallest].val) {
+        smallest = leftIdx;
+      }
+      if (rightIdx < length && this.heap[rightIdx].val < this.heap[smallest].val) {
+        smallest = rightIdx;
+      }
+      if (smallest === idx) break;
+
+      [this.heap[idx], this.heap[smallest]] = [this.heap[smallest], this.heap[idx]];
+      idx = smallest;
+    }
+  }
 }
 
+/**
+ * Time Complexity: O(N log k) where N is total nodes across all lists and k is number of lists.
+ * Space Complexity: O(k) for the heap storing at most one node from each list.
+ */
+export function mergeKLists(lists: (ListNode | null)[]): ListNode | null {
+  let heap = new MinHeap();
 
+  for (let list of lists) {
+    if (list !== null) heap.push(list);
+  }
+
+  let dummy = new ListNode(0);
+  let tail = dummy;
+
+  while (heap.size > 0) {
+    let minNode = heap.pop();
+    tail.next = minNode;
+    tail = tail.next;
+
+    if (minNode.next !== null) {
+      heap.push(minNode.next);
+    }
+  }
+
+  return dummy.next;
+}
