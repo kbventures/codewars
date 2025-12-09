@@ -161,19 +161,32 @@ export class Solution {
 // }
 
 
-export class MinHeap {
-  private heap: ListNode[] = [];
+/**
+ * Time Complexity: O(N log k) where N is total nodes across all lists and k is number of lists.
+ * Space Complexity: O(k) for the heap storing at most one node from each list.
+ */
 
-  get size() {
+export class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val: number, next: ListNode | null = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+export class MinHeap {
+  heap: ListNode[] = [];
+
+  size() {
     return this.heap.length;
   }
 
-  push(node: ListNode) {
+  add(node: ListNode) {
     this.heap.push(node);
     this.bubbleUp();
   }
 
-  pop(): ListNode {
+  getMin(): ListNode {
     if (this.heap.length === 1) return this.heap.pop()!;
     const top = this.heap[0];
     this.heap[0] = this.heap.pop()!;
@@ -181,7 +194,7 @@ export class MinHeap {
     return top;
   }
 
-  private bubbleUp() {
+  bubbleUp() {
     let idx = this.heap.length - 1;
     const node = this.heap[idx];
     while (idx > 0) {
@@ -193,7 +206,7 @@ export class MinHeap {
     this.heap[idx] = node;
   }
 
-  private bubbleDown() {
+  bubbleDown() {
     let idx = 0;
     const length = this.heap.length;
     const node = this.heap[0];
@@ -216,27 +229,23 @@ export class MinHeap {
   }
 }
 
-/**
- * Time Complexity: O(N log k) where N is total nodes across all lists and k is number of lists.
- * Space Complexity: O(k) for the heap storing at most one node from each list.
- */
-export function mergeKLists(lists: (ListNode | null)[]): ListNode | null {
+export function mergeKLists(lists: Array<ListNode | null>): ListNode | null {
   let heap = new MinHeap();
 
   for (let list of lists) {
-    if (list !== null) heap.push(list);
+    if (list !== null) heap.add(list);
   }
 
   let dummy = new ListNode(0);
   let tail = dummy;
 
-  while (heap.size > 0) {
-    let minNode = heap.pop();
+  while (heap.size() > 0) {
+    let minNode = heap.getMin();
     tail.next = minNode;
     tail = tail.next;
 
     if (minNode.next !== null) {
-      heap.push(minNode.next);
+      heap.add(minNode.next);
     }
   }
 
